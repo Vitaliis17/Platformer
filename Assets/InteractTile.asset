@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a469c5fe5f06c547b2c60d9f6ec624e, type: 3}
   m_Name: InteractTile
   m_EditorClassIdentifier: NewAssembly::InteractTile
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 4485286418719780606, guid: 14957451d78d62d4c8a3f02fe7c8f02f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
