@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5d17a21594effb4e9591490b009e7aa, type: 3}
-  m_Name: Default Local Group_BundledAssetGroupSchema
+  m_Name: Buildings_BundledAssetGroupSchema
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.GroupSchemas.BundledAssetGroupSchema
-  m_Group: {fileID: 11400000, guid: f4b2ccf0060b3964d984c543888c7206, type: 2}
+  m_Group: {fileID: 11400000, guid: 9be526abaff295e4a99fb25e18bfdefa, type: 2}
   m_InternalBundleIdMode: 1
   m_Compression: 1
   m_IncludeAddressInCatalog: 1
@@ -38,7 +38,7 @@ MonoBehaviour:
     m_Id: 41ccaaa2658ab9a47ab3e51b331d0df6
   m_LoadPath:
     m_Id: b7b0b92ed9623cf469bb11b7d9032216
-  m_BundleMode: 0
+  m_BundleMode: 1
   m_AssetBundleProviderType:
     m_AssemblyName: Unity.Addressables.Android, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null

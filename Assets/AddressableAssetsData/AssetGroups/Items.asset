@@ -10,13 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Default Local Group
+  m_Name: Items
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
-  m_GroupName: Default Local Group
-  m_GUID: 60a144aaee485e84cb8f8d3ae8368a93
+  m_GroupName: Items
+  m_GUID: 0739777517da51342b08bfba2fc543de
   m_SerializeEntries:
-  - m_GUID: bb3f92661d7e2d941b36cc6f2d73d215
-    m_Address: Player
+  - m_GUID: 14957451d78d62d4c8a3f02fe7c8f02f
+    m_Address: LadderMid
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba429f7b1055f164c9075652c2e4bc79
+    m_Address: LadderTop
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -24,6 +29,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 12dfd6537f60ff04eaff23eb7aed5621, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: b4281f96535a1384e9415a2b7961650c, type: 2}
-    - {fileID: 11400000, guid: ef03dc0483118e140acad2cbea039e5b, type: 2}
-    - {fileID: 11400000, guid: f6cfd7199b4d0b04ca7c81372379f252, type: 2}
+    - {fileID: 11400000, guid: 03ff5ec17bd577e48accf2c61380ef91, type: 2}
+    - {fileID: 11400000, guid: 365ac662f9c2e9e4ca26b464aeac80ad, type: 2}
