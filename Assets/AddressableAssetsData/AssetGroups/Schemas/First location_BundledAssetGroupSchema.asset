@@ -40,9 +40,8 @@ MonoBehaviour:
     m_Id: b7b0b92ed9623cf469bb11b7d9032216
   m_BundleMode: 0
   m_AssetBundleProviderType:
-    m_AssemblyName: Unity.Addressables.Android, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-    m_ClassName: UnityEngine.AddressableAssets.Android.PlayAssetDeliveryAssetBundleProvider
+    m_AssemblyName: Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ClassName: UnityEngine.ResourceManagement.ResourceProviders.AssetBundleProvider
   m_UseDefaultSchemaSettings: 0
   m_SelectedPathPairIndex: 0
   m_BundleNaming: 0
