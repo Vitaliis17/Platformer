@@ -2,7 +2,9 @@ using UnityEngine;
 
 public interface IMoveable
 {
-    void Move(Vector2 direction);
+    void SetDelta(float direction);
+
+    Vector2 TransferDelta();
 
     void Initialize(Rigidbody2D rigidbody);
 }

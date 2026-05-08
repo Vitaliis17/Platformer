@@ -20,7 +20,10 @@ public class Installer : MonoInstaller
         Container.Bind<ISceneLoader>().To<SceneLoader>().AsTransient();
 
         Container.Bind<MoverData>().FromScriptableObject(_moverData).AsSingle();
-        Container.Bind<IMoveable>().To<Mover>().AsTransient();
+
+        Container.Bind<IMoveable>().WithId("Horizontal").To<HorizontalMover>().AsTransient();
+        Container.Bind<IMoveable>().WithId("Vertical").To<VerticalMover>().AsTransient();
+        
         Container.Bind<Player>().FromComponentInHierarchy().AsSingle();
     }
 }

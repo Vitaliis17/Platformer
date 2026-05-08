@@ -4,16 +4,29 @@ using Zenject;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
-    [Inject] private IMoveable _mover;
+    [Inject(Id = "Horizontal")] private IMoveable _horizontalMover;
+    [Inject(Id = "Vertical")] private IMoveable _verticalMover;
+
+    private Rigidbody2D _rigidbody;
 
     private void Start()
     {
-        Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
-        rigidbody.freezeRotation = true;
+        _rigidbody = GetComponent<Rigidbody2D>();
+        _rigidbody.freezeRotation = true;
 
-        _mover.Initialize(rigidbody);
+        _horizontalMover.Initialize(_rigidbody);
+        _verticalMover.Initialize(_rigidbody);
     }
 
-    public void Move(Vector2 direction)
-        => _mover.Move(direction);
+    private void FixedUpdate()
+    {
+        Vector2 nextPosition = (Vector2)transform.position + _horizontalMover.TransferDelta() + _verticalMover.TransferDelta();
+        _rigidbody.MovePosition(nextPosition);
+    }
+
+    public void MoveHorizontal(float direction)
+        => _horizontalMover.SetDelta(direction);
+
+    public void MoveVertical(float direction)
+        => _verticalMover.SetDelta(direction);
 }
