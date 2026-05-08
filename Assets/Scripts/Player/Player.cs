@@ -1,16 +1,17 @@
 using UnityEngine;
+using Zenject;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Player : MonoBehaviour, IMoveable
+public class Player : MonoBehaviour
 {
-    [SerializeField, Min(0)] private float _speed;
+    [Inject] private IMoveable _mover;
 
-    private IMoveable _mover;
-
-    private void Awake()
+    private void Start()
     {
         Rigidbody2D rigidbody = GetComponent<Rigidbody2D>();
-        _mover = new Mover(_speed, rigidbody);
+        rigidbody.freezeRotation = true;
+
+        _mover.Initialize(rigidbody);
     }
 
     public void Move(Vector2 direction)

@@ -5,15 +5,17 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using System;
 using System.Threading;
+using Zenject;
 
-public class SceneLoader : IDisposable
+public class SceneLoader : IDisposable, ISceneLoader
 {
     private readonly CancellationTokenSource _source;
     
     private AsyncOperationHandle<SceneInstance> _handle;
 
-    public SceneLoader()
-        => _source = new();
+    [Inject]
+    public SceneLoader(CancellationTokenSource source)
+        => _source = source;
 
     public void LoadSceneAsync(SceneNames name)
         => LoadSceneAsync(name, _source.Token);

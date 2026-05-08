@@ -1,21 +1,24 @@
 using UnityEngine;
+using Zenject;
 
 public class Mover : IMoveable
 {
-    private readonly float _speed;
+    private readonly MoverData _data;
 
-    private readonly Rigidbody2D _rigidbody;
-    private readonly Transform _transform;
+    private Rigidbody2D _rigidbody;
 
-    public Mover(float speed, Rigidbody2D rigidbody)
-    {
-        if (speed > 0f)
-            _speed = speed;
+    [Inject]
+    public Mover(MoverData data)
+        => _data = data;
 
-        _rigidbody = rigidbody;
-        _transform = rigidbody.transform;
-    }
+    public void Initialize(Rigidbody2D rigidbody)
+        => _rigidbody = rigidbody;
 
     public void Move(Vector2 direction)
-        => _rigidbody.MovePosition((Vector2)_transform.position + direction * _speed * Time.fixedDeltaTime);
+    {
+        if(_rigidbody == null) 
+            return;
+
+        _rigidbody.MovePosition((Vector2)_rigidbody.transform.position + direction * _data.Speed * Time.fixedDeltaTime);
+    }
 }

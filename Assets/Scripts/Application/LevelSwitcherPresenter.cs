@@ -1,29 +1,20 @@
 using UnityEngine;
 using R3;
-using System.Collections.Generic;
+using Zenject;
 
 public class LevelSwitcherPresenter : MonoBehaviour
 {
     [SerializeField] private LevelSwitcher _levelSwitcher;
 
-    private SceneLoader _sceneLoader;
-    private SceneNamesContainer _container;
-
-    private void Awake()
-    {
-        _sceneLoader = new();
-        _container = new(new Dictionary<int, SceneNames>
-        {
-            {0, SceneNames.FirstLevel }
-        });
-    }
+    [Inject] private ISceneLoader _sceneLoader;
+    [Inject] private IContainer<SceneNames> _container;
 
     private void Start()
     {
         int minLevel = _levelSwitcher.MinAddressablesLevel;
-     
+
         _levelSwitcher.CurrentLevelChanged.Where(index => index > minLevel)
-            .Subscribe(index => _sceneLoader.LoadSceneAsync(_container.GetName(index))).AddTo(this);
+            .Subscribe(index => _sceneLoader.LoadSceneAsync(_container.Get(index))).AddTo(this);
 
         _levelSwitcher.CurrentLevelChanged.Where(index => index <= minLevel).Skip(1)
             .Subscribe(_ => _sceneLoader.LoadMenu()).AddTo(this);

@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 60a144aaee485e84cb8f8d3ae8368a93
   m_SerializeEntries:
+  - m_GUID: 047e2caddf41a454a859411d3330f397
+    m_Address: Assets/ScriptableObjects/MoverData.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bb3f92661d7e2d941b36cc6f2d73d215
     m_Address: Player
     m_ReadOnly: 0
