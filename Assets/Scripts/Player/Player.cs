@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     [Inject(Id = "Horizontal")] private IMoveable _horizontalMover;
     [Inject(Id = "Vertical")] private IMoveable _verticalMover;
 
+    [Inject] private IJumpable _jumper;
+
     private Rigidbody2D _rigidbody;
 
     private void Start()
@@ -16,6 +18,8 @@ public class Player : MonoBehaviour
 
         _horizontalMover.Initialize(_rigidbody);
         _verticalMover.Initialize(_rigidbody);
+
+        _jumper.Initialize(_rigidbody);
     }
 
     private void FixedUpdate()
@@ -29,4 +33,7 @@ public class Player : MonoBehaviour
 
     public void MoveVertical(float direction)
         => _verticalMover.SetDelta(direction);
+
+    public void Jump()
+        => _jumper.Jump();
 }

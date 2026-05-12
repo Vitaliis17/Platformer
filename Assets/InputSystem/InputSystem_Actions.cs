@@ -109,6 +109,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Jumping"",
+                    ""type"": ""Button"",
+                    ""id"": ""fd027274-3532-42b9-8798-e0305e98f0b6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -131,6 +140,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Touch"",
                     ""action"": ""Touch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fda79f0a-267c-4b87-863e-a64501b2fc87"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Jumping"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -204,6 +224,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
         m_Gameplay_Touch = m_Gameplay.FindAction("Touch", throwIfNotFound: true);
+        m_Gameplay_Jumping = m_Gameplay.FindAction("Jumping", throwIfNotFound: true);
     }
 
     ~@InputSystem_Actions()
@@ -286,6 +307,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_Movement;
     private readonly InputAction m_Gameplay_Touch;
+    private readonly InputAction m_Gameplay_Jumping;
     /// <summary>
     /// Provides access to input actions defined in input action map "Gameplay".
     /// </summary>
@@ -305,6 +327,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Gameplay/Touch".
         /// </summary>
         public InputAction @Touch => m_Wrapper.m_Gameplay_Touch;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/Jumping".
+        /// </summary>
+        public InputAction @Jumping => m_Wrapper.m_Gameplay_Jumping;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -337,6 +363,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Touch.started += instance.OnTouch;
             @Touch.performed += instance.OnTouch;
             @Touch.canceled += instance.OnTouch;
+            @Jumping.started += instance.OnJumping;
+            @Jumping.performed += instance.OnJumping;
+            @Jumping.canceled += instance.OnJumping;
         }
 
         /// <summary>
@@ -354,6 +383,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Touch.started -= instance.OnTouch;
             @Touch.performed -= instance.OnTouch;
             @Touch.canceled -= instance.OnTouch;
+            @Jumping.started -= instance.OnJumping;
+            @Jumping.performed -= instance.OnJumping;
+            @Jumping.canceled -= instance.OnJumping;
         }
 
         /// <summary>
@@ -473,5 +505,12 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnTouch(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Jumping" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnJumping(InputAction.CallbackContext context);
     }
 }

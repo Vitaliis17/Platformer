@@ -2,10 +2,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using R3;
 
-public class GameplayAction : ActionMap, IMovementReader, ITouchReader
+public class GameplayAction : ActionMap, IMovementReader, ITouchReader, IJumpReader
 {
     private readonly Subject<Vector2> _directionChanged = new();
     private readonly Subject<bool> _pressChanged = new(); 
+    private readonly Subject<bool> _jumped = new();
 
     private InputSystem_Actions.GameplayActions _action;
 
@@ -13,6 +14,7 @@ public class GameplayAction : ActionMap, IMovementReader, ITouchReader
 
     public Observable<Vector2> DirectionChanged => _directionChanged;
     public Observable<bool> PressChanged => _pressChanged;
+    public Observable<bool> Jumped => _jumped;
 
     private void Awake()
     {
@@ -20,16 +22,24 @@ public class GameplayAction : ActionMap, IMovementReader, ITouchReader
         Map = _action;
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
+
         _action.Touch.performed += ActivatePressing;
         _action.Touch.canceled += DeactivatePressing;
+
+        _action.Jumping.performed += ActivateJumping;
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
+
         _action.Touch.performed -= ActivatePressing;
         _action.Touch.canceled -= DeactivatePressing;
+
+        _action.Jumping.performed -= ActivateJumping;
     }
 
     private void Update()
@@ -42,10 +52,15 @@ public class GameplayAction : ActionMap, IMovementReader, ITouchReader
     {
         _directionChanged?.Dispose();
         _pressChanged?.Dispose();
+
+        _jumped?.Dispose();
     }
 
     private void ActivatePressing(InputAction.CallbackContext context)
         => _pressChanged.OnNext(true);
+
+    private void ActivateJumping(InputAction.CallbackContext context)
+        => _jumped.OnNext(true);
 
     private void DeactivatePressing(InputAction.CallbackContext context)
         => _pressChanged.OnNext(false);

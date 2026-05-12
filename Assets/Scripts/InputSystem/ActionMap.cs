@@ -5,14 +5,17 @@ public abstract class ActionMap : MonoBehaviour, IActionMap
 {
     protected InputActionMap Map;
 
-    private void OnEnable()
+    protected virtual void OnEnable()
         => Activate();
 
-    private void OnDisable()
+    protected virtual void OnDisable()
         => Deactivate();
 
     public void Activate()
-        => Map?.Enable();
+    {
+        Debug.Log(Map);
+        Map?.Enable();
+    }
 
     public void Deactivate()
         => Map?.Disable();
