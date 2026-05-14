@@ -12,10 +12,7 @@ public abstract class ActionMap : MonoBehaviour, IActionMap
         => Deactivate();
 
     public void Activate()
-    {
-        Debug.Log(Map);
-        Map?.Enable();
-    }
+        => Map?.Enable();
 
     public void Deactivate()
         => Map?.Disable();

@@ -2,9 +2,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using R3;
 
-public class GameplayAction : ActionMap, IMovementReader, ITouchReader, IJumpReader
+public class GameplayAction : ActionMap, IMovementReader, ITouchReader, IJumpReader, IHoldReader
 {
     private readonly Subject<Vector2> _directionChanged = new();
+    private readonly Subject<Vector2> _holdChanged = new();
     private readonly Subject<bool> _pressChanged = new(); 
     private readonly Subject<bool> _jumped = new();
 
@@ -13,8 +14,10 @@ public class GameplayAction : ActionMap, IMovementReader, ITouchReader, IJumpRea
     private Vector2 _movementDirection;
 
     public Observable<Vector2> DirectionChanged => _directionChanged;
+    public Observable<Vector2> HoldChanged => _holdChanged;
     public Observable<bool> PressChanged => _pressChanged;
     public Observable<bool> Jumped => _jumped;
+    
 
     private void Awake()
     {
@@ -43,7 +46,11 @@ public class GameplayAction : ActionMap, IMovementReader, ITouchReader, IJumpRea
     }
 
     private void Update()
-        => _movementDirection = _action.Movement.ReadValue<Vector2>();
+    {
+        _movementDirection = _action.Movement.ReadValue<Vector2>();
+
+        _holdChanged.OnNext(_action.Hold.ReadValue<Vector2>());
+    }
 
     private void FixedUpdate()
         => _directionChanged.OnNext(_movementDirection);
@@ -52,6 +59,7 @@ public class GameplayAction : ActionMap, IMovementReader, ITouchReader, IJumpRea
     {
         _directionChanged?.Dispose();
         _pressChanged?.Dispose();
+        _holdChanged?.Dispose();
 
         _jumped?.Dispose();
     }

@@ -260,6 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: GameLogic::FirstLevelInstaller
   _moverData: {fileID: 11400000, guid: 047e2caddf41a454a859411d3330f397, type: 2}
   _jumpData: {fileID: 11400000, guid: 3822057ef346947478013fac8fb76f86, type: 2}
+  _zoneCheckerData: {fileID: 11400000, guid: e2a4296203735a54084e53a08744c228, type: 2}
 --- !u!1 &333612313
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,7 +993,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: GameLogic::GameplayActionPresenter
   _player: {fileID: 981169224}
-  _itemMap: {fileID: 0}
   _ladderMap: {fileID: 2123899570}
 --- !u!114 &344333445
 MonoBehaviour:
@@ -2324,7 +2324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4255923073022287027, guid: 63688a59635ab29448d38c5ed7e0750d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.55038
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4255923073022287027, guid: 63688a59635ab29448d38c5ed7e0750d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2933,7 +2933,7 @@ Transform:
   m_GameObject: {fileID: 1574457025}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.20006, y: -1.05038, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3148,7 +3148,7 @@ Transform:
   m_GameObject: {fileID: 1603544838}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -5.3600597, y: 1.6303799, z: 0}
+  m_LocalPosition: {x: -4, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -8,7 +8,6 @@ public class PlayerPresenter : MonoBehaviour
     [Inject] private IJumpReader _jumpReader;
 
     [SerializeField] private Player _player;
-    [SerializeField] private MapTrigger _itemMap;
     [SerializeField] private MapTrigger _ladderMap;
 
     private bool _isTilesTriggered;

@@ -16,6 +16,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Jumping",
+                    "type": "Button",
+                    "id": "fd027274-3532-42b9-8798-e0305e98f0b6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Touch",
                     "type": "Button",
                     "id": "cd472dff-d33c-439d-92e5-d7d029444e5a",
@@ -25,13 +34,13 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Jumping",
-                    "type": "Button",
-                    "id": "fd027274-3532-42b9-8798-e0305e98f0b6",
-                    "expectedControlType": "",
+                    "name": "Hold",
+                    "type": "Value",
+                    "id": "c617c098-eb72-4a5f-b2de-c86ef061258b",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -65,6 +74,17 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "Jumping",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c22226de-5b22-417a-a1c1-ee2d87f787c6",
+                    "path": "<Pointer>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Touch",
+                    "action": "Hold",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -2,7 +2,7 @@ using UnityEngine;
 using Zenject;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IHavePosition
 {
     [Inject(Id = "Horizontal")] private IMoveable _horizontalMover;
     [Inject(Id = "Vertical")] private IMoveable _verticalMover;
@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [Inject] private IJumpable _jumper;
 
     private Rigidbody2D _rigidbody;
+
+    public Vector2 Position => transform.position;
 
     private void Start()
     {
