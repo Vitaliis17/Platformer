@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Zenject;
 
-public class SceneNamesContainer : IContainer<SceneNames>
+public class SceneNamesContainer : IContainerReceiver<SceneNames>
 {
     private readonly Dictionary<int, SceneNames> _sceneNames;
 

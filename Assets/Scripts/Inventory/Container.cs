@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class Container : MonoBehaviour, IContainer
+public class Container : MonoBehaviour, IContainerSetter
 {
     private IInteractable _current;
 
-    public void SetItem(IInteractable interactable)
+    public void Set(IInteractable interactable)
     {
         if (_current != null)
             return;

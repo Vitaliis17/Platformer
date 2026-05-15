@@ -10,9 +10,12 @@ public class RaycastPresenter : MonoBehaviour
     [Inject] private IZoneChecker _zoneChecker;
     [Inject] private IHavePosition _origin;
 
+    private Transferator _transferator;
     private Vector2 _delta;
-    private IInteractable _interactable;
     private bool _isPressed;
+
+    private void Awake()
+        => _transferator = new();
 
     private void Start()
     {
@@ -23,7 +26,7 @@ public class RaycastPresenter : MonoBehaviour
             .Subscribe(isPressed =>
             {
                 _isPressed = isPressed;
-                _interactable = null;
+                _transferator.SetEmpty();
             }).AddTo(this);
 
         _touchReader.PressChanged
@@ -33,21 +36,12 @@ public class RaycastPresenter : MonoBehaviour
             .Where(interactable => _zoneChecker.IsInside(_origin.Position, ((MonoBehaviour)interactable).transform.position))
             .Subscribe(interactable => {
                 _isPressed = true;
-                _interactable = interactable;
+                _transferator.Set(interactable);
             }).AddTo(this);
 
         _touchReader.PressChanged
                 .Where(isPressing => isPressing)
-                .Where(_ => _interactable != null)
-                .Select(_ => (MonoBehaviour)_interactable)
-                .Subscribe(interactable => Transfer(interactable)).AddTo(this);
-    }
-
-    private void Transfer(MonoBehaviour interactable)
-    {
-        float pixelPerUnit = Camera.main.pixelHeight / (Camera.main.orthographicSize * 2f);
-        Vector2 deltaPosition = _delta / pixelPerUnit;
-
-        interactable.transform.position += (Vector3)deltaPosition;
+                .Where(_ => _transferator.IsEmpty() == false)
+                .Subscribe(_ => _transferator.Transfer(_delta)).AddTo(this);
     }
 }

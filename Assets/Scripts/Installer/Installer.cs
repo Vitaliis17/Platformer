@@ -11,7 +11,7 @@ public class Installer : MonoInstaller
             { 0, SceneNames.FirstLevel }
         }).AsSingle();
 
-        Container.Bind<IContainer<SceneNames>>().To<SceneNamesContainer>().AsSingle();
+        Container.Bind<IContainerReceiver<SceneNames>>().To<SceneNamesContainer>().AsSingle();
 
         Container.Bind<CancellationTokenSource>().FromInstance(new()).AsTransient();
         Container.Bind<ISceneLoader>().To<SceneLoader>().AsTransient();

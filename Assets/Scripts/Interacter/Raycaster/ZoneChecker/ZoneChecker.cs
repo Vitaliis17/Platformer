@@ -6,7 +6,7 @@ public class ZoneChecker : IZoneChecker
     private readonly ZoneCheckerData _data;
 
     [Inject]
-    public ZoneChecker(ZoneCheckerData zoneCheckerData)
+    public ZoneChecker(ZoneCheckerData zoneCheckerData) 
         => _data = zoneCheckerData;
 
     public bool IsInside(Vector2 origin, Vector2 target)
