@@ -1,28 +1,18 @@
 using UnityEngine;
+using Zenject;
 
-public class Transferator
+public class Transferator : MonoBehaviour, ITransferator<IInteractable>
 {
-    private IInteractable _interactable;
+    [Inject] private ScreenData _screenData;
 
-    public void Set(IInteractable item)
-        => _interactable = item;
-
-    public void SetEmpty()
-        => _interactable = null;
-
-    public bool IsEmpty()
-        => _interactable == null;
-
-    public void Transfer(Vector2 delta)
+    public void Transfer(Vector2 delta, IInteractable interactable)
     {
-        float pixelPerUnit = Camera.main.pixelHeight / (Camera.main.orthographicSize * 2f);
-        Vector2 deltaPosition = delta / pixelPerUnit;
+        if (interactable == null)
+            return;
 
-        ((MonoBehaviour)_interactable).transform.position += (Vector3)deltaPosition;
-    }
+        Vector2 deltaPosition = delta / _screenData.PixelPerUnit;
 
-    public IInteractable Get(int index)
-    {
-        throw new System.NotImplementedException();
+        if (interactable is MonoBehaviour moveableObject)
+            moveableObject.transform.position += (Vector3)deltaPosition;
     }
 }

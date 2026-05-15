@@ -1,4 +1,4 @@
-public interface IContainerSetter
+public interface IContainerSetter<T>
 {
-    void Set(IInteractable interactable);
+    void Set(T setter);
 }

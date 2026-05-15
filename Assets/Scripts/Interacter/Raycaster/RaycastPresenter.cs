@@ -10,12 +10,11 @@ public class RaycastPresenter : MonoBehaviour
     [Inject] private IZoneChecker _zoneChecker;
     [Inject] private IHavePosition _origin;
 
-    private Transferator _transferator;
+    [Inject] private ITransferator<IInteractable> _transferator;
+    [Inject] private IContainer<IInteractable> _container;
+
     private Vector2 _delta;
     private bool _isPressed;
-
-    private void Awake()
-        => _transferator = new();
 
     private void Start()
     {
@@ -26,7 +25,7 @@ public class RaycastPresenter : MonoBehaviour
             .Subscribe(isPressed =>
             {
                 _isPressed = isPressed;
-                _transferator.SetEmpty();
+                _container.SetEmpty();
             }).AddTo(this);
 
         _touchReader.PressChanged
@@ -36,12 +35,12 @@ public class RaycastPresenter : MonoBehaviour
             .Where(interactable => _zoneChecker.IsInside(_origin.Position, ((MonoBehaviour)interactable).transform.position))
             .Subscribe(interactable => {
                 _isPressed = true;
-                _transferator.Set(interactable);
+                _container.Set(interactable);
             }).AddTo(this);
 
         _touchReader.PressChanged
                 .Where(isPressing => isPressing)
-                .Where(_ => _transferator.IsEmpty() == false)
-                .Subscribe(_ => _transferator.Transfer(_delta)).AddTo(this);
+                .Where(_ => _container.IsEmpty() == false)
+                .Subscribe(_ => _transferator.Transfer(_delta, _container.Get())).AddTo(this);
     }
 }

@@ -1,6 +1,4 @@
-using UnityEngine;
-
-public class Container : MonoBehaviour, IContainerSetter
+public class Container : IContainer<IInteractable>
 {
     private IInteractable _current;
 
@@ -10,7 +8,14 @@ public class Container : MonoBehaviour, IContainerSetter
             return;
 
         _current = interactable;
-
-        ((MonoBehaviour)_current).transform.position = transform.position;
     }
+
+    public void SetEmpty()
+        => _current = null;
+
+    public IInteractable Get()
+        => _current;
+
+    public bool IsEmpty()
+        => _current == null;
 }

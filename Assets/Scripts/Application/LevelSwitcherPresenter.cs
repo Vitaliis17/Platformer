@@ -7,7 +7,7 @@ public class LevelSwitcherPresenter : MonoBehaviour
     [SerializeField] private LevelSwitcher _levelSwitcher;
 
     [Inject] private ISceneLoader _sceneLoader;
-    [Inject] private IContainerReceiver<SceneNames> _container;
+    [Inject] private IContainerReceiverByIndex<SceneNames> _container;
 
     private void Start()
     {

@@ -6,6 +6,7 @@ public class FirstLevelInstaller : MonoInstaller
     [SerializeField] private MoverData _moverData;
     [SerializeField] private JumpData _jumpData;
     [SerializeField] private ZoneCheckerData _zoneCheckerData;
+    [SerializeField] private ScreenData _screenData;
 
     public override void InstallBindings()
     {
@@ -32,6 +33,12 @@ public class FirstLevelInstaller : MonoInstaller
     {
         Container.Bind<Interacter>().FromComponentInHierarchy().AsSingle();
         Container.Bind<IInteracter>().FromMethod(ctx => ctx.Container.Resolve<Interacter>()).AsSingle();
+
+        Container.Bind<IContainer<IInteractable>>().To<Container>().AsSingle();
+
+        Container.Bind<ScreenData>().FromScriptableObject(_screenData).AsSingle();
+        Container.Bind<Transferator>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<ITransferator<IInteractable>>().FromMethod(ctx => ctx.Container.Resolve<Transferator>()).AsSingle();
     }
 
     private void BindRaycaster()
@@ -44,8 +51,8 @@ public class FirstLevelInstaller : MonoInstaller
     {
         Container.Bind<MoverData>().FromScriptableObject(_moverData).AsSingle();
 
-        Container.Bind<IMoveable>().WithId("Horizontal").To<HorizontalMover>().AsTransient();
-        Container.Bind<IMoveable>().WithId("Vertical").To<VerticalMover>().AsTransient();
+        Container.Bind<IMoveable>().WithId(IdNames.Horizontal).To<HorizontalMover>().AsTransient();
+        Container.Bind<IMoveable>().WithId(IdNames.Vertical).To<VerticalMover>().AsTransient();
 
         Container.Bind<JumpData>().FromScriptableObject(_jumpData).AsSingle();
         Container.Bind<IJumpable>().To<Jumper>().AsTransient();
