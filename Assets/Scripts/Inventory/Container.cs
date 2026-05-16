@@ -1,4 +1,4 @@
-public class Container : IContainer<IInteractable>
+public class Container : IContainer
 {
     private IInteractable _current;
 
