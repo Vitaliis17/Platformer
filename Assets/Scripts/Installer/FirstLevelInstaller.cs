@@ -13,10 +13,26 @@ public class FirstLevelInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
+        BindInteractableObjects();
         BindGameplayReader();
         BindInteracter();
         BindPlayer();
         BindRaycaster();
+    }
+
+    private void BindInteractableObjects()
+    {
+        Container.Bind<Key>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<IInteractable>().WithId(IdNames.Key).FromMethod(ctx => ctx.Container.Resolve<Key>()).AsSingle();
+     
+        Container.Bind<CloseDoor>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<IDeactivater>().FromMethod(ctx => ctx.Container.Resolve<CloseDoor>()).AsSingle();
+
+        Container.Bind<OpenDoor>().FromComponentInHierarchy().AsSingle();
+
+        Container.Bind<IActivater>().FromMethod(ctx => ctx.Container.Resolve<OpenDoor>()).AsSingle();
+        Container.Bind<IHaveInteractableEvent>().FromMethod(ctx => ctx.Container.Resolve<OpenDoor>()).AsSingle();
+        Container.Bind<IInteractable>().WithId(IdNames.OpenDoor).FromMethod(ctx => ctx.Container.Resolve<OpenDoor>()).AsCached();
     }
 
     private void BindGameplayReader()

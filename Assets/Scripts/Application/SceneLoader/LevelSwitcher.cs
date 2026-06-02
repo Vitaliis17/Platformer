@@ -1,7 +1,7 @@
 using UnityEngine;
 using R3;
 
-public class LevelSwitcher : MonoBehaviour
+public class LevelSwitcher : MonoBehaviour, IMenuLoader, INextLevelLoader
 {
     private static LevelSwitcher _instance;
 
@@ -14,15 +14,13 @@ public class LevelSwitcher : MonoBehaviour
     {
         if (_instance == null)
         {
+            _currentLevel = new(MinAddressablesLevel);
             _instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
-
-        _currentLevel = new(MinAddressablesLevel);
     }
 
     private void OnDestroy()
@@ -35,5 +33,5 @@ public class LevelSwitcher : MonoBehaviour
         => ResetCurrentLevel();
 
     private void ResetCurrentLevel()
-        => _currentLevel.Value = MinAddressablesLevel;
+        => _currentLevel.OnNext(MinAddressablesLevel);
 }

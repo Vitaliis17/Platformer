@@ -1,17 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class StartButtonPresenter : MonoBehaviour
 {
     [SerializeField] private Button _button;
 
-    private LevelSwitcher _levelSwitcher;
+    [Inject] private INextLevelLoader _nextLevelLoader;
 
-    private void Awake()
-    {
-        _levelSwitcher = FindFirstObjectByType<LevelSwitcher>();
-
-        if (_levelSwitcher != null)
-            _button.onClick.AddListener(_levelSwitcher.LoadNextLevel);
-    }
+    private void Start()
+        => _button.onClick.AddListener(_nextLevelLoader.LoadNextLevel);
 }

@@ -1,17 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class MenuButtonPresenter : MonoBehaviour
 {
     [SerializeField] private Button _button;
 
-    private LevelSwitcher _levelSwitcher;
+    [Inject] private IMenuLoader _menuLoader;
 
-    private void Awake()
-    {
-        _levelSwitcher = FindFirstObjectByType<LevelSwitcher>();
-
-        if (_levelSwitcher != null)
-            _button.onClick.AddListener(_levelSwitcher.LoadMenu);
-    }
+    private void Start()
+        => _button.onClick.AddListener(_menuLoader.LoadMenu);
 }
