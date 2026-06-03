@@ -2200,7 +2200,7 @@ GameObject:
   - component: {fileID: 981169220}
   - component: {fileID: 981169224}
   - component: {fileID: 981169225}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2317,7 +2317,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 100
+  m_SortingOrder: 10
   m_Sprite: {fileID: -2136357951393217447, guid: bb3f92661d7e2d941b36cc6f2d73d215, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4048,7 +4048,7 @@ GameObject:
   - component: {fileID: 2123899572}
   - component: {fileID: 2123899571}
   - component: {fileID: 2123899570}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ladders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
