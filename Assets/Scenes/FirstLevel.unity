@@ -178,6 +178,8 @@ GameObject:
   - component: {fileID: 146809934}
   - component: {fileID: 146809936}
   - component: {fileID: 146809937}
+  - component: {fileID: 146809938}
+  - component: {fileID: 146809939}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -269,6 +271,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: GameLogic::LevelSwitcherInstaller
   _levelSwitcher: {fileID: 733350149}
+--- !u!114 &146809938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146809932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59aa8858d27c74240a37de7a83b32246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::SaveManager
+--- !u!114 &146809939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146809932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8e5bd9a3cc1f44c89e25667b407a6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::SaveReader
 --- !u!1 &333612313
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,6 +1560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: GameLogic::LevelSwitcherPresenter
   _levelSwitcher: {fileID: 733350149}
+  _saveManager: {fileID: 146809938}
 --- !u!1 &774578420
 GameObject:
   m_ObjectHideFlags: 0
@@ -4410,7 +4437,7 @@ SceneRoots:
   - {fileID: 1574457026}
   - {fileID: 981169223}
   - {fileID: 344333446}
-  - {fileID: 733350148}
   - {fileID: 2145864206}
+  - {fileID: 733350148}
   - {fileID: 146809935}
   - {fileID: 1813533172}

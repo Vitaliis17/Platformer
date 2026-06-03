@@ -5,6 +5,7 @@ using Zenject;
 public class LevelSwitcherPresenter : MonoBehaviour
 {
     [SerializeField] private LevelSwitcher _levelSwitcher;
+    [SerializeField] private SaveManager _saveManager;
 
     [Inject] private ISceneLoader _sceneLoader;
     [Inject] private IContainerReceiverByIndex<SceneNames> _container;
@@ -18,5 +19,8 @@ public class LevelSwitcherPresenter : MonoBehaviour
 
         _levelSwitcher.CurrentLevelChanged.Where(index => index <= minLevel).Skip(1)
             .Subscribe(_ => _sceneLoader.LoadMenu()).AddTo(this);
+
+        _levelSwitcher.CurrentLevelChanged.Where(index => index <= minLevel).Skip(1)
+            .Subscribe(_ => _saveManager.Save()).AddTo(this);
     }
 }
