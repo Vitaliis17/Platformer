@@ -1,37 +1,28 @@
 using UnityEngine;
-using R3;
+using Zenject;
 
-public class LevelSwitcher : MonoBehaviour, IMenuLoader, INextLevelLoader
+public class LevelSwitcher : MonoBehaviour, IMenuLoader, INextLevelLoader, ICurrentLevelReloader
 {
-    private static LevelSwitcher _instance;
+    [Inject] private ISceneLoader _sceneLoader;
+    [Inject] private IContainerReceiverByIndex<SceneNames> _container;
 
-    private ReactiveProperty<int> _currentLevel;
-
-    public int MinAddressablesLevel { get; } = -1;
-    public Observable<int> CurrentLevelChanged => _currentLevel;
-
-    private void Awake()
-    {
-        if (_instance == null)
-        {
-            _currentLevel = new(MinAddressablesLevel);
-            _instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    private void OnDestroy()
-        => _currentLevel?.Dispose();
+    private static int _currentLevel;
+    private readonly int _minLevelValue = 0;
 
     public void LoadNextLevel()
-        => _currentLevel.Value++;
+    {
+        _currentLevel++;
+
+        if (_currentLevel > _minLevelValue)
+            _sceneLoader.LoadSceneAsync(_container.Get(_currentLevel));
+    }
 
     public void LoadMenu()
-        => ResetCurrentLevel();
+        => _sceneLoader.LoadMenu();
 
-    private void ResetCurrentLevel()
-        => _currentLevel.OnNext(MinAddressablesLevel);
+    public void ReloadCurrentLevel()
+        => _sceneLoader.LoadSceneAsync(_container.Get(_currentLevel));
+
+    public void ResetCurrentLevel()
+        => _currentLevel = _minLevelValue;
 }

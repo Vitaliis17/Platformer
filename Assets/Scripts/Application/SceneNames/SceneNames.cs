@@ -1,5 +1,5 @@
 public enum SceneNames
 {
-    None,
-    FirstLevel
+    None = 0,
+    FirstLevel = 1
 }

@@ -8,10 +8,18 @@ public class OpenDoorPresenter : MonoBehaviour
     [Inject(Id = IdNames.OpenDoor)] private IInteractable _interactable;
     [Inject] private IHaveInteractableEvent _interactableEvent;
 
-    [Inject] private IMenuLoader _menuLoader;
+    [SerializeField] private PauseSwitcher _pauseSwitcher;
+    [SerializeField] private Transform _panel;
 
     private void Start()
-        => _interactableEvent.Interacted.Subscribe(_ => _menuLoader.LoadMenu()).AddTo(this);
+    {
+        _interactableEvent.Interacted.Subscribe(_ =>
+        {
+            _pauseSwitcher.Pause();
+            _panel.gameObject.SetActive(true);
+        }
+        ).AddTo(this);
+    }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {

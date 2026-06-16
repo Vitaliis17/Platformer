@@ -746,50 +746,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707043657}
   m_CullTransparentMesh: 1
---- !u!1 &815528603
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 815528604}
-  - component: {fileID: 815528605}
-  m_Layer: 0
-  m_Name: Quiter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &815528604
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 815528603}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1128, y: 451.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &815528605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 815528603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17d6c2308a0a60e4fa4e46f4988925a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::Quiter
 --- !u!1 &843414042
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,9 +756,9 @@ GameObject:
   m_Component:
   - component: {fileID: 843414045}
   - component: {fileID: 843414043}
-  - component: {fileID: 843414044}
+  - component: {fileID: 843414046}
   m_Layer: 0
-  m_Name: SceneSwitcher
+  m_Name: Application
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -820,20 +776,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977b956b56b72b84699855fedcdc8713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GameLogic::LevelSwitcher
---- !u!114 &843414044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843414042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd0187ef856d4e3409aba2f7602f754b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::LevelSwitcherPresenter
-  _levelSwitcher: {fileID: 843414043}
-  _saveManager: {fileID: 0}
 --- !u!4 &843414045
 Transform:
   m_ObjectHideFlags: 0
@@ -849,6 +791,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &843414046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843414042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d6c2308a0a60e4fa4e46f4988925a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::Quiter
 --- !u!1 &872491930
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,7 +886,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 815528605}
+      - m_Target: {fileID: 843414046}
         m_TargetAssemblyTypeName: Quiter, GameLogic
         m_MethodName: Quit
         m_Mode: 1
@@ -1255,6 +1209,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 843414043}
+        m_TargetAssemblyTypeName: LevelSwitcher, GameLogic
+        m_MethodName: ResetCurrentLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1273668795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1547,7 +1513,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2078644290}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 843414043}
+        m_TargetAssemblyTypeName: LevelSwitcher, GameLogic
+        m_MethodName: ReloadCurrentLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2078644290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1592,7 +1570,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 416930061}
   - {fileID: 1157940308}
-  - {fileID: 815528604}
   - {fileID: 843414045}
   - {fileID: 1354546367}
   - {fileID: 424065407}

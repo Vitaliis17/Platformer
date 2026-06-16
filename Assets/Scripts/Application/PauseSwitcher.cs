@@ -10,4 +10,7 @@ public class PauseSwitcher : MonoBehaviour
 
     public void Unpause()
         => Time.timeScale = _baseGameSpeed;
+
+    private void OnDestroy()
+        => Unpause();
 }
