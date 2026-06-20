@@ -1,7 +1,7 @@
 using UnityEngine;
 using R3;
 
-public abstract class Trigger : MonoBehaviour
+public class Trigger : MonoBehaviour, ITrigger
 {
     private readonly Subject<bool> _isTriggered = new();
 
@@ -10,10 +10,10 @@ public abstract class Trigger : MonoBehaviour
     private void Start()
         => GetComponent<Collider2D>().isTrigger = true;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
         => _isTriggered.OnNext(true);
 
-    private void OnTriggerExit2D(Collider2D collision)
+    protected virtual void OnTriggerExit2D(Collider2D collision)
         => _isTriggered.OnNext(false);
 
     private void OnDestroy()

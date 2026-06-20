@@ -3,10 +3,13 @@ using Zenject;
 
 public class FirstLevelInstaller : MonoInstaller
 {
+    [SerializeField] private Trigger _border;
+
     [SerializeField] private MoverData _moverData;
     [SerializeField] private JumpData _jumpData;
     [SerializeField] private ZoneCheckerData _zoneCheckerData;
     [SerializeField] private ScreenData _screenData;
+    [SerializeField] private PauseData _pauseData;
 
     [SerializeField] private LayerMask _inventoryContainerLayer;
     [SerializeField] private LayerMask _interactableLayer;
@@ -18,13 +21,15 @@ public class FirstLevelInstaller : MonoInstaller
         BindInteracter();
         BindPlayer();
         BindRaycaster();
+        BindTrigger();
+        BindPause();
     }
 
     private void BindInteractableObjects()
     {
         Container.Bind<Key>().FromComponentInHierarchy().AsSingle();
         Container.Bind<IInteractable>().WithId(IdNames.Key).FromMethod(ctx => ctx.Container.Resolve<Key>()).AsSingle();
-     
+
         Container.Bind<CloseDoor>().FromComponentInHierarchy().AsSingle();
         Container.Bind<IDeactivater>().FromMethod(ctx => ctx.Container.Resolve<CloseDoor>()).AsSingle();
 
@@ -84,5 +89,18 @@ public class FirstLevelInstaller : MonoInstaller
 
         Container.Bind<Player>().FromComponentInHierarchy().AsSingle();
         Container.Bind<IHavePosition>().FromMethod(ctx => ctx.Container.Resolve<Player>()).AsSingle();
+    }
+
+    private void BindTrigger()
+    {
+        Container.Bind<Trigger>().FromInstance(_border).AsSingle();
+        Container.Bind<ITrigger>().FromMethod(ctx => ctx.Container.Resolve<Trigger>()).AsSingle();
+    }
+
+    private void BindPause()
+    {
+        Container.Bind<PauseData>().FromScriptableObject(_pauseData).AsSingle();
+        Container.Bind<PauseSwitcher>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<IPauseSwitcher>().FromMethod(ctx => ctx.Container.Resolve<PauseSwitcher>()).AsSingle();
     }
 }

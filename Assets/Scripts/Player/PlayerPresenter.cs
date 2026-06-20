@@ -18,6 +18,7 @@ public class PlayerPresenter : MonoBehaviour
         Observable<Vector2> observable = _movementReader.DirectionChanged.Where(direction => direction.sqrMagnitude != 0f);
 
         observable.Subscribe(direction => _player.MoveHorizontal(direction.x)).AddTo(this);
+        
         observable.Where(_ => _isTilesTriggered).Subscribe(direction => _player.MoveVertical(direction.y)).AddTo(this);
 
         _jumpReader.Jumped.Subscribe(_ => _player.Jump()).AddTo(this);
