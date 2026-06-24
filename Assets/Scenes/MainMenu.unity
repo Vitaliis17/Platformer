@@ -1197,7 +1197,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1354546370}
+      - m_Target: {fileID: 1932788227}
         m_TargetAssemblyTypeName: SaveRemover, GameLogic
         m_MethodName: Remove
         m_Mode: 1
@@ -1270,7 +1270,6 @@ GameObject:
   - component: {fileID: 1354546367}
   - component: {fileID: 1354546369}
   - component: {fileID: 1354546368}
-  - component: {fileID: 1354546370}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -1339,18 +1338,50 @@ MonoBehaviour:
   _parentNewObjectsUnderSceneContext: 0
   _contractNames: []
   _parentContractNames: []
---- !u!114 &1354546370
+--- !u!1 &1932788226
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1932788228}
+  - component: {fileID: 1932788227}
+  m_Layer: 0
+  m_Name: Save
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1932788227
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354546364}
+  m_GameObject: {fileID: 1932788226}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2f636e89791d6344a0f02fc238ab2ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GameLogic::SaveRemover
+--- !u!4 &1932788228
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932788226}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.14032, y: -1.5622, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1959022819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1573,3 +1604,4 @@ SceneRoots:
   - {fileID: 843414045}
   - {fileID: 1354546367}
   - {fileID: 424065407}
+  - {fileID: 1932788228}

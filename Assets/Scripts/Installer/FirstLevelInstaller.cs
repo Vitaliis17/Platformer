@@ -28,7 +28,7 @@ public class FirstLevelInstaller : MonoInstaller
     private void BindInteractableObjects()
     {
         Container.Bind<Key>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<IInteractable>().WithId(IdNames.Key).FromMethod(ctx => ctx.Container.Resolve<Key>()).AsSingle();
+        Container.Bind<IInteractable>().WithId(IdNames.Key).FromMethod(ctx => ctx.Container.Resolve<Key>()).AsCached();
 
         Container.Bind<CloseDoor>().FromComponentInHierarchy().AsSingle();
         Container.Bind<IDeactivater>().FromMethod(ctx => ctx.Container.Resolve<CloseDoor>()).AsSingle();
