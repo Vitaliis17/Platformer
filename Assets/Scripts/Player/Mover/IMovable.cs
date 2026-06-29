@@ -1,10 +1,4 @@
-using UnityEngine;
-
-public interface IMoveable
+public interface IMovable : IVerticalMover, IHorizontalMover, IJumper
 {
-    void SetDelta(float direction);
 
-    Vector2 TransferDelta();
-
-    void Initialize(Rigidbody2D rigidbody);
 }

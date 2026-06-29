@@ -10,6 +10,9 @@ public class FirstLevelInstaller : MonoInstaller
     [SerializeField] private ZoneCheckerData _zoneCheckerData;
     [SerializeField] private ScreenData _screenData;
     [SerializeField] private PauseData _pauseData;
+    [SerializeField] private AnimationPrioritiesData _animationPrioritiesData;
+
+    [SerializeField] private Animator _playerAnimator;
 
     [SerializeField] private LayerMask _inventoryContainerLayer;
     [SerializeField] private LayerMask _interactableLayer;
@@ -23,6 +26,7 @@ public class FirstLevelInstaller : MonoInstaller
         BindRaycaster();
         BindTrigger();
         BindPause();
+        BindAnimation();
     }
 
     private void BindInteractableObjects()
@@ -81,14 +85,16 @@ public class FirstLevelInstaller : MonoInstaller
     {
         Container.Bind<MoverData>().FromScriptableObject(_moverData).AsSingle();
 
-        Container.Bind<IMoveable>().WithId(IdNames.Horizontal).To<HorizontalMover>().AsTransient();
-        Container.Bind<IMoveable>().WithId(IdNames.Vertical).To<VerticalMover>().AsTransient();
+        Container.Bind<ITransferable>().WithId(IdNames.Horizontal).To<HorizontalMover>().AsTransient();
+        Container.Bind<ITransferable>().WithId(IdNames.Vertical).To<VerticalMover>().AsTransient();
 
         Container.Bind<JumpData>().FromScriptableObject(_jumpData).AsSingle();
         Container.Bind<IJumpable>().To<Jumper>().AsTransient();
 
         Container.Bind<Player>().FromComponentInHierarchy().AsSingle();
         Container.Bind<IHavePosition>().FromMethod(ctx => ctx.Container.Resolve<Player>()).AsSingle();
+        Container.Bind<IMovable>().FromMethod(ctx => ctx.Container.Resolve<Player>()).AsSingle();
+        Container.Bind<IMovableEvents>().FromMethod(ctx => ctx.Container.Resolve<Player>()).AsSingle();
     }
 
     private void BindTrigger()
@@ -102,5 +108,13 @@ public class FirstLevelInstaller : MonoInstaller
         Container.Bind<PauseData>().FromScriptableObject(_pauseData).AsSingle();
         Container.Bind<PauseSwitcher>().FromComponentInHierarchy().AsSingle();
         Container.Bind<IPauseSwitcher>().FromMethod(ctx => ctx.Container.Resolve<PauseSwitcher>()).AsSingle();
+    }
+
+    private void BindAnimation()
+    {
+        Container.Bind<AnimationPrioritiesData>().FromScriptableObject(_animationPrioritiesData).AsSingle();
+        Container.Bind<Animator>().FromInstance(_playerAnimator).AsSingle();
+
+        Container.Bind<IAnimationSwitcher>().To<AnimationSwitcher>().AsTransient();
     }
 }

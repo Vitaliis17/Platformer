@@ -254,6 +254,8 @@ MonoBehaviour:
   _zoneCheckerData: {fileID: 11400000, guid: e2a4296203735a54084e53a08744c228, type: 2}
   _screenData: {fileID: 11400000, guid: 7a33fc3897b025342bab9af5bd400597, type: 2}
   _pauseData: {fileID: 11400000, guid: 095c19895e390e54d9b660f5cd0fb94c, type: 2}
+  _animationPrioritiesData: {fileID: 11400000, guid: 9bba44a5907969e409c2bb301826b148, type: 2}
+  _playerAnimator: {fileID: 981169227}
   _inventoryContainerLayer:
     serializedVersion: 2
     m_Bits: 32
@@ -1113,7 +1115,6 @@ GameObject:
   m_Component:
   - component: {fileID: 344333446}
   - component: {fileID: 344333445}
-  - component: {fileID: 344333444}
   m_Layer: 0
   m_Name: InputReader
   m_TagString: Untagged
@@ -1121,20 +1122,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &344333444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344333443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0088cc8eb5cbf624f85d1024645cdc5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::GameplayActionPresenter
-  _player: {fileID: 981169224}
-  _ladderMap: {fileID: 2123899570}
 --- !u!114 &344333445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1806,11 +1793,14 @@ GameObject:
   m_Component:
   - component: {fileID: 981169223}
   - component: {fileID: 981169222}
+  - component: {fileID: 981169227}
   - component: {fileID: 981169221}
   - component: {fileID: 981169220}
   - component: {fileID: 981169224}
   - component: {fileID: 981169225}
   - component: {fileID: 981169226}
+  - component: {fileID: 981169229}
+  - component: {fileID: 981169228}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -1992,6 +1982,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 249d03db891bfbe48a372fa86d931e27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GameLogic::GravitySwithcer
+--- !u!95 &981169227
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981169219}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a6b20fc4de0a6464182486f538b01f9a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &981169228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981169219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0088cc8eb5cbf624f85d1024645cdc5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::PlayerMovementPresenter
+  _ladderMap: {fileID: 2123899570}
+--- !u!114 &981169229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981169219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cbf781f28d1a44c8657e690ce1ca08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::PlayerAnimationPresenter
 --- !u!1001 &1194786972
 PrefabInstance:
   m_ObjectHideFlags: 0

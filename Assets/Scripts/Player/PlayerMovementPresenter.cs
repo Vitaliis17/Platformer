@@ -2,12 +2,12 @@ using R3;
 using UnityEngine;
 using Zenject;
 
-public class PlayerPresenter : MonoBehaviour
+public class PlayerMovementPresenter : MonoBehaviour
 {
     [Inject] private IMovementReader _movementReader;
     [Inject] private IJumpReader _jumpReader;
 
-    [SerializeField] private Player _player;
+    [Inject] private IMovable _player;
     [SerializeField] private MapTrigger _ladderMap;
 
     private bool _isTilesTriggered;
