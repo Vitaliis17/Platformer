@@ -39,7 +39,7 @@ public class AnimationSwitcher : IAnimationSwitcher
     {
         _lastAnimationName = AnimationNames.Idle;
         _animator.SetBool(AnimationParameterHashes.GetHash(_currentAnimationName), false);
-
+        
         SetAnimation(AnimationNames.Idle);
     }
 

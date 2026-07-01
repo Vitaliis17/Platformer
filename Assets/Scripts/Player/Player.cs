@@ -28,11 +28,6 @@ public class Player : MonoBehaviour, IHavePosition, IMovable, IMovableEvents
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _rigidbody.freezeRotation = true;
-
-        _horizontalMover.Initialize(_rigidbody);
-        _verticalMover.Initialize(_rigidbody);
-
-        _jumper.Initialize(_rigidbody);
     }
 
     private void FixedUpdate()

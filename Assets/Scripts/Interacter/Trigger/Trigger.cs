@@ -1,11 +1,11 @@
 using UnityEngine;
 using R3;
 
-public class Trigger : MonoBehaviour, ITrigger
+public class Trigger : MonoBehaviour, IHaveTriggerEvent
 {
-    private readonly Subject<bool> _isTriggered = new();
+    private readonly ReactiveProperty<bool> _isTriggered = new();
 
-    public Observable<bool> IsTriggered => _isTriggered;
+    public ReadOnlyReactiveProperty<bool> IsTriggered => _isTriggered;
 
     private void Start()
         => GetComponent<Collider2D>().isTrigger = true;

@@ -6,7 +6,7 @@ public class GameOverPresenter : MonoBehaviour
 {
     [SerializeField] private Transform _gameOverPanel;
 
-    [Inject] private ITrigger _trigger;
+    [Inject(Id = TriggerNames.Border)] private IHaveTriggerEvent _trigger;
     [Inject] private IPauseSwitcher _pauseSwitcher;
 
     private void Start()

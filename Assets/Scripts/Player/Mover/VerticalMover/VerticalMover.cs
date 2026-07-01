@@ -3,17 +3,10 @@ using Zenject;
 
 public class VerticalMover : ITransferable
 {
-    private readonly MoverData _data;
+    [Inject] private readonly MoverData _data;
+    [Inject] private Rigidbody2D _rigidbody;
 
-    private Rigidbody2D _rigidbody;
     private Vector2 _delta;
-
-    [Inject]
-    public VerticalMover(MoverData data)
-        => _data = data;
-
-    public void Initialize(Rigidbody2D rigidbody)
-        => _rigidbody = rigidbody;
 
     public void SetDelta(float direction)
     {

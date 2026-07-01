@@ -249,6 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: GameLogic::FirstLevelInstaller
   _border: {fileID: 300007487}
+  _ladder: {fileID: 2123899570}
   _moverData: {fileID: 11400000, guid: 047e2caddf41a454a859411d3330f397, type: 2}
   _jumpData: {fileID: 11400000, guid: 3822057ef346947478013fac8fb76f86, type: 2}
   _zoneCheckerData: {fileID: 11400000, guid: e2a4296203735a54084e53a08744c228, type: 2}
@@ -256,6 +257,7 @@ MonoBehaviour:
   _pauseData: {fileID: 11400000, guid: 095c19895e390e54d9b660f5cd0fb94c, type: 2}
   _animationPrioritiesData: {fileID: 11400000, guid: 9bba44a5907969e409c2bb301826b148, type: 2}
   _playerAnimator: {fileID: 981169227}
+  _rigidbody: {fileID: 981169220}
   _inventoryContainerLayer:
     serializedVersion: 2
     m_Bits: 32
@@ -1801,6 +1803,7 @@ GameObject:
   - component: {fileID: 981169226}
   - component: {fileID: 981169229}
   - component: {fileID: 981169228}
+  - component: {fileID: 981169230}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -2016,7 +2019,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0088cc8eb5cbf624f85d1024645cdc5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GameLogic::PlayerMovementPresenter
-  _ladderMap: {fileID: 2123899570}
 --- !u!114 &981169229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2029,6 +2031,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43cbf781f28d1a44c8657e690ce1ca08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GameLogic::PlayerAnimationPresenter
+--- !u!114 &981169230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981169219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ef92c6e96b49d4c9087c3026cca3f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::PlayerFlipPresenter
+  _playerRenderer: {fileID: 981169222}
 --- !u!1001 &1194786972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3175,7 +3190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 250}
+  m_AnchoredPosition: {x: 300, y: 250}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2059549752

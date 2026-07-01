@@ -4,6 +4,7 @@ using Zenject;
 public class FirstLevelInstaller : MonoInstaller
 {
     [SerializeField] private Trigger _border;
+    [SerializeField] private MapTrigger _ladder;
 
     [SerializeField] private MoverData _moverData;
     [SerializeField] private JumpData _jumpData;
@@ -13,6 +14,7 @@ public class FirstLevelInstaller : MonoInstaller
     [SerializeField] private AnimationPrioritiesData _animationPrioritiesData;
 
     [SerializeField] private Animator _playerAnimator;
+    [SerializeField] private Rigidbody2D _rigidbody;
 
     [SerializeField] private LayerMask _inventoryContainerLayer;
     [SerializeField] private LayerMask _interactableLayer;
@@ -27,6 +29,7 @@ public class FirstLevelInstaller : MonoInstaller
         BindTrigger();
         BindPause();
         BindAnimation();
+        BindFlipper();
     }
 
     private void BindInteractableObjects()
@@ -84,14 +87,17 @@ public class FirstLevelInstaller : MonoInstaller
     private void BindPlayer()
     {
         Container.Bind<MoverData>().FromScriptableObject(_moverData).AsSingle();
+        Container.Bind<Rigidbody2D>().FromInstance(_rigidbody);
 
         Container.Bind<ITransferable>().WithId(IdNames.Horizontal).To<HorizontalMover>().AsTransient();
         Container.Bind<ITransferable>().WithId(IdNames.Vertical).To<VerticalMover>().AsTransient();
 
         Container.Bind<JumpData>().FromScriptableObject(_jumpData).AsSingle();
+
         Container.Bind<IJumpable>().To<Jumper>().AsTransient();
 
         Container.Bind<Player>().FromComponentInHierarchy().AsSingle();
+       
         Container.Bind<IHavePosition>().FromMethod(ctx => ctx.Container.Resolve<Player>()).AsSingle();
         Container.Bind<IMovable>().FromMethod(ctx => ctx.Container.Resolve<Player>()).AsSingle();
         Container.Bind<IMovableEvents>().FromMethod(ctx => ctx.Container.Resolve<Player>()).AsSingle();
@@ -100,7 +106,10 @@ public class FirstLevelInstaller : MonoInstaller
     private void BindTrigger()
     {
         Container.Bind<Trigger>().FromInstance(_border).AsSingle();
-        Container.Bind<ITrigger>().FromMethod(ctx => ctx.Container.Resolve<Trigger>()).AsSingle();
+        Container.Bind<IHaveTriggerEvent>().WithId(TriggerNames.Border).FromMethod(ctx => ctx.Container.Resolve<Trigger>()).AsCached();
+
+        Container.Bind<MapTrigger>().FromInstance(_ladder).AsSingle();
+        Container.Bind<IHaveTriggerEvent>().WithId(TriggerNames.Ladder).FromMethod(ctx => ctx.Container.Resolve<MapTrigger>()).AsCached();
     }
 
     private void BindPause()
@@ -117,4 +126,7 @@ public class FirstLevelInstaller : MonoInstaller
 
         Container.Bind<IAnimationSwitcher>().To<AnimationSwitcher>().AsTransient();
     }
+
+    private void BindFlipper()
+       => Container.Bind<IFlipper>().To<Flipper>().AsSingle();
 }
