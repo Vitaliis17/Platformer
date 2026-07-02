@@ -1,17 +1,27 @@
+using R3;
 using System;
 using UnityEngine;
 using Zenject;
-using R3;
 
 public class PlayerAnimationPresenter : MonoBehaviour
 {
+    [SerializeField] private Trigger _groundChecker;
+
     [Inject] private IAnimationSwitcher _animationSwitcher;
     [Inject] private IMovableEvents _events;
 
     private void Start()
     {
+        const int OffsetMultiplier = 2;
+
         Subscribe(_events.IsHorizontalMoved, AnimationNames.Walking);
-        Subscribe(_events.IsVerticalMoved, AnimationNames.Climbing);
+
+        _events.IsVerticalMoved.Subscribe(_ => _animationSwitcher.SetCurrent(AnimationNames.Climbing)).AddTo(this);
+
+        _events.IsVerticalMoved.Where(_ => _groundChecker.IsTriggered.CurrentValue)
+            .Debounce(TimeSpan.FromSeconds(Time.fixedDeltaTime * OffsetMultiplier))
+            .Subscribe(_ => _animationSwitcher.TurnOffAnimation(AnimationNames.Climbing)).AddTo(this);
+
         Subscribe(_events.IsJumped, AnimationNames.Jumping);
     }
 
