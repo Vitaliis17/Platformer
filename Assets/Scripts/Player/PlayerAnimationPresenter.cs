@@ -14,24 +14,35 @@ public class PlayerAnimationPresenter : MonoBehaviour
     {
         const int OffsetMultiplier = 2;
 
-        Subscribe(_events.IsHorizontalMoved, AnimationNames.Walking);
+        SubscribeStartingAnimation(_events.IsHorizontalMoved, AnimationNames.Walking);
 
-        _events.IsVerticalMoved.Subscribe(_ => _animationSwitcher.SetCurrent(AnimationNames.Climbing)).AddTo(this);
-
-        _events.IsVerticalMoved.Where(_ => _groundChecker.IsTriggered.CurrentValue)
+        _events.IsHorizontalMoved
             .Debounce(TimeSpan.FromSeconds(Time.fixedDeltaTime * OffsetMultiplier))
-            .Subscribe(_ => _animationSwitcher.TurnOffAnimation(AnimationNames.Climbing)).AddTo(this);
+            .Subscribe(_ => _animationSwitcher.TurnOffAnimation(AnimationNames.Walking))
+            .AddTo(this);
 
-        Subscribe(_events.IsJumped, AnimationNames.Jumping);
+        SubscribeStartingAnimation(_events.IsVerticalMoved, AnimationNames.Climbing);
+
+        _events.IsVerticalMoved
+            .Where(_ => _groundChecker.IsTriggered.CurrentValue)
+            .Debounce(TimeSpan.FromSeconds(Time.fixedDeltaTime * OffsetMultiplier))
+            .Subscribe(_ => _animationSwitcher.TurnOffAnimation(AnimationNames.Climbing))
+            .AddTo(this);
+
+        SubscribeStartingAnimation(_groundChecker.IsTriggered.AsUnitObservable(), AnimationNames.Jumping);
+
+        _groundChecker.IsTriggered
+            .Delay(TimeSpan.FromSeconds(Time.fixedDeltaTime))
+            .Where(_ => _animationSwitcher.CurrentAnimationName == AnimationNames.Jumping)
+            .Where(isTrigger => isTrigger)
+            .Subscribe(_ => _animationSwitcher.TurnOffAnimation(AnimationNames.Jumping))
+            .AddTo(this);
     }
 
-    private void Subscribe(Observable<Unit> observable, AnimationNames name)
+    private void SubscribeStartingAnimation(Observable<Unit> observable, AnimationNames name)
     {
-        const int OffsetMultiplier = 2;
-
-        observable.Subscribe(_ => _animationSwitcher.SetCurrent(name)).AddTo(this);
-
-        observable.Debounce(TimeSpan.FromSeconds(Time.fixedDeltaTime * OffsetMultiplier))
-            .Subscribe(_ => _animationSwitcher.TurnOffAnimation(name)).AddTo(this);
+        observable
+            .Subscribe(_ => _animationSwitcher.SetCurrent(name))
+            .AddTo(this);
     }
 }

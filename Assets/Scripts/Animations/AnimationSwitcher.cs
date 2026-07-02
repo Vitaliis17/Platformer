@@ -8,7 +8,6 @@ public class AnimationSwitcher : IAnimationSwitcher
     private readonly Animator _animator;
 
     private AnimationNames _lastAnimationName;
-    private AnimationNames _currentAnimationName;
 
     [Inject]
     public AnimationSwitcher(AnimationPrioritiesData priorities, Animator animator)
@@ -19,9 +18,11 @@ public class AnimationSwitcher : IAnimationSwitcher
         SetDefault();
     }
 
+    public AnimationNames CurrentAnimationName { get; private set; }
+
     public void SetCurrent(AnimationNames name)
     {
-        if (_priorities.IsMostPriority(name, _currentAnimationName) == false)
+        if (_priorities.IsMostPriority(name, CurrentAnimationName) == false)
             return;
 
         ChangeAnimation(name);
@@ -29,7 +30,7 @@ public class AnimationSwitcher : IAnimationSwitcher
 
     public void TurnOffAnimation(AnimationNames name)
     {
-        if (_lastAnimationName == _currentAnimationName || _currentAnimationName != name)
+        if (_lastAnimationName == CurrentAnimationName || CurrentAnimationName != name)
             return;
 
         SetDefault();
@@ -38,7 +39,7 @@ public class AnimationSwitcher : IAnimationSwitcher
     public void SetDefault()
     {
         _lastAnimationName = AnimationNames.Idle;
-        _animator.SetBool(AnimationParameterHashes.GetHash(_currentAnimationName), false);
+        _animator.SetBool(AnimationParameterHashes.GetHash(CurrentAnimationName), false);
         
         SetAnimation(AnimationNames.Idle);
     }
@@ -47,8 +48,8 @@ public class AnimationSwitcher : IAnimationSwitcher
     {
         const bool TurnOffValue = false;
 
-        _animator.SetBool(AnimationParameterHashes.GetHash(_currentAnimationName), TurnOffValue);
-        _lastAnimationName = _currentAnimationName;
+        _animator.SetBool(AnimationParameterHashes.GetHash(CurrentAnimationName), TurnOffValue);
+        _lastAnimationName = CurrentAnimationName;
 
         SetAnimation(name);
     }
@@ -57,9 +58,9 @@ public class AnimationSwitcher : IAnimationSwitcher
     {
         const bool TurnOnValue = true;
 
-        _currentAnimationName = name;
+        CurrentAnimationName = name;
 
-        _animator.SetBool(AnimationParameterHashes.GetHash(_currentAnimationName), TurnOnValue);
-        _animator.Play(AnimationNameHashes.GetHash(_currentAnimationName));
+        _animator.SetBool(AnimationParameterHashes.GetHash(CurrentAnimationName), TurnOnValue);
+        _animator.Play(AnimationNameHashes.GetHash(CurrentAnimationName));
     }
 }
