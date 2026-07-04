@@ -17,11 +17,26 @@ public class AnimationPrioritiesData : ScriptableObject
         };
     }
 
-    public bool IsMostPriority(AnimationNames first, AnimationNames second)
+    public bool IsMostPriority(AnimationNames newName, AnimationNames oldName)
     {
-        if (_animationPriority.TryGetValue(first, out int priority) == false)
+        if (_animationPriority.TryGetValue(newName, out int priority) == false)
             return false;
 
-        return _animationPriority[second] < priority;
+        return _animationPriority[oldName] < priority;
+    }
+
+    public AnimationNames IsMostPriority(List<AnimationNames> names)
+    {
+        AnimationNames mostPriorityName = AnimationNames.Idle;
+
+        foreach(AnimationNames name in names)
+        {
+            if(IsMostPriority(name, mostPriorityName))
+            {
+                mostPriorityName = name;
+            }
+        }
+
+        return mostPriorityName;
     }
 }

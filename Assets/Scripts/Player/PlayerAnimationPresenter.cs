@@ -1,11 +1,14 @@
 using R3;
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem.Utilities;
 using Zenject;
 
 public class PlayerAnimationPresenter : MonoBehaviour
 {
     [SerializeField] private Trigger _groundChecker;
+
+    [Inject(Id = TriggerNames.Ladder)] private IHaveTriggerEvent _ladderMap;
 
     [Inject] private IAnimationSwitcher _animationSwitcher;
     [Inject] private IMovableEvents _events;
@@ -23,18 +26,26 @@ public class PlayerAnimationPresenter : MonoBehaviour
 
         SubscribeStartingAnimation(_events.IsVerticalMoved, AnimationNames.Climbing);
 
-        _events.IsVerticalMoved
-            .Where(_ => _groundChecker.IsTriggered.CurrentValue)
+        _ladderMap.IsTriggered
+            .Where(isTrigger => isTrigger == false)
             .Debounce(TimeSpan.FromSeconds(Time.fixedDeltaTime * OffsetMultiplier))
             .Subscribe(_ => _animationSwitcher.TurnOffAnimation(AnimationNames.Climbing))
             .AddTo(this);
 
-        SubscribeStartingAnimation(_groundChecker.IsTriggered.AsUnitObservable(), AnimationNames.Jumping);
+        _events.IsVerticalMoved
+            .Debounce(TimeSpan.FromSeconds(Time.fixedDeltaTime * OffsetMultiplier))
+            .Where(_ => _groundChecker.IsTriggered.CurrentValue)
+            .Subscribe(_ => _animationSwitcher.TurnOffAnimation(AnimationNames.Climbing))
+            .AddTo(this);
+
+        _groundChecker.IsTriggered
+            .Where(_ => _groundChecker.HaveTriggered() == false)
+            .Subscribe(_ => _animationSwitcher.SetCurrent(AnimationNames.Jumping))
+            .AddTo(this);
 
         _groundChecker.IsTriggered
             .Delay(TimeSpan.FromSeconds(Time.fixedDeltaTime))
-            .Where(_ => _animationSwitcher.CurrentAnimationName == AnimationNames.Jumping)
-            .Where(isTrigger => isTrigger)
+            .Where(_ => _groundChecker.HaveTriggered())
             .Subscribe(_ => _animationSwitcher.TurnOffAnimation(AnimationNames.Jumping))
             .AddTo(this);
     }

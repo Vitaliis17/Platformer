@@ -18,6 +18,7 @@ public class PlayerMovementPresenter : MonoBehaviour
         observable.Subscribe(direction => _player.MoveHorizontal(direction.x)).AddTo(this);
 
         observable.Where(_ => _ladderMap.IsTriggered.CurrentValue)
+            .Where(direction => Mathf.Abs(direction.y) > 0.3f)
             .Subscribe(direction => _player.MoveVertical(direction.y)).AddTo(this);
 
         _jumpReader.Jumped.Subscribe(_ => _player.Jump()).AddTo(this);
