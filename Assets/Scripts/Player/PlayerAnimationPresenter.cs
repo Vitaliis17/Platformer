@@ -27,6 +27,12 @@ public class PlayerAnimationPresenter : MonoBehaviour
         SubscribeStartingAnimation(_events.IsVerticalMoved, AnimationNames.Climbing);
 
         _ladderMap.IsTriggered
+            .Where(trigger => trigger)
+            .Where(_ => _groundChecker.IsTriggered.CurrentValue == false)
+            .Subscribe(_ => _animationSwitcher.SetCurrent(AnimationNames.Climbing))
+            .AddTo(this);
+
+        _ladderMap.IsTriggered
             .Where(isTrigger => isTrigger == false)
             .Debounce(TimeSpan.FromSeconds(Time.fixedDeltaTime * OffsetMultiplier))
             .Subscribe(_ => _animationSwitcher.TurnOffAnimation(AnimationNames.Climbing))
