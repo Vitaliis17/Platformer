@@ -340,6 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: GameLogic::FirstLevelInstaller
   _border: {fileID: 300007487}
+  _groundChecker: {fileID: 5477066}
   _ladder: {fileID: 2123899570}
   _moverData: {fileID: 11400000, guid: 047e2caddf41a454a859411d3330f397, type: 2}
   _jumpData: {fileID: 11400000, guid: 3822057ef346947478013fac8fb76f86, type: 2}
@@ -2233,7 +2234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43cbf781f28d1a44c8657e690ce1ca08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GameLogic::PlayerAnimationPresenter
-  _groundChecker: {fileID: 5477066}
 --- !u!114 &981169230
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,6 +4,8 @@ using Zenject;
 public class FirstLevelInstaller : MonoInstaller
 {
     [SerializeField] private Trigger _border;
+    [SerializeField] private Trigger _groundChecker;
+
     [SerializeField] private MapTrigger _ladder;
 
     [SerializeField] private MoverData _moverData;
@@ -105,8 +107,13 @@ public class FirstLevelInstaller : MonoInstaller
 
     private void BindTrigger()
     {
-        Container.Bind<Trigger>().FromInstance(_border).AsSingle();
-        Container.Bind<IHaveTriggerEvent>().WithId(TriggerNames.Border).FromMethod(ctx => ctx.Container.Resolve<Trigger>()).AsCached();
+        Container.Bind<Trigger>().WithId(TriggerNames.GroundChecker).FromInstance(_groundChecker).AsCached();
+        Container.Bind<IHaveTriggerEvent>().WithId(TriggerNames.GroundChecker)
+            .FromMethod(ctx => ctx.Container.ResolveId<Trigger>(TriggerNames.GroundChecker)).AsCached();
+
+        Container.Bind<Trigger>().WithId(TriggerNames.Border).FromInstance(_border).AsCached();
+        Container.Bind<IHaveTriggerEvent>().WithId(TriggerNames.Border)
+            .FromMethod(ctx => ctx.Container.ResolveId<Trigger>(TriggerNames.Border)).AsCached();
 
         Container.Bind<MapTrigger>().FromInstance(_ladder).AsSingle();
         Container.Bind<IHaveTriggerEvent>().WithId(TriggerNames.Ladder).FromMethod(ctx => ctx.Container.Resolve<MapTrigger>()).AsCached();
