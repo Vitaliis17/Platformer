@@ -10,10 +10,10 @@ public class Player : MonoBehaviour, IHavePosition, IMovable, IMovableEvents
 
     [Inject] private IJumpable _jumper;
 
-    private Subject<Unit> _isHorizontalMoved = new();
-    private Subject<Unit> _isVerticalMoved = new();
+    private readonly Subject<Unit> _isHorizontalMoved = new();
+    private readonly Subject<Unit> _isVerticalMoved = new();
 
-    private Subject<Unit> _isJumped = new();
+    private readonly Subject<Unit> _isJumped = new();
 
     private Rigidbody2D _rigidbody;
 

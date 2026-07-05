@@ -8,14 +8,16 @@ public class PlayerMovementPresenter : MonoBehaviour
     [Inject] private IJumpReader _jumpReader;
 
     [Inject] private IMovable _player;
+    [Inject(Id = TriggerNames.GroundChecker)] private IHaveTriggerEvent _groundChecker;
 
     [Inject(Id = TriggerNames.Ladder)] private IHaveTriggerEvent _ladderMap;
 
     private void Start()
     {
         const float VerticalOffset = 0.5f;
+        const float NoMovement = 0f;
 
-        Observable<Vector2> observable = _movementReader.DirectionChanged.Where(direction => direction.sqrMagnitude != 0f);
+        Observable<Vector2> observable = _movementReader.DirectionChanged.Where(direction => direction.sqrMagnitude != NoMovement);
 
         observable.Subscribe(direction => _player.MoveHorizontal(direction.x)).AddTo(this);
 
@@ -23,6 +25,8 @@ public class PlayerMovementPresenter : MonoBehaviour
             .Where(direction => Mathf.Abs(direction.y) > VerticalOffset)
             .Subscribe(direction => _player.MoveVertical(direction.y)).AddTo(this);
 
-        _jumpReader.Jumped.Subscribe(_ => _player.Jump()).AddTo(this);
+        _jumpReader.Jumped
+            .Where(_ => _groundChecker.HaveTriggered())
+            .Subscribe(_ => _player.Jump()).AddTo(this);
     }
 }

@@ -1,9 +1,8 @@
 using UnityEngine;
 using Zenject;
 
-public class FirstLevelInstaller : MonoInstaller
+public class AnimationInstaller : MonoInstaller
 {
-    [SerializeField] private ZoneCheckerData _zoneCheckerData;
     [SerializeField] private AnimationPrioritiesData _animationPrioritiesData;
 
     [SerializeField] private Animator _playerAnimator;
@@ -11,6 +10,7 @@ public class FirstLevelInstaller : MonoInstaller
     public override void InstallBindings()
     {
         BindAnimation();
+        BindFlipper();
     }
 
     private void BindAnimation()
@@ -21,5 +21,6 @@ public class FirstLevelInstaller : MonoInstaller
         Container.Bind<IAnimationSwitcher>().To<AnimationSwitcher>().AsTransient();
     }
 
-
+    private void BindFlipper()
+        => Container.Bind<IFlipper>().To<Flipper>().AsSingle();
 }
