@@ -3,23 +3,4 @@ using Zenject;
 
 public class FirstLevelInstaller : MonoInstaller
 {
-    [SerializeField] private ZoneCheckerData _zoneCheckerData;
-    [SerializeField] private AnimationPrioritiesData _animationPrioritiesData;
-
-    [SerializeField] private Animator _playerAnimator;
-
-    public override void InstallBindings()
-    {
-        BindAnimation();
-    }
-
-    private void BindAnimation()
-    {
-        Container.Bind<AnimationPrioritiesData>().FromScriptableObject(_animationPrioritiesData).AsSingle();
-        Container.Bind<Animator>().FromInstance(_playerAnimator).AsSingle();
-
-        Container.Bind<IAnimationSwitcher>().To<AnimationSwitcher>().AsTransient();
-    }
-
-
 }

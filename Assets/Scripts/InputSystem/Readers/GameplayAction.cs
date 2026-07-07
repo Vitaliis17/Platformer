@@ -5,9 +5,10 @@ using R3;
 public class GameplayAction : ActionMap, IMovementReader, ITouchReader, IJumpReader, IHoldReader
 {
     private readonly Subject<Vector2> _directionChanged = new();
-    private readonly Subject<Vector2> _holdChanged = new();
     private readonly Subject<bool> _pressChanged = new(); 
     private readonly Subject<bool> _jumped = new();
+    
+    private readonly ReactiveProperty<Vector2> _holdChanged = new();
 
     private InputSystem_Actions.GameplayActions _action;
 
@@ -15,9 +16,10 @@ public class GameplayAction : ActionMap, IMovementReader, ITouchReader, IJumpRea
     private bool _isPressed;
 
     public Observable<Vector2> DirectionChanged => _directionChanged;
-    public Observable<Vector2> HoldChanged => _holdChanged;
     public Observable<bool> PressChanged => _pressChanged;
     public Observable<bool> Jumped => _jumped;
+
+    public ReadOnlyReactiveProperty<Vector2> HoldChanged => _holdChanged;
 
     private void Awake()
     {
