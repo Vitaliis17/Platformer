@@ -10,24 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Buildings
+  m_Name: Levels
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
-  m_GroupName: Buildings
-  m_GUID: bac279eb3ae458840af49a1127c804f6
-  m_SerializeEntries:
-  - m_GUID: 25a24096b3d05fc4ab6139ec0da6826e
-    m_Address: Door
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6f750649c4a8d3848ae55783455b700f
-    m_Address: SignExit
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
+  m_GroupName: Levels
+  m_GUID: ede1253366cb38747a53862b1e185732
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 12dfd6537f60ff04eaff23eb7aed5621, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 0e0e42917c707e5429feb23bafef1923, type: 2}
-    - {fileID: 11400000, guid: c6af59fabc0e5994cabaf5de04b361ee, type: 2}
+    - {fileID: 11400000, guid: 4da0af7f0ae5ef14f88a7c15cc1caada, type: 2}
+    - {fileID: 11400000, guid: ff508fe0727a6574787d5c7f2f85bb95, type: 2}

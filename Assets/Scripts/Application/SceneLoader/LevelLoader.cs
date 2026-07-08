@@ -9,7 +9,7 @@ public class LevelLoader : MonoBehaviour, IMenuLoader, ILevelLoader
     public void LoadLevel(int levelNumber)
     {
         SceneNames name = _container.Get(levelNumber);
-
+        
         if (name == SceneNames.None)
             return;
 
