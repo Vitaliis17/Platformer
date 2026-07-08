@@ -5,7 +5,7 @@ using System.Threading;
 
 public class LevelSwitcherInstaller : MonoInstaller
 {
-    [SerializeField] private LevelSwitcher _levelSwitcher;
+    [SerializeField] private LevelLoader _levelLoader;
 
     public override void InstallBindings()
     {
@@ -24,9 +24,8 @@ public class LevelSwitcherInstaller : MonoInstaller
 
     private void BindLevelSwitcher()
     {
-        Container.Bind<LevelSwitcher>().FromInstance(_levelSwitcher).AsSingle();
+        Container.Bind<LevelLoader>().FromInstance(_levelLoader).AsSingle();
 
-        Container.Bind<IMenuLoader>().FromMethod(ctx => ctx.Container.Resolve<LevelSwitcher>()).AsSingle();
-        Container.Bind<INextLevelLoader>().FromMethod(ctx => ctx.Container.Resolve<LevelSwitcher>()).AsSingle();
+        Container.Bind<IMenuLoader>().FromMethod(ctx => ctx.Container.Resolve<LevelLoader>()).AsSingle();
     }
 }

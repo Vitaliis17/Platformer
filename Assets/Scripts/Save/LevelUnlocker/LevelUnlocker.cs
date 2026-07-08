@@ -6,7 +6,7 @@ public class LevelUnlocker : MonoBehaviour, ILevelUnlocker
 {
     [SerializeField] private Button[] _buttons;
 
-    private Dictionary<int, Transform> _levelButtons;
+    private Dictionary<int, Button> _levelButtons;
 
     private void Awake()
     {
@@ -26,7 +26,7 @@ public class LevelUnlocker : MonoBehaviour, ILevelUnlocker
             lastLevelIndex = _levelButtons.Count - 1;
 
         for (int i = 0; i < lastLevelIndex + 1; i++)
-            _levelButtons[i].gameObject.SetActive(UnlockValue);
+            _levelButtons[i].interactable = UnlockValue;
     }
 
     private void FillLevelDictionary()
@@ -34,7 +34,7 @@ public class LevelUnlocker : MonoBehaviour, ILevelUnlocker
         _levelButtons = new();
 
         for (int i = 0; i < _buttons.Length; i++)
-            _levelButtons.Add(i, _buttons[i].transform);
+            _levelButtons.Add(i, _buttons[i]);
     }
 
     private void LockAll()
@@ -42,6 +42,6 @@ public class LevelUnlocker : MonoBehaviour, ILevelUnlocker
         const bool LockValue = false;
 
         for (int i = 0; i < _levelButtons.Count; i++)
-            _levelButtons[i].gameObject.SetActive(LockValue);
+            _levelButtons[i].interactable = LockValue;
     }
 }
