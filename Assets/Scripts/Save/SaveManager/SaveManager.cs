@@ -1,10 +1,20 @@
 using UnityEngine;
 using Zenject;
 
-public class SaveManager : MonoBehaviour, ISaveManager
+public class SaveManager : MonoBehaviour, ISaveManager, ISaver
 {
     [Inject] private ISaveWriter _writer;
     [Inject] private ISaveReader _reader;
+
+    public void Save(int levelNumber)
+    {
+        if (levelNumber <= ReadCurrentLevel())
+            return;
+
+        SaveData data = new(levelNumber);
+
+        _writer.Save(data);
+    }
     
     public void ResetLevels()
     {

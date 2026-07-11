@@ -17,6 +17,7 @@ public class SaveInstaller : MonoInstaller
 
         Container.Bind<SaveManager>().FromInstance(_saveManager).AsSingle();
         Container.Bind<ISaveManager>().FromMethod(ctx => ctx.Container.Resolve<SaveManager>()).AsSingle();
+        Container.Bind<ISaver>().FromMethod(ctx => ctx.Container.Resolve<SaveManager>()).AsSingle();
 
         Container.Bind<LevelUnlocker>().FromInstance(_levelUnlocker).AsSingle();
         Container.Bind<ILevelUnlocker>().FromMethod(ctx => ctx.Container.Resolve<LevelUnlocker>()).AsSingle();

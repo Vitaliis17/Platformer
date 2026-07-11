@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &595566761507898389
 RectTransform:
   m_ObjectHideFlags: 0
@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 6250900530474124639}
   - component: {fileID: 5994569318264401705}
   - component: {fileID: 7442742314894103544}
+  - component: {fileID: 8787547233669071274}
   m_Layer: 5
   m_Name: ContinueButton
   m_TagString: Untagged
@@ -110,10 +111,10 @@ RectTransform:
   - {fileID: 6730748631533827006}
   m_Father: {fileID: 2673731016404430553}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 300, y: -75}
+  m_SizeDelta: {x: 600, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6250900530474124639
 CanvasRenderer:
@@ -209,18 +210,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PauseSwitcher, GameLogic
-        m_MethodName: Unpause
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+--- !u!114 &8787547233669071274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2595158723376260452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e22528650a3a74aa5874bb831a7240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::ContinueButton
+  _button: {fileID: 7442742314894103544}
 --- !u!1 &2716345016952569096
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,6 +235,7 @@ GameObject:
   - component: {fileID: 2621812238022463919}
   - component: {fileID: 5724148446702875983}
   - component: {fileID: 568596837411660341}
+  - component: {fileID: 3972141185029647623}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -255,10 +258,10 @@ RectTransform:
   - {fileID: 6820742993333969143}
   m_Father: {fileID: 2673731016404430553}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 300, y: -235}
+  m_SizeDelta: {x: 600, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2621812238022463919
 CanvasRenderer:
@@ -341,31 +344,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5724148446702875983}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PauseSwitcher, GameLogic
-        m_MethodName: Unpause
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LevelLoader, GameLogic
-        m_MethodName: LoadMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &3972141185029647623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2716345016952569096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f55f1f7d6dae8144bf33d1cd5766828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::MenuButton
+  _button: {fileID: 568596837411660341}
 --- !u!1 &2971717801423089804
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,6 +370,7 @@ GameObject:
   - component: {fileID: 962388780710839560}
   - component: {fileID: 5912112082059150689}
   - component: {fileID: 4493263789757327962}
+  - component: {fileID: 3417749838993760136}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -400,10 +393,10 @@ RectTransform:
   - {fileID: 696109378608195103}
   m_Father: {fileID: 2673731016404430553}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 300, y: -395}
+  m_SizeDelta: {x: 600, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &962388780710839560
 CanvasRenderer:
@@ -486,19 +479,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5912112082059150689}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Quiter, GameLogic
-        m_MethodName: Quit
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &3417749838993760136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2971717801423089804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4e308965f1a3454ca25eadb0d7c3cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::ExitButton
+  _button: {fileID: 4493263789757327962}
 --- !u!1 &7927567950225877058
 GameObject:
   m_ObjectHideFlags: 0

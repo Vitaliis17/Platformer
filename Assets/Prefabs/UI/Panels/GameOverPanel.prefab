@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 4937207586150841117}
   - component: {fileID: 7367235195382846461}
   - component: {fileID: 1877690109030391803}
+  - component: {fileID: 7166715846243997414}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -257,19 +258,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7367235195382846461}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LevelLoader, GameLogic
-        m_MethodName: LoadMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &7166715846243997414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2591067669272276790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f55f1f7d6dae8144bf33d1cd5766828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::MenuButton
+  _button: {fileID: 1877690109030391803}
 --- !u!1 &3718092529710861779
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,6 +561,7 @@ GameObject:
   - component: {fileID: 1503617565443343258}
   - component: {fileID: 7027193367566366860}
   - component: {fileID: 2486510112702241052}
+  - component: {fileID: 134205672066879413}
   m_Layer: 5
   m_Name: RetryButton
   m_TagString: Untagged
@@ -667,16 +670,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7027193367566366860}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LevelLoader, GameLogic
-        m_MethodName: LoadLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &134205672066879413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8670439127565100811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350727f52ea70f5428cdac2aa5a4452c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::RetryButton
+  _button: {fileID: 2486510112702241052}
+  _levelNumber: 1

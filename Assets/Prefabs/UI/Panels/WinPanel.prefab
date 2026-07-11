@@ -564,6 +564,7 @@ GameObject:
   - component: {fileID: 592978220387954033}
   - component: {fileID: 899069945590925830}
   - component: {fileID: 4809503146890730338}
+  - component: {fileID: 9002250220718310628}
   m_Layer: 5
   m_Name: MenuButton
   m_TagString: Untagged
@@ -672,19 +673,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 899069945590925830}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LevelLoader, GameLogic
-        m_MethodName: LoadMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &9002250220718310628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4244615610113471863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f55f1f7d6dae8144bf33d1cd5766828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::MenuButton
+  _button: {fileID: 4809503146890730338}
 --- !u!1 &5729829591885266220
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,6 +699,9 @@ GameObject:
   - component: {fileID: 6699141324561242596}
   - component: {fileID: 9207164422172908930}
   - component: {fileID: 4166547631476126169}
+  - component: {fileID: 5676029596882894171}
+  - component: {fileID: 6869176243893793464}
+  - component: {fileID: 6377176739162051098}
   m_Layer: 5
   m_Name: NextLevelButton
   m_TagString: Untagged
@@ -805,31 +810,48 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 9207164422172908930}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PauseSwitcher, GameLogic
-        m_MethodName: Unpause
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LevelLoader, GameLogic
-        m_MethodName: LoadLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &5676029596882894171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5729829591885266220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350727f52ea70f5428cdac2aa5a4452c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::LevelLoaderButton
+  _button: {fileID: 4166547631476126169}
+  _levelNumber: 2
+--- !u!114 &6869176243893793464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5729829591885266220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e22528650a3a74aa5874bb831a7240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::UnpauseButton
+  _button: {fileID: 4166547631476126169}
+--- !u!114 &6377176739162051098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5729829591885266220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f9580b215be7624c87e55a56e783e4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::SaveButton
+  _button: {fileID: 4166547631476126169}
+  _levelNumber: 0
 --- !u!1 &6688075997327855630
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,6 +864,7 @@ GameObject:
   - component: {fileID: 443491984103436854}
   - component: {fileID: 5059971254689673027}
   - component: {fileID: 2568950130961178248}
+  - component: {fileID: 2392151988293289379}
   m_Layer: 5
   m_Name: RetryButton
   m_TagString: Untagged
@@ -950,16 +973,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5059971254689673027}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LevelLoader, GameLogic
-        m_MethodName: LoadLevel
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &2392151988293289379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6688075997327855630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350727f52ea70f5428cdac2aa5a4452c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::RetryButton
+  _button: {fileID: 2568950130961178248}
+  _levelNumber: 1
