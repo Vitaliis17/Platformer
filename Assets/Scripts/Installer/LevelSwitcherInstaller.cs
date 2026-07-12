@@ -28,5 +28,7 @@ public class LevelSwitcherInstaller : MonoInstaller
         Container.Bind<LevelLoader>().FromInstance(_levelLoader).AsSingle();
 
         Container.Bind<IMenuLoader>().FromMethod(ctx => ctx.Container.Resolve<LevelLoader>()).AsSingle();
+        Container.Bind<ILevelLoader>().FromMethod(ctx => ctx.Container.Resolve<LevelLoader>()).AsSingle();
+        Container.Bind<IHaveLevelLoaderEvent>().FromMethod(ctx => ctx.Container.Resolve<LevelLoader>()).AsSingle();
     }
 }

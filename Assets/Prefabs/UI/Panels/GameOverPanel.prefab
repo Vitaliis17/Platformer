@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 1503617565443343258}
   - component: {fileID: 7027193367566366860}
   - component: {fileID: 2486510112702241052}
-  - component: {fileID: 134205672066879413}
+  - component: {fileID: 2635456380583020053}
   m_Layer: 5
   m_Name: RetryButton
   m_TagString: Untagged
@@ -671,7 +671,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &134205672066879413
+--- !u!114 &2635456380583020053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -680,8 +680,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8670439127565100811}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 350727f52ea70f5428cdac2aa5a4452c, type: 3}
+  m_Script: {fileID: 11500000, guid: f6a7257704b524e41a1f1add49dc9063, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: GameLogic::RetryButton
+  m_EditorClassIdentifier: GameLogic::RetryLevelButton
   _button: {fileID: 2486510112702241052}
-  _levelNumber: 1
+  _data: {fileID: 11400000, guid: 5059224a63b82bd45af9a584959fd6c2, type: 2}

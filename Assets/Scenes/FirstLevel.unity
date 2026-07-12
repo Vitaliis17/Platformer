@@ -723,7 +723,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 16
-      m_TileSpriteIndex: 3
+      m_TileSpriteIndex: 5
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -732,8 +732,8 @@ Tilemap:
   - first: {x: -9, y: -5, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 24
-      m_TileSpriteIndex: 5
+      m_TileIndex: 23
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1067,25 +1067,25 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 9166e60b43c5584469163f677fcd1d05, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 9a9ab7c1a335bba4eb2d0564d6e2c7e3, type: 2}
-  - m_RefCount: 18
+  - m_RefCount: 19
     m_Data: {fileID: 11400000, guid: e97b271789b843941bea09a6f2ac0fb4, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 851216138129688449f9885e760f86e8, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: e18d81c26a9f48d4aa8d39b7efca4457, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 18
+  - m_RefCount: 19
     m_Data: {fileID: 6564694999658441223, guid: 382765ded7441854c8496ddb439c0188, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 754310725531168341, guid: 80a60b70420268f48b8f3c2594e4af75, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 42
     m_Data: {fileID: 1025098624757503153, guid: b91a68758e54105418a3b6b61f4c42f3, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 1963862852722972084, guid: fd82b2c5d1d68ff46acb661659c4292d, type: 3}
+    m_Data: {fileID: 754310725531168341, guid: 80a60b70420268f48b8f3c2594e4af75, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 5630795554229079247, guid: 263c5dc592310ee408423f872cd3e816, type: 3}
   - m_RefCount: 5
@@ -1243,16 +1243,8 @@ CompositeCollider2D:
         Y: -40428572
       - X: 69571432
         Y: -40000000
-      - X: -89571432
+      - X: -90000000
         Y: -40000000
-      - X: -90000000
-        Y: -40428572
-      - X: -90000000
-        Y: -49571428
-      - X: -89571432
-        Y: -50000000
-      - X: -90000000
-        Y: -50000000
       - X: -90000000
         Y: -80000000
       - X: 50000000
@@ -1289,11 +1281,7 @@ CompositeCollider2D:
       - {x: 7, y: -4.371417}
       - {x: 6.999992, y: -4.0428495}
       - {x: 6.957133, y: -4}
-      - {x: -8.95715, y: -4.0000076}
-      - {x: -9, y: -4.042868}
-      - {x: -8.999992, y: -4.9571505}
-      - {x: -8.957231, y: -5}
-      - {x: -9, y: -5.000029}
+      - {x: -9, y: -4.000029}
       - {x: -8.99997, y: -8}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
@@ -1700,7 +1688,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2674955759047883420, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
   m_PrefabInstance: {fileID: 8081474561034589440}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 8081474561034589442}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fda92666e46d31740b9d69b7b88db634, type: 3}
@@ -3036,6 +3024,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6377176739162051098, guid: 46cb074dd263596458f9ca7438bcd057, type: 3}
+      propertyPath: _levelNumber
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3069,6 +3061,10 @@ PrefabInstance:
       propertyPath: _levelUnlocker
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6347081415223267307, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
+      propertyPath: _levelLoader
+      value: 
+      objectReference: {fileID: 8081474561034589441}
     - target: {fileID: 6674875563447661104, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.38524
@@ -3990,8 +3986,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1875605025942310422, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8081474561034589443}
   m_SourcePrefab: {fileID: 100100000, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
+--- !u!114 &8081474561034589441 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3175401442815819277, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
+  m_PrefabInstance: {fileID: 8081474561034589440}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8081474561034589442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05fa745e0c7547c4e975377fd9b7b1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::LevelLoader
+--- !u!1 &8081474561034589442 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1875605025942310422, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
+  m_PrefabInstance: {fileID: 8081474561034589440}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8081474561034589443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8081474561034589442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26c4e8e92c72b2242a41c2b0fff613bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::LevelDataPresenter
+  _levelData: {fileID: 11400000, guid: 5059224a63b82bd45af9a584959fd6c2, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
