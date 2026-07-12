@@ -45,7 +45,7 @@ public class SceneLoader : IDisposable, ISceneLoader
             Addressables.UnloadSceneAsync(_handle);
 
         _handle = Addressables.LoadSceneAsync(sceneName.ToString());
-
+        
         await _handle.Task;
 
         if (_handle.Status == AsyncOperationStatus.Succeeded)

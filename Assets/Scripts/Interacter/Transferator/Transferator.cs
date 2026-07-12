@@ -10,9 +10,10 @@ public class Transferator : MonoBehaviour, ITransferator<IInteractable>
         if (interactable == null)
             return;
 
-        Vector2 deltaPosition = delta / _screenData.PixelPerUnit;
-
         if (interactable is MonoBehaviour moveableObject)
-            moveableObject.transform.position += (Vector3)deltaPosition;
+            moveableObject.transform.position += (Vector3)delta;
     }
+
+    public Vector2 GetDeltaPosition(Vector2 delta)
+        => delta / _screenData.PixelPerUnit;
 }

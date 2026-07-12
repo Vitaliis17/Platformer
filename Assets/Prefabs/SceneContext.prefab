@@ -1,0 +1,227 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8270760341706948662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6674875563447661104}
+  - component: {fileID: 8112754716908777530}
+  - component: {fileID: 6347081415223267307}
+  - component: {fileID: 8670061386793462005}
+  - component: {fileID: 5091135270989952294}
+  - component: {fileID: 8907491760535780105}
+  - component: {fileID: 1075074851238728287}
+  - component: {fileID: 190916509614836387}
+  - component: {fileID: 328879386559072360}
+  - component: {fileID: 8212287471781046270}
+  - component: {fileID: 7719636502933943163}
+  - component: {fileID: 1009524251738559324}
+  m_Layer: 0
+  m_Name: SceneContext
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6674875563447661104
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270760341706948662}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.38524, y: 0.08211, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8112754716908777530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270760341706948662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89715ad69b973a14899afa2c6730b30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Zenject::Zenject.SceneContext
+  _scriptableObjectInstallers: []
+  _monoInstallers:
+  - {fileID: 6347081415223267307}
+  - {fileID: 8670061386793462005}
+  - {fileID: 5091135270989952294}
+  - {fileID: 8907491760535780105}
+  - {fileID: 1075074851238728287}
+  - {fileID: 190916509614836387}
+  - {fileID: 328879386559072360}
+  - {fileID: 8212287471781046270}
+  - {fileID: 7719636502933943163}
+  - {fileID: 1009524251738559324}
+  _installerPrefabs: []
+  _findSiblingMonoInstallers: 0
+  _autoRun: 1
+  OnPreInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostInstall:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPreResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPostResolve:
+    m_PersistentCalls:
+      m_Calls: []
+  _parentNewObjectsUnderSceneContext: 0
+  _contractNames: []
+  _parentContractNames: []
+--- !u!114 &6347081415223267307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270760341706948662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa6bd7ba620f4dc448ffae0210bde72f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::LevelSwitcherInstaller
+  _levelLoader: {fileID: 0}
+--- !u!114 &8670061386793462005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270760341706948662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b835f3307399f4e91a518ded146c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::PlayerInstaller
+  _moverData: {fileID: 11400000, guid: 047e2caddf41a454a859411d3330f397, type: 2}
+  _jumpData: {fileID: 11400000, guid: 3822057ef346947478013fac8fb76f86, type: 2}
+  _rigidbody: {fileID: 0}
+--- !u!114 &5091135270989952294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270760341706948662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8aa5fd846956144a9c11e87b6ae0ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::RaycasterInstaller
+  _inventoryContainerLayer:
+    serializedVersion: 2
+    m_Bits: 32
+  _interactableLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &8907491760535780105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270760341706948662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29daae49f6519e7488e7b2f9f51f6d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::UIInstaller
+  _pauseData: {fileID: 11400000, guid: 095c19895e390e54d9b660f5cd0fb94c, type: 2}
+--- !u!114 &1075074851238728287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270760341706948662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc8bb1710522a7d48842bb3f7b29dfd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::InteractableObjectsInstaller
+--- !u!114 &190916509614836387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270760341706948662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7389e1c4f8594c543a4460e87449d625, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::InteracterInstaller
+  _screenData: {fileID: 11400000, guid: 7a33fc3897b025342bab9af5bd400597, type: 2}
+--- !u!114 &328879386559072360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270760341706948662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19ce62bb07106824bb25c4b28ce7bc06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::TriggerInstaller
+  _ladder: {fileID: 0}
+  _border: {fileID: 0}
+  _groundChecker: {fileID: 0}
+--- !u!114 &8212287471781046270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270760341706948662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1abde83eaa891a144992dfac831bfcd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::AnimationInstaller
+  _animationPrioritiesData: {fileID: 11400000, guid: 9bba44a5907969e409c2bb301826b148, type: 2}
+  _playerAnimator: {fileID: 0}
+--- !u!114 &7719636502933943163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270760341706948662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 991da2a053350d44bb9eddbe3c2d4de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::GameplayReaderInstaller
+  _zoneCheckerData: {fileID: 11400000, guid: e2a4296203735a54084e53a08744c228, type: 2}
+--- !u!114 &1009524251738559324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270760341706948662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45377028de8884f44b67005b135539ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::SaveInstaller
+  _pathName: Save
+  _saveManager: {fileID: 0}
+  _levelUnlocker: {fileID: 0}

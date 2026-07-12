@@ -5,7 +5,7 @@ using Zenject;
 
 public class PlayerAnimationPresenter : MonoBehaviour
 {
-    [Inject(Id = TriggerNames.GroundChecker)] private Trigger _groundChecker;
+    [Inject(Id = TriggerNames.GroundChecker)] private IHaveTriggerEvent _groundChecker;
 
     [Inject(Id = TriggerNames.Ladder)] private IHaveTriggerEvent _ladderMap;
 

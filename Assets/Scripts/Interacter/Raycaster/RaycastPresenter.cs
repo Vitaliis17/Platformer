@@ -16,47 +16,15 @@ public class RaycastPresenter : MonoBehaviour
 
     [Inject] private IContainer _container;
 
-    private Vector2 _delta;
     private bool _isPressed;
 
     private void Start()
     {
-        _holdReader.HoldChanged.Subscribe(position => _delta = position);
+        SubscribeGettingContainerItem();
+        SubscribeSettingContainerItem();
 
-        _touchReader.PressChanged
-            .Where(isPressed => _isPressed == false && isPressed)
-            .Select(_ => _inventoryContainerRaycaster.Raycast())
-            .Where(container => container != null && container.IsEmpty() == false)
-            .Subscribe(container => container.Get())
-            .AddTo(this);
-
-
-        _touchReader.PressChanged
-            .Where(isPressing => isPressing)
-            .Where(_ => _container.IsEmpty() == false)
-            .Subscribe(_ => _transferator.Transfer(_delta, _container.Get()))
-            .AddTo(this);
-
-        _touchReader.PressChanged
-            .Where(isPressing => isPressing && _isPressed == false)
-            .Select(_ => _interactableRaycaster.Raycast())
-            .Where(interactable => interactable != null)
-            .Where(interactable => _zoneChecker.IsInside(_origin.Position, ((MonoBehaviour)interactable).transform.position))
-            .Subscribe(interactable =>
-            {
-                _isPressed = true;
-                _container.Set(interactable);
-            }).AddTo(this);
-
-        _touchReader.PressChanged
-            .Where(isPressed => _isPressed && isPressed == false)
-            .Subscribe(isPressed =>
-            {
-                SetInventoryContainer();
-
-                _isPressed = isPressed;
-                _container.SetEmpty();
-            }).AddTo(this);
+        SubscribeGettingItem();
+        SubscribeTransferItem();
     }
 
     private void SetInventoryContainer()
@@ -70,5 +38,62 @@ public class RaycastPresenter : MonoBehaviour
             return;
 
         inventoryContainer.Set(_container.Get());
+    }
+
+    private void SubscribeGettingContainerItem()
+    {
+        _touchReader.PressChanged
+            .Where(isPressed => _isPressed == false && isPressed)
+            .Select(_ => _inventoryContainerRaycaster.Raycast())
+            .Where(container => container != null && container.IsEmpty() == false)
+            .Subscribe(container => container.Get())
+            .AddTo(this);
+    }
+
+    private void SubscribeSettingContainerItem()
+    {
+        _touchReader.PressChanged
+            .Where(isPressed => _isPressed && isPressed == false)
+            .Subscribe(isPressed =>
+            {
+                SetInventoryContainer();
+
+                _isPressed = isPressed;
+                _container.SetEmpty();
+            }).AddTo(this);
+    }
+
+    private void SubscribeGettingItem()
+    {
+        _touchReader.PressChanged
+            .Where(isPressed => _isPressed == false && isPressed)
+            .Select(_ => _interactableRaycaster.Raycast())
+            .Where(interactable => interactable != null)
+            .Where(interactable => _zoneChecker.IsInside(_origin.Position, ((MonoBehaviour)interactable).transform.position))
+            .Subscribe(interactable =>
+            {
+                _isPressed = true;
+                _container.Set(interactable);
+            }).AddTo(this);
+    }
+
+    private void SubscribeTransferItem()
+    {
+        _touchReader.PressChanged
+            .Where(isPressing => isPressing)
+            .Where(_ => _container.IsEmpty() == false)
+            .Select(_ => _holdReader.HoldChanged.CurrentValue)
+            .Select(pixelDelta => _transferator.GetDeltaPosition(pixelDelta))
+            .Where(delta => IsInside(_container.Get(), delta))
+            .Subscribe(delta => _transferator.Transfer(delta, _container.Get()))
+            .AddTo(this);
+    }
+
+    private bool IsInside(IInteractable interactable, Vector2 delta)
+    {
+        Vector2 currentPosition = (Vector2)((MonoBehaviour)interactable).transform.position;
+        Vector2 nextPosition = delta + currentPosition;
+
+        return _zoneChecker.IsInside(_origin.Position, nextPosition);
     }
 }

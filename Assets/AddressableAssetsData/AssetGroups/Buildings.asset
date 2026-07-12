@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Buildings
   m_GUID: bac279eb3ae458840af49a1127c804f6
   m_SerializeEntries:
+  - m_GUID: 25a24096b3d05fc4ab6139ec0da6826e
+    m_Address: Door
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6f750649c4a8d3848ae55783455b700f
     m_Address: SignExit
     m_ReadOnly: 0

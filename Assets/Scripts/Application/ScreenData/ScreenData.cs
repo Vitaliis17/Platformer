@@ -5,7 +5,7 @@ public class ScreenData : ScriptableObject
 {
     public float PixelPerUnit { get; private set; }
 
-    private void Awake()
+    private void OnEnable()
     {
         Camera camera = Camera.main;
 

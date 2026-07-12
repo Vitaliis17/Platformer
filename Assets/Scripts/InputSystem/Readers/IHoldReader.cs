@@ -3,5 +3,5 @@ using R3;
 
 public interface IHoldReader
 {
-    public Observable<Vector2> HoldChanged { get; }
+    public ReadOnlyReactiveProperty<Vector2> HoldChanged { get; }
 }

@@ -20,11 +20,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bb3f92661d7e2d941b36cc6f2d73d215
-    m_Address: Player
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2f68b1dc5c43d146a4e3cded3a5fc3a
     m_Address: PauseIcon
     m_ReadOnly: 0
