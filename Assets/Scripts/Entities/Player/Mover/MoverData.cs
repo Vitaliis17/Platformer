@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "MoverData", menuName = "Movement/Move")]
+[CreateAssetMenu(fileName = nameof(MoverData), menuName = "Movement/" + nameof(MoverData))]
 public class MoverData : ScriptableObject
 {
     [SerializeField, Min(0)] private float _speed;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PauseData", menuName = "PauseData")]
+[CreateAssetMenu(fileName = nameof(PauseData), menuName = nameof(PauseData))]
 public class PauseData : ScriptableObject
 {
     [SerializeField, Min(0)] private float _minGameSpeed;

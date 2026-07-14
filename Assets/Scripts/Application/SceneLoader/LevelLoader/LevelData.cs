@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "LevelData", menuName = "LevelData")]
+[CreateAssetMenu(fileName = nameof(LevelData), menuName = nameof(LevelData))]
 public class LevelData : ScriptableObject
 {
     public int CurrentLevel { get; private set; }

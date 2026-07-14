@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "LayerData", menuName = "LayerData")]
+[CreateAssetMenu(fileName = nameof(LayerData), menuName = nameof(LayerData))]
 public class LayerData : ScriptableObject
 {
     [SerializeField] private LayerMask _layer;
