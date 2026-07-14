@@ -20,8 +20,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a33fc3897b025342bab9af5bd400597
+    m_Address: Assets/ScriptableObjects/ScreenData.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2f68b1dc5c43d146a4e3cded3a5fc3a
     m_Address: PauseIcon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e2a4296203735a54084e53a08744c228
+    m_Address: Assets/ScriptableObjects/ZoneCheckerData.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

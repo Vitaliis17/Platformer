@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = nameof(ZoneCheckerData), menuName = nameof(ZoneCheckerData)]
+[CreateAssetMenu(fileName = nameof(ZoneCheckerData), menuName = nameof(ZoneCheckerData))]
 public class ZoneCheckerData : ScriptableObject
 {
     [SerializeField] private float _radius;
