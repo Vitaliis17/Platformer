@@ -7,13 +7,7 @@ public class CloudSpawnerPresenter : MonoBehaviour
 {
     [Inject] private ISpawner<Cloud> _spawner;
 
-    [SerializeField] private float _minPositionY;
-    [SerializeField] private float _maxPositionY;
-
-    [SerializeField] private float _positionOffset;
-
-    [SerializeField] private float _spawnPositionX;
-    [SerializeField] private float _releasingPositionX;
+    [SerializeField] private CloudSpawnData _spawnData;
 
     private float _currentRandomNumber = 0;
     private float _lastRandomNumber = float.MinValue;
@@ -31,15 +25,15 @@ public class CloudSpawnerPresenter : MonoBehaviour
         Cloud cloud = _spawner.GetElement();
 
         do
-            _currentRandomNumber = UnityEngine.Random.Range(_minPositionY, _maxPositionY);
+            _currentRandomNumber = _spawnData.SpawnPositionX;
         while (IsInRange());
 
         _lastRandomNumber = _currentRandomNumber;
 
-        cloud.transform.position = new(_spawnPositionX, _currentRandomNumber);
+        cloud.transform.position = new(_spawnData.SpawnPositionX, _currentRandomNumber);
 
         cloud.PositionChanged
-            .Where(position => position.x > _releasingPositionX)
+            .Where(position => position.x > _spawnData.ReleasingPositionX)
             .Take(1)
             .Subscribe(_ => _spawner.ReleaseElement(cloud))
             .AddTo(cloud);
@@ -47,8 +41,8 @@ public class CloudSpawnerPresenter : MonoBehaviour
 
     private bool IsInRange()
     {
-        bool isInUpperLimit = _currentRandomNumber > _lastRandomNumber && _currentRandomNumber - _positionOffset < _lastRandomNumber;
-        bool isInLowerLimit = _currentRandomNumber < _lastRandomNumber && _currentRandomNumber + _positionOffset > _lastRandomNumber;
+        bool isInUpperLimit = _currentRandomNumber > _lastRandomNumber && _currentRandomNumber - _spawnData.PositionOffset < _lastRandomNumber;
+        bool isInLowerLimit = _currentRandomNumber < _lastRandomNumber && _currentRandomNumber + _spawnData.PositionOffset > _lastRandomNumber;
 
         return isInUpperLimit || isInLowerLimit;
     }

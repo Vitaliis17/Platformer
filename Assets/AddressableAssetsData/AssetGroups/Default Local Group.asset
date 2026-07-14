@@ -15,13 +15,108 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 60a144aaee485e84cb8f8d3ae8368a93
   m_SerializeEntries:
+  - m_GUID: 0011bb4ce2aac5748a7c4f9ac216dde0
+    m_Address: SpeedData
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 047e2caddf41a454a859411d3330f397
     m_Address: MoverData
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 095c19895e390e54d9b660f5cd0fb94c
+    m_Address: PauseData
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1230b58f12d5e8b44b2a2e8f5b78b49d
+    m_Address: TreeLong
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2878de5709cd14844a38a127a21560e8
+    m_Address: Cloud7
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 30d13e62973c85248813e46c71aa435e
+    m_Address: House
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3822057ef346947478013fac8fb76f86
+    m_Address: JumpData
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 394e1beaf04e37a48b0db2157964f925
+    m_Address: Cloud3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5059224a63b82bd45af9a584959fd6c2
+    m_Address: LevelData
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59fe46cbc31fa1848a3c1e8548600adf
+    m_Address: Cloud8
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f2a4b5e3acb4784c8c129b4463127aa
+    m_Address: Sun
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 626b74691b2350444a010e08147446a9
+    m_Address: CloudSpawnData
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 69bbd8c4610ecd64e9f4ffd33ac58851
+    m_Address: Cloud2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6f775ed47051c4c419d93f9f3cb6ab6d
+    m_Address: BushOrange
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 722b6d685e49a80488df871484b43e8e
+    m_Address: Cloud6
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7a33fc3897b025342bab9af5bd400597
-    m_Address: Assets/ScriptableObjects/ScreenData.asset
+    m_Address: ScreenData
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82b60886406824344b3d6e6cf9aa8107
+    m_Address: Bush
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9bba44a5907969e409c2bb301826b148
+    m_Address: AnimationPrioritiesData
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ccb6dcfc709ab3428b1a08fb8080880
+    m_Address: ContainerLayerData
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a7848c84f286ed04ba53c0cd06c60197
+    m_Address: Pine
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b54b308ce0b37654b909ccb7eebe9449
+    m_Address: Cloud4
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -30,8 +125,28 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c6437974bc874e946b44d8830a7a1515
+    m_Address: Cloud1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d412a86d3e3e5174a9db3a935f017abf
+    m_Address: SpriteCloudData
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dffe29919e142df4ea99d2007f9676ac
+    m_Address: Cloud5
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e108caac6d54216478e7bb66f0413a98
+    m_Address: Tower
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e2a4296203735a54084e53a08744c228
-    m_Address: Assets/ScriptableObjects/ZoneCheckerData.asset
+    m_Address: ZoneCheckerData
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
