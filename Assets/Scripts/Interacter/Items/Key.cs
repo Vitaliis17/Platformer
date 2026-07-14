@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Key : Trigger, IInteractable
+public class Key : MonoBehaviour, IInteractable
 {
     public Vector2 Position => transform.position;
 
