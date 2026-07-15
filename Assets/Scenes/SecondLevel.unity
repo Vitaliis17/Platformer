@@ -5030,6 +5030,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7365190294092680730, guid: 25a24096b3d05fc4ab6139ec0da6826e, type: 3}
+      propertyPath: _panel
+      value: 
+      objectReference: {fileID: 2074966382}
+    - target: {fileID: 7365190294092680730, guid: 25a24096b3d05fc4ab6139ec0da6826e, type: 3}
+      propertyPath: _pauseSwitcher
+      value: 
+      objectReference: {fileID: 1798736567}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

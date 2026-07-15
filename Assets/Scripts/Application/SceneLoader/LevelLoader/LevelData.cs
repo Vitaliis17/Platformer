@@ -5,6 +5,9 @@ public class LevelData : ScriptableObject
 {
     public int CurrentLevel { get; private set; }
 
+    private void OnEnable()
+        => CurrentLevel = 1;
+
     public void SetCurrentLevel(int level)
     {
         const int MinLevel = 1;

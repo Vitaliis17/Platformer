@@ -17,15 +17,15 @@ public class LevelUnlocker : MonoBehaviour, ILevelUnlocker
     public void UnlockLevels(int lastLevelIndex)
     {
         const bool UnlockValue = true;
-        const int MinLevelIndex = 0;
+        const int MinLevelIndex = 1;
 
         if (lastLevelIndex < MinLevelIndex)
             return;
 
-        if (lastLevelIndex >= _levelButtons.Count)
-            lastLevelIndex = _levelButtons.Count - 1;
+        if (lastLevelIndex > _levelButtons.Count)
+            lastLevelIndex = _levelButtons.Count;
 
-        for (int i = 0; i < lastLevelIndex + 1; i++)
+        for (int i = 0; i < lastLevelIndex; i++)
             _levelButtons[i].interactable = UnlockValue;
     }
 

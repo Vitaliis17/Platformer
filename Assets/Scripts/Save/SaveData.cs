@@ -5,6 +5,6 @@ public class SaveData
 {
     public int CompleteLevelAmount;
 
-    public SaveData(int unlockLevelAmount = 0)
+    public SaveData(int unlockLevelAmount = 1)
         => CompleteLevelAmount = unlockLevelAmount;
 }

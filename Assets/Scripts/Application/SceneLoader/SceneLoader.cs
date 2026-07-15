@@ -1,16 +1,16 @@
-using UnityEngine;
-using UnityEngine.AddressableAssets;
-using UnityEngine.SceneManagement;
-using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.ResourceManagement.ResourceProviders;
 using System;
 using System.Threading;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
+using UnityEngine.SceneManagement;
 using Zenject;
 
 public class SceneLoader : IDisposable, ISceneLoader
 {
     private readonly CancellationTokenSource _source;
-    
+
     private AsyncOperationHandle<SceneInstance> _handle;
 
     [Inject]
@@ -45,7 +45,7 @@ public class SceneLoader : IDisposable, ISceneLoader
             Addressables.UnloadSceneAsync(_handle);
 
         _handle = Addressables.LoadSceneAsync(sceneName.ToString());
-        
+
         await _handle.Task;
 
         if (_handle.Status == AsyncOperationStatus.Succeeded)
