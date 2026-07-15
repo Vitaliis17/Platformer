@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a998ab2e795d9284cada559fe3b8e5d4, type: 3}
   m_Name: CloudSpawnData
   m_EditorClassIdentifier: GameLogic::CloudSpawnData
-  _minPositionY: -2.5
+  _minPositionY: -1.5
   _maxPositionY: 3
-  _positionOffset: 2.5
+  _positionOffset: 2
   _spawnPositionX: -13.5
   _releasingPositionX: 14

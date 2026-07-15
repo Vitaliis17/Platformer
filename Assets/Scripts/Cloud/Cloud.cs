@@ -12,10 +12,10 @@ public class Cloud : MonoBehaviour, IHavePositionEvent
     public Observable<Vector2> PositionChanged => _positionChanged;
     public SpriteRenderer SpriteRenderer { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
-        _speed = _data.GetRandomSpeed();
         SpriteRenderer = GetComponent<SpriteRenderer>();
+        _speed = _data.GetRandomSpeed();
     }
 
     private void FixedUpdate()

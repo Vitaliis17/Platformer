@@ -15,7 +15,7 @@ public class CloudSpawnerPresenter : MonoBehaviour
     private void Start()
     {
         Observable
-            .Interval(TimeSpan.FromSeconds(80f))
+            .Interval(TimeSpan.FromSeconds(90f))
             .Subscribe(_ => Spawn())
             .AddTo(this);
     }
@@ -25,7 +25,7 @@ public class CloudSpawnerPresenter : MonoBehaviour
         Cloud cloud = _spawner.GetElement();
 
         do
-            _currentRandomNumber = _spawnData.SpawnPositionX;
+            _currentRandomNumber = _spawnData.RandomPositionY;
         while (IsInRange());
 
         _lastRandomNumber = _currentRandomNumber;

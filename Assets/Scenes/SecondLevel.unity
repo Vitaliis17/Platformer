@@ -719,6 +719,10 @@ PrefabInstance:
       propertyPath: _levelUnlocker
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1842882493289804812, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
+      propertyPath: _container
+      value: 
+      objectReference: {fileID: 1073569586}
     - target: {fileID: 6347081415223267307, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
       propertyPath: _levelLoader
       value: 

@@ -15,7 +15,7 @@ public class SpriteData : ScriptableObject
     }
 
     public float GetRandomScaleX()
-    => Random.Range(_minScaleX, _maxScaleX);
+        => Random.Range(_minScaleX, _maxScaleX);
 
     public Sprite GetRandomSprite()
     {
