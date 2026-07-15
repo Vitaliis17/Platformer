@@ -13,40 +13,65 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Player
-  m_GUID: 31516d3a4004b1d469d55865548e30bb
+  m_GUID: 36b54bfc27b9a4148aae7446148d08f9
   m_SerializeEntries:
   - m_GUID: 09b8e4791e35955489ecce92da84e444
-    m_Address: Walking2
+    m_Address: Sprites/Player/Walking2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1566d7ce24984f54993160eb5e26fdb5
+    m_Address: Animations/Player/Jumping
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3be594da456b8c044a6ec305ee3cf13a
-    m_Address: Climbing1
+    m_Address: Sprites/Player/Climbing1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53c70f22a5cc5634586d0a3cedf4ba9a
+    m_Address: Animations/Player/Walking
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b91ab788d6d0d949a02fe13c8660599
-    m_Address: Idle
+    m_Address: Sprites/Player/Idle
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6f5c3802618e3a240bea7a87add82cab
-    m_Address: Walking1
+    m_Address: Sprites/Player/Walking1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 80bec674dcd089940a9830efd5f73f96
+    m_Address: Animations/Player/Idle
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a1779cf46967b104c9dd3e202d6d9762
-    m_Address: Climbing2
+    m_Address: Sprites/Player/Climbing2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a6b20fc4de0a6464182486f538b01f9a
+    m_Address: Animations/Controller/Player
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bb3f92661d7e2d941b36cc6f2d73d215
-    m_Address: Base
+    m_Address: Sprites/Player/Base
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c09915ad3a6ae7a4c9a729990191619b
-    m_Address: Jumping
+    m_Address: Sprites/Player/Jumping
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d50b88a9ec0cd9a479d3439b3d387609
+    m_Address: Animations/Climbing
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -54,5 +79,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 12dfd6537f60ff04eaff23eb7aed5621, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 22b27077928ad4846a7b04caf334d558, type: 2}
-    - {fileID: 11400000, guid: d4584ea273b5d5e4da3d3dba2e1cd90d, type: 2}
+    - {fileID: 11400000, guid: 31c5f9d7a9f0f6f41b2b3501e30c5814, type: 2}
+    - {fileID: 11400000, guid: 4c9a72adb94f5f04fb28cd60c0b2ee5e, type: 2}

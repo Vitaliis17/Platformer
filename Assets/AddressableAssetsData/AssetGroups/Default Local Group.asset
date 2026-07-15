@@ -50,11 +50,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1566d7ce24984f54993160eb5e26fdb5
-    m_Address: Animations/Player/Jumping
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1a880270c7461e142beb5e2bf24554b6
     m_Address: cloud1
     m_ReadOnly: 0
@@ -115,11 +110,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 53c70f22a5cc5634586d0a3cedf4ba9a
-    m_Address: Animations/Player/Walking
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 544bb6e076d9610418b04f498d2473b2
     m_Address: door/PlateTop
     m_ReadOnly: 0
@@ -175,13 +165,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7a33fc3897b025342bab9af5bd400597
-    m_Address: ScreenData
+  - m_GUID: 795301d3bbfcbf24eb7f943943b5e7a7
+    m_Address: gameSound
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 80bec674dcd089940a9830efd5f73f96
-    m_Address: Animations/Player/Idle
+  - m_GUID: 7a33fc3897b025342bab9af5bd400597
+    m_Address: ScreenData
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -212,11 +202,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a34291f53c4e7a04ca30cb4027c030e3
     m_Address: door/top
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a6b20fc4de0a6464182486f538b01f9a
-    m_Address: Animations/Controller/Player
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -260,13 +245,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d412a86d3e3e5174a9db3a935f017abf
-    m_Address: SpriteCloudData
+  - m_GUID: ce5ef673bf249334cb91092cd04a2c35
+    m_Address: MenuSound
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d50b88a9ec0cd9a479d3439b3d387609
-    m_Address: Animations/Player/Climbing
+  - m_GUID: d412a86d3e3e5174a9db3a935f017abf
+    m_Address: SpriteCloudData
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
