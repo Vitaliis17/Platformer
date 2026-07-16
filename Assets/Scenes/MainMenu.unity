@@ -895,6 +895,7 @@ GameObject:
   - component: {fileID: 494594175}
   - component: {fileID: 494594174}
   - component: {fileID: 494594176}
+  - component: {fileID: 494594177}
   m_Layer: 5
   m_Name: Button (6)
   m_TagString: Untagged
@@ -1004,18 +1005,56 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 843414047}
-        m_TargetAssemblyTypeName: LevelLoader, GameLogic
-        m_MethodName: LoadLevel
-        m_Mode: 3
+      - m_Target: {fileID: 424065404}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 7
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 634835473}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &494594177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494594172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734493d68aa11a941a8ddb13996a0263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::LevelLoaderButton
+  _button: {fileID: 494594176}
+  _levelNumber: 7
 --- !u!1 &500305680
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,8 +1204,9 @@ GameObject:
   - component: {fileID: 538674646}
   - component: {fileID: 538674645}
   - component: {fileID: 538674647}
+  - component: {fileID: 538674648}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: ThirdLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1274,18 +1314,56 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 843414047}
-        m_TargetAssemblyTypeName: LevelLoader, GameLogic
-        m_MethodName: LoadLevel
-        m_Mode: 3
+      - m_Target: {fileID: 424065404}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 634835473}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &538674648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538674643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734493d68aa11a941a8ddb13996a0263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::LevelLoaderButton
+  _button: {fileID: 538674647}
+  _levelNumber: 3
 --- !u!1 &594536400
 GameObject:
   m_ObjectHideFlags: 0
@@ -1689,77 +1767,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707043657}
   m_CullTransparentMesh: 1
---- !u!1 &843414042
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 843414045}
-  - component: {fileID: 843414046}
-  - component: {fileID: 843414047}
-  - component: {fileID: 843414048}
-  m_Layer: 0
-  m_Name: Application
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &843414045
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843414042}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.31171, y: -0.70114, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &843414046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843414042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17d6c2308a0a60e4fa4e46f4988925a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::Quiter
---- !u!114 &843414047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843414042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05fa745e0c7547c4e975377fd9b7b1ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::LevelLoader
---- !u!114 &843414048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843414042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26c4e8e92c72b2242a41c2b0fff613bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::LevelDataPresenter
-  _levelData: {fileID: 11400000, guid: 5059224a63b82bd45af9a584959fd6c2, type: 2}
 --- !u!1 &872491930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1843,7 +1850,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 843414046}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Quiter, GameLogic
         m_MethodName: Quit
         m_Mode: 1
@@ -2042,8 +2049,9 @@ GameObject:
   - component: {fileID: 1102185982}
   - component: {fileID: 1102185981}
   - component: {fileID: 1102185983}
+  - component: {fileID: 1102185984}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: SecondLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2151,18 +2159,56 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 843414047}
-        m_TargetAssemblyTypeName: LevelLoader, GameLogic
-        m_MethodName: LoadLevel
-        m_Mode: 3
+      - m_Target: {fileID: 424065404}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 634835473}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1102185984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102185979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734493d68aa11a941a8ddb13996a0263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::LevelLoaderButton
+  _button: {fileID: 1102185983}
+  _levelNumber: 2
 --- !u!1 &1132981222
 GameObject:
   m_ObjectHideFlags: 0
@@ -2312,8 +2358,9 @@ GameObject:
   - component: {fileID: 1144584690}
   - component: {fileID: 1144584689}
   - component: {fileID: 1144584691}
+  - component: {fileID: 1144584692}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: FifthLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2421,18 +2468,56 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 843414047}
-        m_TargetAssemblyTypeName: LevelLoader, GameLogic
-        m_MethodName: LoadLevel
-        m_Mode: 3
+      - m_Target: {fileID: 424065404}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 5
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 634835473}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1144584692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144584687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734493d68aa11a941a8ddb13996a0263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::LevelLoaderButton
+  _button: {fileID: 1144584691}
+  _levelNumber: 5
 --- !u!1 &1157940304
 GameObject:
   m_ObjectHideFlags: 0
@@ -2535,6 +2620,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &1168562351
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1875605025942310422, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
+      propertyPath: m_Name
+      value: Application
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.55959
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -9.25986
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
 --- !u!1 &1235548186
 GameObject:
   m_ObjectHideFlags: 0
@@ -2726,7 +2868,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1354546367}
   - component: {fileID: 1354546369}
-  - component: {fileID: 1354546368}
   - component: {fileID: 1354546370}
   m_Layer: 0
   m_Name: SceneContext
@@ -2750,19 +2891,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1354546368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354546364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa6bd7ba620f4dc448ffae0210bde72f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::ProjectInstaller
-  _levelLoader: {fileID: 843414047}
 --- !u!114 &1354546369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2777,7 +2905,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Zenject::Zenject.SceneContext
   _scriptableObjectInstallers: []
   _monoInstallers:
-  - {fileID: 1354546368}
   - {fileID: 1354546370}
   _installerPrefabs: []
   _findSiblingMonoInstallers: 0
@@ -2806,11 +2933,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1354546364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45377028de8884f44b67005b135539ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 5568b9af1fafeed40935ccc819b251c6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: GameLogic::SaveInstaller
-  _pathName: Save
-  _saveManager: {fileID: 1932788229}
+  m_EditorClassIdentifier: GameLogic::LevelUnlockerInstaller
   _levelUnlocker: {fileID: 1235548191}
 --- !u!1 &1378956285
 GameObject:
@@ -3098,6 +3223,7 @@ GameObject:
   - component: {fileID: 1430173382}
   - component: {fileID: 1430173381}
   - component: {fileID: 1430173383}
+  - component: {fileID: 1430173384}
   m_Layer: 5
   m_Name: Button (5)
   m_TagString: Untagged
@@ -3207,18 +3333,56 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 843414047}
-        m_TargetAssemblyTypeName: LevelLoader, GameLogic
-        m_MethodName: LoadLevel
-        m_Mode: 3
+      - m_Target: {fileID: 424065404}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 6
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 634835473}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1430173384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430173379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734493d68aa11a941a8ddb13996a0263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::LevelLoaderButton
+  _button: {fileID: 1430173383}
+  _levelNumber: 6
 --- !u!1 &1643511827
 GameObject:
   m_ObjectHideFlags: 0
@@ -3231,6 +3395,7 @@ GameObject:
   - component: {fileID: 1643511830}
   - component: {fileID: 1643511829}
   - component: {fileID: 1643511831}
+  - component: {fileID: 1643511832}
   m_Layer: 5
   m_Name: FirstLevel
   m_TagString: Untagged
@@ -3340,18 +3505,56 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 843414047}
-        m_TargetAssemblyTypeName: LevelLoader, GameLogic
-        m_MethodName: LoadLevel
-        m_Mode: 3
+      - m_Target: {fileID: 424065404}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 634835473}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1643511832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643511827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734493d68aa11a941a8ddb13996a0263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::LevelLoaderButton
+  _button: {fileID: 1643511831}
+  _levelNumber: 1
 --- !u!1 &1718291435
 GameObject:
   m_ObjectHideFlags: 0
@@ -3509,50 +3712,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718291435}
   m_CullTransparentMesh: 1
---- !u!1 &1932788226
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1932788228}
-  - component: {fileID: 1932788229}
-  m_Layer: 0
-  m_Name: Save
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1932788228
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1932788226}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.14032, y: -1.5622, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1932788229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1932788226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59aa8858d27c74240a37de7a83b32246, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::SaveManager
 --- !u!1 &1941840172
 GameObject:
   m_ObjectHideFlags: 0
@@ -3565,8 +3724,9 @@ GameObject:
   - component: {fileID: 1941840175}
   - component: {fileID: 1941840174}
   - component: {fileID: 1941840176}
+  - component: {fileID: 1941840177}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: FouthLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3674,18 +3834,56 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 843414047}
-        m_TargetAssemblyTypeName: LevelLoader, GameLogic
-        m_MethodName: LoadLevel
-        m_Mode: 3
+      - m_Target: {fileID: 424065404}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 634835473}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1941840177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941840172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734493d68aa11a941a8ddb13996a0263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::LevelLoaderButton
+  _button: {fileID: 1941840176}
+  _levelNumber: 4
 --- !u!1 &1959022819
 GameObject:
   m_ObjectHideFlags: 0
@@ -3762,6 +3960,7 @@ GameObject:
   - component: {fileID: 2055383250}
   - component: {fileID: 2055383249}
   - component: {fileID: 2055383248}
+  - component: {fileID: 2055383252}
   m_Layer: 5
   m_Name: Button (7)
   m_TagString: Untagged
@@ -3813,14 +4012,38 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 843414047}
-        m_TargetAssemblyTypeName: LevelLoader, GameLogic
-        m_MethodName: LoadLevel
-        m_Mode: 3
+      - m_Target: {fileID: 424065404}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 8
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 634835473}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3883,6 +4106,20 @@ RectTransform:
   m_AnchoredPosition: {x: 700, y: -300}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2055383252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055383247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734493d68aa11a941a8ddb13996a0263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::LevelLoaderButton
+  _button: {fileID: 2055383248}
+  _levelNumber: 8
 --- !u!1 &2078644287
 GameObject:
   m_ObjectHideFlags: 0
@@ -4046,8 +4283,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 416930061}
   - {fileID: 1157940308}
-  - {fileID: 843414045}
-  - {fileID: 1932788228}
+  - {fileID: 1168562351}
+  - {fileID: 634835475}
   - {fileID: 1354546367}
   - {fileID: 424065407}
-  - {fileID: 634835475}

@@ -10,16 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6674875563447661104}
   - component: {fileID: 8112754716908777530}
-  - component: {fileID: 6347081415223267307}
   - component: {fileID: 8670061386793462005}
   - component: {fileID: 5091135270989952294}
-  - component: {fileID: 8907491760535780105}
   - component: {fileID: 1075074851238728287}
   - component: {fileID: 190916509614836387}
   - component: {fileID: 328879386559072360}
   - component: {fileID: 8212287471781046270}
   - component: {fileID: 7719636502933943163}
-  - component: {fileID: 1009524251738559324}
   - component: {fileID: 1842882493289804812}
   m_Layer: 0
   m_Name: SceneContext
@@ -57,16 +54,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Zenject::Zenject.SceneContext
   _scriptableObjectInstallers: []
   _monoInstallers:
-  - {fileID: 6347081415223267307}
   - {fileID: 8670061386793462005}
   - {fileID: 5091135270989952294}
-  - {fileID: 8907491760535780105}
   - {fileID: 1075074851238728287}
   - {fileID: 190916509614836387}
   - {fileID: 328879386559072360}
   - {fileID: 8212287471781046270}
   - {fileID: 7719636502933943163}
-  - {fileID: 1009524251738559324}
   - {fileID: 1842882493289804812}
   _installerPrefabs: []
   _findSiblingMonoInstallers: 0
@@ -86,19 +80,6 @@ MonoBehaviour:
   _parentNewObjectsUnderSceneContext: 0
   _contractNames: []
   _parentContractNames: []
---- !u!114 &6347081415223267307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8270760341706948662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa6bd7ba620f4dc448ffae0210bde72f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::LevelSwitcherInstaller
-  _levelLoader: {fileID: 0}
 --- !u!114 &8670061386793462005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,19 +113,6 @@ MonoBehaviour:
   _interactableLayer:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &8907491760535780105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8270760341706948662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29daae49f6519e7488e7b2f9f51f6d53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::UIInstaller
-  _pauseData: {fileID: 11400000, guid: 095c19895e390e54d9b660f5cd0fb94c, type: 2}
 --- !u!114 &1075074851238728287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,21 +180,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: GameLogic::GameplayReaderInstaller
   _zoneCheckerData: {fileID: 11400000, guid: e2a4296203735a54084e53a08744c228, type: 2}
---- !u!114 &1009524251738559324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8270760341706948662}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45377028de8884f44b67005b135539ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::SaveInstaller
-  _pathName: Save
-  _saveManager: {fileID: 0}
-  _levelUnlocker: {fileID: 0}
 --- !u!114 &1842882493289804812
 MonoBehaviour:
   m_ObjectHideFlags: 0

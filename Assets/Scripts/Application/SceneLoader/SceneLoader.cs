@@ -41,9 +41,6 @@ public class SceneLoader : IDisposable, ISceneLoader
         if (sceneName == SceneNames.None || token.IsCancellationRequested)
             return;
 
-        if (_handle.IsValid())
-            Addressables.UnloadSceneAsync(_handle);
-
         _handle = Addressables.LoadSceneAsync(sceneName.ToString());
 
         await _handle.Task;

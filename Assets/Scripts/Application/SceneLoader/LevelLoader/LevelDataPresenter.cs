@@ -5,9 +5,8 @@ using Zenject;
 public class LevelDataPresenter : MonoBehaviour
 {
     [Inject] private IHaveLevelLoaderEvent _levelEvent;
-
-    [SerializeField] private LevelData _levelData;
+    [Inject] private ICurrentLevelSetter _currentLevelSetter;
 
     private void Start()
-        => _levelEvent.LevelChanging.Subscribe(levelNumber => _levelData.SetCurrentLevel(levelNumber)).AddTo(this);
+        => _levelEvent.LevelChanging.Subscribe(levelNumber => _currentLevelSetter.SetCurrentLevel(levelNumber)).AddTo(this);
 }

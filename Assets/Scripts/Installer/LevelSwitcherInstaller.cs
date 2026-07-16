@@ -1,13 +1,21 @@
-using UnityEngine;
 using Zenject;
 using System.Collections.Generic;
 using System.Threading;
+using UnityEngine;
 
 public class LevelSwitcherInstaller : MonoInstaller
 {
-    [SerializeField] private LevelLoader _levelLoader;
+    [SerializeField] private LevelData _levelData;
 
     public override void InstallBindings()
+    {
+        BindSceneLoader();
+        BindLevelLoader();
+
+        BindLevelData();
+    }
+
+    private void BindSceneLoader()
     {
         Container.Bind<Dictionary<int, SceneNames>>().FromInstance(new Dictionary<int, SceneNames>
         {
@@ -20,16 +28,19 @@ public class LevelSwitcherInstaller : MonoInstaller
 
         Container.Bind<CancellationTokenSource>().FromInstance(new()).AsTransient();
         Container.Bind<ISceneLoader>().To<SceneLoader>().AsTransient();
-
-        BindLevelSwitcher();
     }
 
-    private void BindLevelSwitcher()
+    private void BindLevelLoader()
     {
-        Container.Bind<LevelLoader>().FromInstance(_levelLoader).AsSingle();
-
+        Container.Bind<LevelLoader>().AsSingle();
         Container.Bind<IMenuLoader>().FromMethod(ctx => ctx.Container.Resolve<LevelLoader>()).AsSingle();
         Container.Bind<ILevelLoader>().FromMethod(ctx => ctx.Container.Resolve<LevelLoader>()).AsSingle();
         Container.Bind<IHaveLevelLoaderEvent>().FromMethod(ctx => ctx.Container.Resolve<LevelLoader>()).AsSingle();
+    }
+
+    private void BindLevelData()
+    {
+        Container.Bind<LevelData>().FromInstance(_levelData).AsSingle();
+        Container.Bind<ICurrentLevelSetter>().FromMethod(ctx => ctx.Container.Resolve<LevelData>()).AsSingle();
     }
 }

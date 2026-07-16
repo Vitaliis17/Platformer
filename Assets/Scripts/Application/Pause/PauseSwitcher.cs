@@ -1,16 +1,17 @@
 using UnityEngine;
 using Zenject;
 
-public class PauseSwitcher : MonoBehaviour, IPauseSwitcher
+public class PauseSwitcher : IPauseSwitcher
 {
-    [Inject] private PauseData _data;
+    private readonly IGameSpeedSender _speedData;
+
+    [Inject]
+    public PauseSwitcher(IGameSpeedSender speedData)
+        => _speedData = speedData;
 
     public void Pause()
-        => Time.timeScale = _data.MinGameSpeed;
+        => Time.timeScale = _speedData.MinGameSpeed;
 
     public void Unpause()
-        => Time.timeScale = _data.BaseGameSpeed;
-
-    private void OnDestroy()
-        => Unpause();
+        => Time.timeScale = _speedData.BaseGameSpeed;
 }

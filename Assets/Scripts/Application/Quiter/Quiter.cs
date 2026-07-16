@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Quiter : MonoBehaviour, IQuiter
+public class Quiter : IQuiter
 {
     public void Quit()
         => Application.Quit();

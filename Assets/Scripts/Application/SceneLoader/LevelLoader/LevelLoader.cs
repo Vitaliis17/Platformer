@@ -2,7 +2,7 @@ using UnityEngine;
 using Zenject;
 using R3;
 
-public class LevelLoader : MonoBehaviour, IMenuLoader, ILevelLoader, IHaveLevelLoaderEvent
+public class LevelLoader : IMenuLoader, ILevelLoader, IHaveLevelLoaderEvent
 {
     [Inject] private ISceneLoader _sceneLoader;
     [Inject] private IContainerReceiverByIndex<SceneNames> _container;

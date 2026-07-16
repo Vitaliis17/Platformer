@@ -65,16 +65,19 @@ public class RaycastPresenter : MonoBehaviour
 
     private void SubscribeGettingItem()
     {
-        _touchReader.PressChanged
-            .Where(isPressed => _isPressed == false && isPressed)
+        Observable<bool> pressChanged = _touchReader.PressChanged
+            .Where(isPressed => _isPressed == false && isPressed);
+
+        pressChanged
             .Select(_ => _interactableRaycaster.Raycast())
             .Where(interactable => interactable != null)
             .Where(interactable => _zoneChecker.IsInside(_origin.Position, ((MonoBehaviour)interactable).transform.position))
-            .Subscribe(interactable =>
-            {
-                _isPressed = true;
-                _container.Set(interactable);
-            }).AddTo(this);
+            .Subscribe(interactable => _container.Set(interactable))
+            .AddTo(this);
+        
+        pressChanged
+            .Subscribe(isPressed => _isPressed = true)
+            .AddTo(this);
     }
 
     private void SubscribeTransferItem()

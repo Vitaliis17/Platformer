@@ -9,9 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2848109948554936205}
-  - component: {fileID: 2674955759047883420}
-  - component: {fileID: 926998588175776076}
-  - component: {fileID: 3175401442815819277}
+  - component: {fileID: 8949241908231331944}
   m_Layer: 0
   m_Name: Application
   m_TagString: Untagged
@@ -34,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2674955759047883420
+--- !u!114 &8949241908231331944
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,30 +41,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1875605025942310422}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fda92666e46d31740b9d69b7b88db634, type: 3}
+  m_Script: {fileID: 11500000, guid: 26c4e8e92c72b2242a41c2b0fff613bf, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: GameLogic::PauseSwitcher
---- !u!114 &926998588175776076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1875605025942310422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17d6c2308a0a60e4fa4e46f4988925a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::Quiter
---- !u!114 &3175401442815819277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1875605025942310422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05fa745e0c7547c4e975377fd9b7b1ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::LevelLoader
+  m_EditorClassIdentifier: GameLogic::LevelDataPresenter

@@ -1,10 +1,16 @@
-using UnityEngine;
 using Zenject;
 
-public class SaveManager : MonoBehaviour, ISaveManager, ISaver
+public class SaveManager : ISaveManager, ISaver
 {
-    [Inject] private ISaveWriter _writer;
-    [Inject] private ISaveReader _reader;
+    private readonly ISaveWriter _writer;
+    private readonly ISaveReader _reader;
+
+    [Inject]
+    public SaveManager(ISaveWriter writer, ISaveReader reader)
+    {
+        _writer = writer;
+        _reader = reader;
+    }
 
     public void Save(int levelNumber)
     {

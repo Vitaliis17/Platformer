@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5345093797167419044}
   - component: {fileID: 1373801202827056157}
   - component: {fileID: 7546412083569030547}
-  - component: {fileID: 2853554463764104824}
   m_Layer: 8
   m_Name: Border
   m_TagString: Untagged
@@ -27,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4715165139778011444}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -78,7 +77,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 100, y: 1}
+  m_Size: {x: 20.41, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &7546412083569030547
 MonoBehaviour:
@@ -92,16 +91,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6109d5399521fcd4a95d7529d76bb27d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GameLogic::Trigger
---- !u!114 &2853554463764104824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4715165139778011444}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0fbd0e3f416b124f8dc051361a6e6ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::BorderPresenter
-  _gameOverPanel: {fileID: 0}

@@ -8,7 +8,8 @@ public class OpenDoorPresenter : MonoBehaviour
     [Inject(Id = IdNames.OpenDoor)] private IInteractable _interactable;
     [Inject] private IHaveInteractableEvent _interactableEvent;
 
-    [SerializeField] private PauseSwitcher _pauseSwitcher;
+    [Inject] private IPauseSwitcher _pauseSwitcher;
+    
     [SerializeField] private Transform _panel;
 
     private void Start()
