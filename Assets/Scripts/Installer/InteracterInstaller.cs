@@ -7,16 +7,32 @@ public class InteracterInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
+        BindInteracter();
+        BindInventoryContainer();
+        BindTransferator();
+        BindContainer();
+    }
+
+    private void BindInteracter()
+    {
         Container.Bind<Interacter>().FromComponentInHierarchy().AsSingle();
         Container.Bind<IInteracter>().FromMethod(ctx => ctx.Container.Resolve<Interacter>()).AsSingle();
+    }
 
-        Container.Bind<IContainer>().To<Container>().AsSingle();
-
+    private void BindInventoryContainer()
+    {
         Container.Bind<InventoryContainer>().FromComponentInHierarchy().AsSingle();
         Container.Bind<IInventoryContainer>().FromMethod(ctx => ctx.Container.Resolve<InventoryContainer>()).AsSingle();
-
-        Container.Bind<ScreenData>().FromScriptableObject(_screenData).AsSingle();
-        Container.Bind<Transferator>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<ITransferator<IInteractable>>().FromMethod(ctx => ctx.Container.Resolve<Transferator>()).AsSingle();
     }
+
+    private void BindTransferator()
+    {
+        Container.Bind<ScreenData>().FromInstance(_screenData).AsSingle();
+        Container.Bind<IPixelPerUnitSender>().FromMethod(ctx => ctx.Container.Resolve<ScreenData>()).AsSingle();
+
+        Container.Bind<ITransferator<IInteractable>>().To<Transferator>().AsSingle();
+    }
+
+    private void BindContainer()
+        => Container.Bind<IContainer>().To<Container>().AsSingle();
 }

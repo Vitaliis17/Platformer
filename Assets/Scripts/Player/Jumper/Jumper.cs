@@ -3,8 +3,15 @@ using Zenject;
 
 public class Jumper : IJumpable
 {
-    [Inject] private JumpData _data;
-    [Inject] private Rigidbody2D _rigidbody;
+    private readonly JumpData _data;
+    private readonly Rigidbody2D _rigidbody;
+
+    [Inject]
+    public Jumper(JumpData data, Rigidbody2D rigidbody)
+    {
+        _data = data;
+        _rigidbody = rigidbody;
+    }
 
     public void Jump()
         => _rigidbody.AddForce(_data.Force);

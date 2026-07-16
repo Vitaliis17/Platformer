@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = nameof(ScreenData), menuName = nameof(ScreenData))]
-public class ScreenData : ScriptableObject
+public class ScreenData : ScriptableObject, IPixelPerUnitSender
 {
     public float PixelPerUnit { get; private set; }
 

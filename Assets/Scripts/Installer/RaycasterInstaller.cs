@@ -8,10 +8,19 @@ public class RaycasterInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
-        Container.Bind<LayerMask>().FromInstance(_interactableLayer).WhenInjectedInto<IRaycaster<IInteractable>>();
-        Container.Bind<IRaycaster<IInteractable>>().To<Raycaster<IInteractable>>().AsSingle();
+        BindInteractableRaycaster();
+        BindInventoryContainer();
+    }
 
-        Container.Bind<LayerMask>().FromInstance(_inventoryContainerLayer).WhenInjectedInto<IRaycaster<IInventoryContainer>>();
-        Container.Bind<IRaycaster<IInventoryContainer>>().To<Raycaster<IInventoryContainer>>().AsSingle();
+    private void BindInteractableRaycaster()
+    {
+        Container.Bind<Raycaster<IInteractable>>().AsSingle().WithArguments(_interactableLayer);
+        Container.Bind<IRaycaster<IInteractable>>().FromMethod(ctx => ctx.Container.Resolve<Raycaster<IInteractable>>()).AsSingle();
+    }
+
+    private void BindInventoryContainer()
+    {
+        Container.Bind<Raycaster<IInventoryContainer>>().AsSingle().WithArguments(_inventoryContainerLayer);
+        Container.Bind<IRaycaster<IInventoryContainer>>().FromMethod(ctx => ctx.Container.Resolve<Raycaster<IInventoryContainer>>()).AsSingle();
     }
 }

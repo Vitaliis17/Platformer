@@ -1,9 +1,13 @@
 using UnityEngine;
 using Zenject;
 
-public class Transferator : MonoBehaviour, ITransferator<IInteractable>
+public class Transferator : ITransferator<IInteractable>
 {
-    [Inject] private ScreenData _screenData;
+    private readonly IPixelPerUnitSender _sender;
+
+    [Inject]
+    public Transferator(IPixelPerUnitSender sender)
+        => _sender = sender;
 
     public void Transfer(Vector2 delta, IInteractable interactable)
     {
@@ -15,5 +19,5 @@ public class Transferator : MonoBehaviour, ITransferator<IInteractable>
     }
 
     public Vector2 GetDeltaPosition(Vector2 delta)
-        => delta / _screenData.PixelPerUnit;
+        => delta / _sender.PixelPerUnit;
 }

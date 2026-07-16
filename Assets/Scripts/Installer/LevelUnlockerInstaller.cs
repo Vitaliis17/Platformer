@@ -9,6 +9,5 @@ public class LevelUnlockerInstaller : MonoInstaller
     {
         Container.Bind<LevelUnlocker>().FromInstance(_levelUnlocker).AsSingle();
         Container.Bind<ILevelUnlocker>().FromMethod(ctx => ctx.Container.Resolve<LevelUnlocker>()).AsSingle();
-        //Container.Bind<ILevelUnlocker>().To<LevelUnlocker>().AsSingle();
     }
 }

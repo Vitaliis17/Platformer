@@ -105,11 +105,11 @@ GameObject:
   - component: {fileID: 8400382091617277813}
   - component: {fileID: 2232952262863641690}
   - component: {fileID: 5304621304473728897}
-  - component: {fileID: 6879679370131244758}
   - component: {fileID: 5088060471083849575}
   - component: {fileID: 9042493174549265901}
   - component: {fileID: 3836785163216684520}
   - component: {fileID: 825026904188930383}
+  - component: {fileID: 6299373646270746163}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -290,18 +290,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34bc83c8c6128284c8f7ca822005c2b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GameLogic::Player
---- !u!114 &6879679370131244758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6526967547679189633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d48c01e1516ab2a4aab0b8a4677feb66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::Interacter
 --- !u!114 &5088060471083849575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,6 +339,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: GameLogic::PlayerFlipPresenter
   _playerRenderer: {fileID: 6335223014651735066}
+--- !u!114 &6299373646270746163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6526967547679189633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48c01e1516ab2a4aab0b8a4677feb66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::Interacter
 --- !u!1 &6940128414691965346
 GameObject:
   m_ObjectHideFlags: 0
