@@ -30,7 +30,7 @@ public class InteracterInstaller : MonoInstaller
         Container.Bind<ScreenData>().FromInstance(_screenData).AsSingle();
         Container.Bind<IPixelPerUnitSender>().FromMethod(ctx => ctx.Container.Resolve<ScreenData>()).AsSingle();
 
-        Container.Bind<ITransferator<IInteractable>>().To<Transferator>().AsSingle();
+        Container.Bind<ITransferator<IHavePosition>>().To<Transferator<IHavePosition>>().AsSingle();
     }
 
     private void BindContainer()

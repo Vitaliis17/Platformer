@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-public class Transferator : ITransferator<IInteractable>
+public class Transferator<T> : ITransferator<T>
 {
     private readonly IPixelPerUnitSender _sender;
 
@@ -9,7 +9,7 @@ public class Transferator : ITransferator<IInteractable>
     public Transferator(IPixelPerUnitSender sender)
         => _sender = sender;
 
-    public void Transfer(Vector2 delta, IInteractable interactable)
+    public void Transfer(Vector2 delta, T interactable)
     {
         if (interactable == null)
             return;

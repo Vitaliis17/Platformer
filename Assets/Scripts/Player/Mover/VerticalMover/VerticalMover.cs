@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-public class VerticalMover : ITransferable
+public class VerticalMover : ITransportable
 {
     private readonly MoverData _data;
     private readonly Rigidbody2D _rigidbody;

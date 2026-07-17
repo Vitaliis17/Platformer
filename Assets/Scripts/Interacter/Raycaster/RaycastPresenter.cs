@@ -9,10 +9,10 @@ public class RaycastPresenter : MonoBehaviour
     [Inject] private IZoneChecker _zoneChecker;
     [Inject] private IHavePosition _origin;
 
-    [Inject] private IRaycaster<IInteractable> _interactableRaycaster;
+    [Inject] private IRaycaster<IHavePosition> _interactableRaycaster;
     [Inject] private IRaycaster<IInventoryContainer> _inventoryContainerRaycaster;
 
-    [Inject] private ITransferator<IInteractable> _transferator;
+    [Inject] private ITransferator<IHavePosition> _transferator;
 
     [Inject] private IContainer _container;
 
@@ -71,7 +71,7 @@ public class RaycastPresenter : MonoBehaviour
         pressChanged
             .Select(_ => _interactableRaycaster.Raycast())
             .Where(interactable => interactable != null)
-            .Where(interactable => _zoneChecker.IsInside(_origin.Position, ((MonoBehaviour)interactable).transform.position))
+            .Where(interactable => _zoneChecker.IsInside(_origin.Position, interactable.Position))
             .Subscribe(interactable => _container.Set(interactable))
             .AddTo(this);
         
@@ -92,10 +92,9 @@ public class RaycastPresenter : MonoBehaviour
             .AddTo(this);
     }
 
-    private bool IsInside(IInteractable interactable, Vector2 delta)
+    private bool IsInside(IHavePosition interactable, Vector2 delta)
     {
-        Vector2 currentPosition = (Vector2)((MonoBehaviour)interactable).transform.position;
-        Vector2 nextPosition = delta + currentPosition;
+        Vector2 nextPosition = delta + interactable.Position;
 
         return _zoneChecker.IsInside(_origin.Position, nextPosition);
     }

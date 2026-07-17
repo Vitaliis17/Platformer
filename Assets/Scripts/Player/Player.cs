@@ -5,8 +5,8 @@ using Zenject;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour, IHavePosition, IMovable, IMovableEvents
 {
-    [Inject(Id = IdNames.Horizontal)] private ITransferable _horizontalMover;
-    [Inject(Id = IdNames.Vertical)] private ITransferable _verticalMover;
+    [Inject(Id = IdNames.Horizontal)] private ITransportable _horizontalMover;
+    [Inject(Id = IdNames.Vertical)] private ITransportable _verticalMover;
 
     [Inject] private IJumpable _jumper;
 

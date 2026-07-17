@@ -1,4 +1,4 @@
 public interface IContainerReceiver
 {
-    IInteractable Get();
+    IHavePosition Get();
 }

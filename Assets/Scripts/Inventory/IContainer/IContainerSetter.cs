@@ -1,4 +1,4 @@
 public interface IContainerSetter
 {
-    void Set(IInteractable setter);
+    void Set(IHavePosition setter);
 }

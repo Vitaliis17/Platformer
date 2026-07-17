@@ -13,8 +13,8 @@ public class PlayerInstaller : MonoInstaller
         Container.Bind<MoverData>().FromInstance(_moverData).AsSingle();
         Container.Bind<Rigidbody2D>().FromInstance(_rigidbody);
 
-        Container.Bind<ITransferable>().WithId(IdNames.Horizontal).To<HorizontalMover>().AsTransient();
-        Container.Bind<ITransferable>().WithId(IdNames.Vertical).To<VerticalMover>().AsTransient();
+        Container.Bind<ITransportable>().WithId(IdNames.Horizontal).To<HorizontalMover>().AsTransient();
+        Container.Bind<ITransportable>().WithId(IdNames.Vertical).To<VerticalMover>().AsTransient();
 
         Container.Bind<JumpData>().FromInstance(_jumpData).AsSingle();
 

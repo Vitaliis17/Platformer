@@ -55,6 +55,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1bdc1c6849856da46b2c49d0e2206a74
+    m_Address: Box1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ccb39f4b85ce244d90f3d465e58ebc9
+    m_Address: Box1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1e403bb745b26ea4d88f6082faedf347
     m_Address: PhysicsMaterial2D/NoFriction
     m_ReadOnly: 0
@@ -105,6 +115,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47f8df032bbf4da4ca8555a04b80d05c
+    m_Address: Box1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5059224a63b82bd45af9a584959fd6c2
     m_Address: LevelData
     m_ReadOnly: 0
@@ -142,6 +157,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 64cba952690a7254fabb03350f9a6709
     m_Address: door/knobAlt
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6926c0d5e47729040afb79159217e599
+    m_Address: Box1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

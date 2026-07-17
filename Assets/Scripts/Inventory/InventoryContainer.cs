@@ -4,12 +4,12 @@ public class InventoryContainer : MonoBehaviour, IInventoryContainer
 {
     [SerializeField] LayerData _layerData;
 
-    private IInteractable _current;
+    private IHavePosition _current;
 
     private Transform _lastParent;
     private int _lastLayer;
 
-    public void Set(IInteractable interactable)
+    public void Set(IHavePosition interactable)
     {
         if (_current != null)
             return;
@@ -28,9 +28,9 @@ public class InventoryContainer : MonoBehaviour, IInventoryContainer
         }
     }
 
-    public IInteractable Get()
+    public IHavePosition Get()
     {
-        IInteractable interactable = _current;
+        IHavePosition interactable = _current;
 
         if(interactable is MonoBehaviour monoBehaviourObject)
         {

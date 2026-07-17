@@ -14,8 +14,8 @@ public class RaycasterInstaller : MonoInstaller
 
     private void BindInteractableRaycaster()
     {
-        Container.Bind<Raycaster<IInteractable>>().AsSingle().WithArguments(_interactableLayer);
-        Container.Bind<IRaycaster<IInteractable>>().FromMethod(ctx => ctx.Container.Resolve<Raycaster<IInteractable>>()).AsSingle();
+        Container.Bind<Raycaster<IHavePosition>>().AsSingle().WithArguments(_interactableLayer);
+        Container.Bind<IRaycaster<IHavePosition>>().FromMethod(ctx => ctx.Container.Resolve<Raycaster<IHavePosition>>()).AsSingle();
     }
 
     private void BindInventoryContainer()
