@@ -29,7 +29,6 @@ public class Player : MonoBehaviour, IHavePosition, IMovable, IMovableEvents
         _rigidbody = GetComponent<Rigidbody2D>();
 
         _rigidbody.freezeRotation = true;
-        _rigidbody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
     }
 
     private void FixedUpdate()

@@ -246,7 +246,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cd6a1691e61d4043b6dcb3434489f96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GameLogic::OpenDoorPresenter
-  _pauseSwitcher: {fileID: 0}
   _panel: {fileID: 0}
 --- !u!4 &2662760779374196346 stripped
 Transform:
