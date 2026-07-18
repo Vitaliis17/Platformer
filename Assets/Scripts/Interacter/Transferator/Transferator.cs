@@ -9,15 +9,15 @@ public class Transferator<T> : ITransferator<T>
     public Transferator(IPixelPerUnitSender sender)
         => _sender = sender;
 
-    public void Transfer(Vector2 delta, T interactable)
+    public void Transfer(Vector2 targetPosition, T interactable)
     {
         if (interactable == null)
             return;
 
-        if (interactable is MonoBehaviour moveableObject)
-            moveableObject.transform.position += (Vector3)delta;
+        if (interactable is ITransferable transferable)
+            transferable.Rigidbody.MovePosition(targetPosition);
     }
 
-    public Vector2 GetDeltaPosition(Vector2 delta)
-        => delta / _sender.PixelPerUnit;
+    public Vector2 TranslatePixelPosition(Vector2 pixelPosition)
+        => Camera.main.ScreenToWorldPoint(pixelPosition);
 }

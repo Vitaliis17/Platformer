@@ -1,8 +1,8 @@
 public class Container : IContainer
 {
-    private IHavePosition _current;
+    private ITransferable _current;
 
-    public void Set(IHavePosition interactable)
+    public void Set(ITransferable interactable)
     {
         if (_current != null)
             return;
@@ -13,7 +13,7 @@ public class Container : IContainer
     public void SetEmpty()
         => _current = null;
 
-    public IHavePosition Get()
+    public ITransferable Get()
         => _current;
 
     public bool IsEmpty()

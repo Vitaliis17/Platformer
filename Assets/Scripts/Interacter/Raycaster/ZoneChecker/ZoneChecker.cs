@@ -11,8 +11,8 @@ public class ZoneChecker : IZoneChecker
 
     public bool IsInside(Vector2 origin, Vector2 target)
     {
-        Vector2 delta = new(origin.x - target.x, origin.y - target.y);
-
+        Vector2 delta = origin - target;
+        
         return delta.magnitude <= _data.Radius;
     }
 }

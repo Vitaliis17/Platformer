@@ -125,6 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc8bb1710522a7d48842bb3f7b29dfd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GameLogic::InteractableObjectsInstaller
+  _keyData: {fileID: 11400000, guid: 9116912bac0adc74d980819ca89c0391, type: 2}
+  _boxData: {fileID: 11400000, guid: 82294649dd1ed1441a009bb326b7c27e, type: 2}
 --- !u!114 &190916509614836387
 MonoBehaviour:
   m_ObjectHideFlags: 0

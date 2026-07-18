@@ -1,6 +1,7 @@
+using R3;
+using System;
 using UnityEngine;
 using Zenject;
-using R3;
 
 public class RaycastPresenter : MonoBehaviour
 {
@@ -9,10 +10,10 @@ public class RaycastPresenter : MonoBehaviour
     [Inject] private IZoneChecker _zoneChecker;
     [Inject] private IHavePosition _origin;
 
-    [Inject] private IRaycaster<IHavePosition> _interactableRaycaster;
+    [Inject] private IRaycaster<ITransferable> _interactableRaycaster;
     [Inject] private IRaycaster<IInventoryContainer> _inventoryContainerRaycaster;
 
-    [Inject] private ITransferator<IHavePosition> _transferator;
+    [Inject] private ITransferator<ITransferable> _transferator;
 
     [Inject] private IContainer _container;
 
@@ -27,17 +28,20 @@ public class RaycastPresenter : MonoBehaviour
         SubscribeTransferItem();
     }
 
-    private void SetInventoryContainer()
+    private bool TrySetInventoryContainer()
     {
         if (_container.IsEmpty())
-            return;
+            return false;
 
         IInventoryContainer inventoryContainer = _inventoryContainerRaycaster.Raycast();
 
-        if (inventoryContainer == null || inventoryContainer.IsEmpty() == false || _container.IsEmpty())
-            return;
+        if (inventoryContainer == null || inventoryContainer.IsEmpty() == false)
+            return false;
 
         inventoryContainer.Set(_container.Get());
+        _container.SetEmpty();
+
+        return true;
     }
 
     private void SubscribeGettingContainerItem()
@@ -46,7 +50,7 @@ public class RaycastPresenter : MonoBehaviour
             .Where(isPressed => _isPressed == false && isPressed)
             .Select(_ => _inventoryContainerRaycaster.Raycast())
             .Where(container => container != null && container.IsEmpty() == false)
-            .Subscribe(container => container.Get())
+            .Subscribe(inventoryContainer => inventoryContainer.Get())
             .AddTo(this);
     }
 
@@ -56,7 +60,11 @@ public class RaycastPresenter : MonoBehaviour
             .Where(isPressed => _isPressed && isPressed == false)
             .Subscribe(isPressed =>
             {
-                SetInventoryContainer();
+                if (_container.IsEmpty() == false && TrySetInventoryContainer() == false)
+                {
+                    ITransferable interactable = _container.Get();
+                    interactable.EnablePhysics();
+                }
 
                 _isPressed = isPressed;
                 _container.SetEmpty();
@@ -72,30 +80,30 @@ public class RaycastPresenter : MonoBehaviour
             .Select(_ => _interactableRaycaster.Raycast())
             .Where(interactable => interactable != null)
             .Where(interactable => _zoneChecker.IsInside(_origin.Position, interactable.Position))
-            .Subscribe(interactable => _container.Set(interactable))
+            .Subscribe(interactable =>
+            {
+                interactable.DisablePhysics();
+                _container.Set(interactable);
+            })
             .AddTo(this);
-        
+
         pressChanged
-            .Subscribe(isPressed => _isPressed = true)
+            .Subscribe(_ => _isPressed = true)
             .AddTo(this);
     }
 
     private void SubscribeTransferItem()
     {
-        _touchReader.PressChanged
+        Observable<Vector2> observable = _touchReader.PressChanged
             .Where(isPressing => isPressing)
             .Where(_ => _container.IsEmpty() == false)
             .Select(_ => _holdReader.HoldChanged.CurrentValue)
-            .Select(pixelDelta => _transferator.GetDeltaPosition(pixelDelta))
-            .Where(delta => IsInside(_container.Get(), delta))
-            .Subscribe(delta => _transferator.Transfer(delta, _container.Get()))
+            .Select(pixelPosition => _transferator.TranslatePixelPosition(pixelPosition))
+            .Where(targetPosition => _zoneChecker.IsInside(_origin.Position, targetPosition));
+
+        observable
+            .ThrottleFirst(TimeSpan.FromSeconds(Time.fixedDeltaTime))
+            .Subscribe(targetPosition => _transferator.Transfer(targetPosition, _container.Get()))
             .AddTo(this);
-    }
-
-    private bool IsInside(IHavePosition interactable, Vector2 delta)
-    {
-        Vector2 nextPosition = delta + interactable.Position;
-
-        return _zoneChecker.IsInside(_origin.Position, nextPosition);
     }
 }

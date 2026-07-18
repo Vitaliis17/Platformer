@@ -4,5 +4,5 @@ public interface ITransferator<T>
 {
     void Transfer(Vector2 delta, T transferObject);
 
-    Vector2 GetDeltaPosition(Vector2 delta);
+    Vector2 TranslatePixelPosition(Vector2 delta);
 }

@@ -1,9 +1,5 @@
-using UnityEngine;
-
-public class Key : MonoBehaviour, IInteractable, IHavePosition
+public class Key : Item, IInteractable
 {
-    public Vector2 Position => transform.position;
-
     public void Interact()
         => gameObject.SetActive(false);
 }

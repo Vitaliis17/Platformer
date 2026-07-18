@@ -1,4 +1,6 @@
+using UnityEngine;
+
 public interface IPixelPerUnitSender
 {
-    float PixelPerUnit { get; }
+    Vector2 PixelPerUnit { get; }
 }

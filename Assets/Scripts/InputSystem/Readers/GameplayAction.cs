@@ -47,12 +47,13 @@ public class GameplayAction : ActionMap, IMovementReader, ITouchReader, IJumpRea
 
         _isPressed = _action.Touch.ReadValue<float>() == 1;
         _pressChanged.OnNext(_isPressed);
-
-        _holdChanged.OnNext(_action.Hold.ReadValue<Vector2>());
     }
 
     private void FixedUpdate()
-        => _directionChanged.OnNext(_movementDirection);
+    {
+        _directionChanged.OnNext(_movementDirection);
+        _holdChanged.OnNext(_action.Hold.ReadValue<Vector2>());
+    }
 
     private void OnDestroy()
     {
