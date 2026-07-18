@@ -1,18 +1,21 @@
 using UnityEngine;
 using Zenject;
 
-public class VerticalMover : ITransportable
+public class Mover : ITransportable
 {
     private readonly MoverData _data;
     private readonly Rigidbody2D _rigidbody;
 
+    private readonly Vector2 _direction;
+
     private Vector2 _delta;
 
     [Inject]
-    public VerticalMover(MoverData data, Rigidbody2D rigidbody)
+    public Mover(MoverData data, Rigidbody2D rigidbody, Vector2 direction)
     {
         _data = data;
         _rigidbody = rigidbody;
+        _direction = direction;
     }
 
     public void SetDelta(float direction)
@@ -20,7 +23,7 @@ public class VerticalMover : ITransportable
         if (_rigidbody == null)
             return;
 
-        _delta = Vector2.up * direction * _data.Speed * Time.fixedDeltaTime;
+        _delta = _direction * direction * _data.Speed * Time.fixedDeltaTime;
     }
 
     public Vector2 TransferDelta()

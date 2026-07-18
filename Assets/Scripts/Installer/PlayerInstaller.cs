@@ -10,11 +10,16 @@ public class PlayerInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
+        Vector2 horizontalDirection = Vector2.right;
+        Vector2 VerticalDirection = Vector2.up;
+
         Container.Bind<MoverData>().FromInstance(_moverData).AsSingle();
         Container.Bind<Rigidbody2D>().FromInstance(_rigidbody);
 
-        Container.Bind<ITransportable>().WithId(IdNames.Horizontal).To<HorizontalMover>().AsTransient();
-        Container.Bind<ITransportable>().WithId(IdNames.Vertical).To<VerticalMover>().AsTransient();
+        Container.Bind<ITransportable>().WithId(IdNames.Horizontal).To<Mover>().AsCached()
+            .WithArguments(horizontalDirection);
+        Container.Bind<ITransportable>().WithId(IdNames.Vertical).To<Mover>().AsCached()
+            .WithArguments(VerticalDirection);
 
         Container.Bind<JumpData>().FromInstance(_jumpData).AsSingle();
 
