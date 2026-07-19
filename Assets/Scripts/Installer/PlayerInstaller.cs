@@ -5,6 +5,7 @@ public class PlayerInstaller : MonoInstaller
 {
     [SerializeField] private MoverData _moverData;
     [SerializeField] private JumpData _jumpData;
+    [SerializeField] private VelocityData _velocityData;
 
     [SerializeField] private Rigidbody2D _rigidbody;
 
@@ -21,6 +22,8 @@ public class PlayerInstaller : MonoInstaller
         Container.Bind<ITransportable>().WithId(IdNames.Vertical).To<Mover>().AsCached()
             .WithArguments(VerticalDirection);
 
+        Container.Bind<IVelocityData>().FromInstance(_velocityData).AsSingle();
+
         Container.Bind<JumpData>().FromInstance(_jumpData).AsSingle();
 
         Container.Bind<IJumpable>().To<Jumper>().AsTransient();
@@ -30,5 +33,6 @@ public class PlayerInstaller : MonoInstaller
         Container.Bind<IHavePosition>().FromMethod(ctx => ctx.Container.Resolve<Player>()).AsSingle();
         Container.Bind<IMovable>().FromMethod(ctx => ctx.Container.Resolve<Player>()).AsSingle();
         Container.Bind<IMovableEvents>().FromMethod(ctx => ctx.Container.Resolve<Player>()).AsSingle();
+        Container.Bind<IVelocitySetter>().FromMethod(ctx => ctx.Container.Resolve<Player>()).AsSingle();
     }
 }

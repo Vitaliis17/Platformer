@@ -90,6 +90,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2da839a035cb0904b83347fd211150c1
+    m_Address: VelocityData
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2e498d1c8094910479dc3e1b768306a4
     m_Address: Fonts & Materials/LiberationSans SDF - Fallback
     m_ReadOnly: 0

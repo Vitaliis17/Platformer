@@ -3,13 +3,14 @@ using UnityEngine;
 using Zenject;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Player : MonoBehaviour, IHavePosition, IMovable, IMovableEvents
+public class Player : MonoBehaviour, IHavePosition, IMovable, IMovableEvents, IVelocitySetter
 {
     [Inject(Id = IdNames.Horizontal)] private ITransportable _horizontalMover;
     [Inject(Id = IdNames.Vertical)] private ITransportable _verticalMover;
-    [Inject(Id = TriggerNames.Ladder)] private IHaveTriggerEvent _event;
 
     [Inject] private IJumpable _jumper;
+
+    [Inject] private IVelocityData _velocityData;
 
     private readonly Subject<Unit> _isHorizontalMoved = new();
     private readonly Subject<Unit> _isVerticalMoved = new();
@@ -32,15 +33,15 @@ public class Player : MonoBehaviour, IHavePosition, IMovable, IMovableEvents
         _rigidbody.freezeRotation = true;
     }
 
-    private void FixedUpdate()
+    public void SetVelocity(bool isLadder)
     {
         float velocityX = _horizontalMover.TransferDelta().x;
         float velocityY = _verticalMover.TransferDelta().y;
 
-        if (_event.HaveTriggered())
-            _rigidbody.linearVelocity = new Vector2(velocityX * 40, velocityY * 30);
+        if (isLadder)
+            _rigidbody.linearVelocity = new Vector2(velocityX * _velocityData.Multiplier, velocityY * _velocityData.Multiplier);
         else
-            _rigidbody.linearVelocity = new Vector2(velocityX * 40, _rigidbody.linearVelocityY);
+            _rigidbody.linearVelocity = new Vector2(velocityX * _velocityData.Multiplier, _rigidbody.linearVelocityY);
     }
 
     public void MoveHorizontal(float direction)

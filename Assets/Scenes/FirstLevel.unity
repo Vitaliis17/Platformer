@@ -3928,6 +3928,10 @@ PrefabInstance:
       propertyPath: _rigidbody
       value: 
       objectReference: {fileID: 981169220}
+    - target: {fileID: 8670061386793462005, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
+      propertyPath: _velocityData
+      value: 
+      objectReference: {fileID: 11400000, guid: 2da839a035cb0904b83347fd211150c1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4488,14 +4492,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1615272733}
-    - target: {fileID: 7305947613031077853, guid: 472a6c8e9329ebd4b84eaa51ffe9ef47, type: 3}
-      propertyPath: m_BlockingObjects
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7305947613031077853, guid: 472a6c8e9329ebd4b84eaa51ffe9ef47, type: 3}
-      propertyPath: m_BlockingMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
     - target: {fileID: 7347429758823439917, guid: 472a6c8e9329ebd4b84eaa51ffe9ef47, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

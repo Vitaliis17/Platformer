@@ -94,6 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: GameLogic::PlayerInstaller
   _moverData: {fileID: 11400000, guid: 047e2caddf41a454a859411d3330f397, type: 2}
   _jumpData: {fileID: 11400000, guid: 3822057ef346947478013fac8fb76f86, type: 2}
+  _velocityData: {fileID: 11400000, guid: 2da839a035cb0904b83347fd211150c1, type: 2}
   _rigidbody: {fileID: 0}
 --- !u!114 &5091135270989952294
 MonoBehaviour:

@@ -1,4 +1,5 @@
 using R3;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -8,10 +9,12 @@ public class PlayerMovementPresenter : MonoBehaviour
     [Inject] private IJumpReader _jumpReader;
 
     [Inject] private IMovable _player;
+    [Inject] private IVelocitySetter _setter;
+
     [Inject(Id = TriggerNames.GroundChecker)] private IHaveTriggerEvent _groundChecker;
 
     [Inject(Id = TriggerNames.Ladder)] private IHaveTriggerEvent _ladderMap;
-
+    
     private void Start()
     {
         const float VerticalOffset = 0.5f;
@@ -28,5 +31,8 @@ public class PlayerMovementPresenter : MonoBehaviour
         _jumpReader.Jumped
             .Where(_ => _groundChecker.HaveTriggered())
             .Subscribe(_ => _player.Jump()).AddTo(this);
+
+        Observable.Interval(TimeSpan.FromSeconds(Time.fixedDeltaTime))
+            .Subscribe(_ => _setter.SetVelocity(_ladderMap.HaveTriggered()));
     }
 }
