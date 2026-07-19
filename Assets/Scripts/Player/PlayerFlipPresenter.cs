@@ -13,7 +13,7 @@ public class PlayerFlipPresenter : MonoBehaviour
 
     private void Start()
     {
-        Observable<Vector2> observable = _reader.DirectionChanged.Where(direction => direction.sqrMagnitude != 0f)
+        Observable<Vector2> observable = _reader.Moved.Where(direction => direction.sqrMagnitude != 0f)
             .Where(direction => Mathf.Sign(direction.x) != Mathf.Sign(_currentSign));
 
         observable.Subscribe(_ => _flipper.FlipX(_playerRenderer)).AddTo(this);

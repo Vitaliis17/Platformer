@@ -4,7 +4,7 @@ using R3;
 
 public class GameplayAction : ActionMap, IMovementReader, ITouchReader, IJumpReader, IHoldReader
 {
-    private readonly Subject<Vector2> _directionChanged = new();
+    private readonly Subject<Vector2> _moved = new();
     private readonly Subject<bool> _pressChanged = new(); 
     private readonly Subject<bool> _jumped = new();
     
@@ -15,7 +15,7 @@ public class GameplayAction : ActionMap, IMovementReader, ITouchReader, IJumpRea
     private Vector2 _movementDirection;
     private bool _isPressed;
 
-    public Observable<Vector2> DirectionChanged => _directionChanged;
+    public Observable<Vector2> Moved => _moved;
     public Observable<bool> PressChanged => _pressChanged;
     public Observable<bool> Jumped => _jumped;
 
@@ -51,13 +51,13 @@ public class GameplayAction : ActionMap, IMovementReader, ITouchReader, IJumpRea
 
     private void FixedUpdate()
     {
-        _directionChanged.OnNext(_movementDirection);
+        _moved.OnNext(_movementDirection);
         _holdChanged.OnNext(_action.Hold.ReadValue<Vector2>());
     }
 
     private void OnDestroy()
     {
-        _directionChanged?.Dispose();
+        _moved?.Dispose();
         _pressChanged?.Dispose();
         _holdChanged?.Dispose();
 

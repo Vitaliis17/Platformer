@@ -1,3 +1,3 @@
-public interface ITransferable : IHavePosition, IHaveRigidbody
+public interface ITransferable : IHavePosition, IHaveRigidbody, ITriggerSwitcher
 {
 }

@@ -1,19 +1,19 @@
 using UnityEngine;
 using Zenject;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(BoxCollider2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public abstract class Item : MonoBehaviour, ITransferable
 {
     private IRigidbodyData _data;
+    private Collider2D _collider;
 
     public Vector2 Position => transform.position;
 
-    public BoxCollider2D Collider { get; private set; }
     public Rigidbody2D Rigidbody { get; private set; }
 
     public void Awake()
     {
-        Collider = GetComponent<BoxCollider2D>();
+        _collider = GetComponent<Collider2D>();
         Rigidbody = GetComponent<Rigidbody2D>();
     }
 
@@ -32,4 +32,10 @@ public abstract class Item : MonoBehaviour, ITransferable
         Rigidbody.gravityScale = _data.BaseGravity;
         Rigidbody.mass = _data.BaseMass;
     }
+
+    public void TurnOnTrigger()
+        => _collider.isTrigger = true;
+
+    public void TurnOffTrigger()
+        => _collider.isTrigger = false;
 }

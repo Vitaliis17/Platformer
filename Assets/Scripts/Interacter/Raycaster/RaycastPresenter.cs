@@ -38,7 +38,10 @@ public class RaycastPresenter : MonoBehaviour
         if (inventoryContainer == null || inventoryContainer.IsEmpty() == false)
             return false;
 
-        inventoryContainer.Set(_container.Get());
+        ITransferable interactable = _container.Get();
+        interactable.TurnOnTrigger();
+
+        inventoryContainer.Set(interactable);
         _container.SetEmpty();
 
         return true;
@@ -50,7 +53,10 @@ public class RaycastPresenter : MonoBehaviour
             .Where(isPressed => _isPressed == false && isPressed)
             .Select(_ => _inventoryContainerRaycaster.Raycast())
             .Where(container => container != null && container.IsEmpty() == false)
-            .Subscribe(inventoryContainer => inventoryContainer.Get())
+            .Subscribe(inventoryContainer => {
+                ITransferable interactable = inventoryContainer.Get();
+                interactable.TurnOffTrigger();
+                })
             .AddTo(this);
     }
 

@@ -17,7 +17,7 @@ public class PlayerMovementPresenter : MonoBehaviour
         const float VerticalOffset = 0.5f;
         const float NoMovement = 0f;
 
-        Observable<Vector2> observable = _movementReader.DirectionChanged.Where(direction => direction.sqrMagnitude != NoMovement);
+        Observable<Vector2> observable = _movementReader.Moved.Where(direction => direction.sqrMagnitude != NoMovement);
 
         observable.Subscribe(direction => _player.MoveHorizontal(direction.x)).AddTo(this);
 

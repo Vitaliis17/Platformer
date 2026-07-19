@@ -14,5 +14,5 @@ public class Jumper : IJumpable
     }
 
     public void Jump()
-        => _rigidbody.AddForce(_data.Force);
+        => _rigidbody.AddForce(_data.Force, ForceMode2D.Force);
 }
