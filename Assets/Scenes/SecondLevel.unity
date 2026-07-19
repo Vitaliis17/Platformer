@@ -440,17 +440,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &152988514 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3890511841834717801, guid: aa79435ed12c3a342b3e1231c0ce3edb, type: 3}
-  m_PrefabInstance: {fileID: 8183259838546163534}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6109d5399521fcd4a95d7529d76bb27d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::Trigger
 --- !u!1 &202287327
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,7 +715,7 @@ PrefabInstance:
     - target: {fileID: 328879386559072360, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
       propertyPath: _jumpTrigger
       value: 
-      objectReference: {fileID: 152988514}
+      objectReference: {fileID: 0}
     - target: {fileID: 328879386559072360, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
       propertyPath: _groundChecker
       value: 
@@ -734,15 +723,15 @@ PrefabInstance:
     - target: {fileID: 328879386559072360, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
       propertyPath: _movementTrigger
       value: 
-      objectReference: {fileID: 837443647}
+      objectReference: {fileID: 0}
     - target: {fileID: 328879386559072360, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
       propertyPath: _jumpScreenActivater
       value: 
-      objectReference: {fileID: 1503721354}
+      objectReference: {fileID: 0}
     - target: {fileID: 328879386559072360, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
       propertyPath: _movementScreenActivater
       value: 
-      objectReference: {fileID: 1700238435}
+      objectReference: {fileID: 0}
     - target: {fileID: 1842882493289804812, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
       propertyPath: _container
       value: 
@@ -2849,17 +2838,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5000922199081929146, guid: a6144b535f45b794cbee0797db7b1f42, type: 3}
   m_PrefabInstance: {fileID: 810884227}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &837443647 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6602611235687676885, guid: aa79435ed12c3a342b3e1231c0ce3edb, type: 3}
-  m_PrefabInstance: {fileID: 8183259838546163534}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6109d5399521fcd4a95d7529d76bb27d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::Trigger
 --- !u!1 &848433322
 GameObject:
   m_ObjectHideFlags: 0
@@ -3908,17 +3886,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 258213587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1503721354 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 999115037928082461, guid: aa79435ed12c3a342b3e1231c0ce3edb, type: 3}
-  m_PrefabInstance: {fileID: 8183259838546163534}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93cb39309bf169e4bbaf6aec3ae9f0ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::OnScreenActivater
 --- !u!1 &1523652159
 GameObject:
   m_ObjectHideFlags: 0
@@ -4125,17 +4092,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5345093797167419044, guid: 1c69b0d3fb46bf64bb2e500e43a25842, type: 3}
   m_PrefabInstance: {fileID: 1685453401}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1700238435 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 879757823593522821, guid: aa79435ed12c3a342b3e1231c0ce3edb, type: 3}
-  m_PrefabInstance: {fileID: 8183259838546163534}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93cb39309bf169e4bbaf6aec3ae9f0ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::OnScreenActivater
 --- !u!1001 &1710209500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5273,10 +5229,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
   m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
+  m_BlockingObjects: 1
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
 --- !u!114 &2046451134
 MonoBehaviour:
   m_ObjectHideFlags: 0
