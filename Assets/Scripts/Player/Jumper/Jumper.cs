@@ -14,5 +14,5 @@ public class Jumper : IJumpable
     }
 
     public void Jump()
-        => _rigidbody.AddForce(_data.Force, ForceMode2D.Force);
+        => _rigidbody.linearVelocity += new Vector2(0, 5);
 }

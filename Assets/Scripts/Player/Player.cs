@@ -7,6 +7,7 @@ public class Player : MonoBehaviour, IHavePosition, IMovable, IMovableEvents
 {
     [Inject(Id = IdNames.Horizontal)] private ITransportable _horizontalMover;
     [Inject(Id = IdNames.Vertical)] private ITransportable _verticalMover;
+    [Inject(Id = TriggerNames.Ladder)] private IHaveTriggerEvent _event;
 
     [Inject] private IJumpable _jumper;
 
@@ -33,8 +34,13 @@ public class Player : MonoBehaviour, IHavePosition, IMovable, IMovableEvents
 
     private void FixedUpdate()
     {
-        Vector2 nextPosition = (Vector2)transform.position + _horizontalMover.TransferDelta() + _verticalMover.TransferDelta();
-        _rigidbody.MovePosition(nextPosition);
+        float velocityX = _horizontalMover.TransferDelta().x;
+        float velocityY = _verticalMover.TransferDelta().y;
+
+        if (_event.HaveTriggered())
+            _rigidbody.linearVelocity = new Vector2(velocityX * 40, velocityY * 30);
+        else
+            _rigidbody.linearVelocity = new Vector2(velocityX * 40, _rigidbody.linearVelocityY);
     }
 
     public void MoveHorizontal(float direction)
