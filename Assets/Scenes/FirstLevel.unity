@@ -3869,25 +3869,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2123899570}
     - target: {fileID: 328879386559072360, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
-      propertyPath: _jumpTrigger
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 328879386559072360, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
       propertyPath: _groundChecker
       value: 
       objectReference: {fileID: 5477066}
-    - target: {fileID: 328879386559072360, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
-      propertyPath: _movementTrigger
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 328879386559072360, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
-      propertyPath: _jumpScreenActivater
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 328879386559072360, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
-      propertyPath: _movementScreenActivater
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1842882493289804812, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
       propertyPath: _container
       value: 
