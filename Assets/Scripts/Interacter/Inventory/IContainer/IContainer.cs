@@ -1,3 +1,3 @@
-public interface IContainer : IContainerSetter, IContainerReceiver, IEmptyChecker, IEmptySetter
+public interface IContainer : IEventContainerSetter, IContainerReceiver, IEmptyChecker, IEventEmptySetter
 {
 }

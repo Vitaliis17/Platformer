@@ -190,6 +190,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7570b14108505c0489ab2fffd8798ba1
+    m_Address: ContainerTransparencyData
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 795301d3bbfcbf24eb7f943943b5e7a7
     m_Address: gameSound
     m_ReadOnly: 0

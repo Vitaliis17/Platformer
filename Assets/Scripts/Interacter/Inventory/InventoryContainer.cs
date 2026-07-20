@@ -40,4 +40,12 @@ public class InventoryContainer : MonoBehaviour, IInventoryContainer
 
     public bool IsEmpty()
         => _current == null;
+
+    public bool IsEqual(ITransferable transferable)
+    {
+        if(IsEmpty())
+            return false;
+
+        return transferable == _current;
+    }
 }

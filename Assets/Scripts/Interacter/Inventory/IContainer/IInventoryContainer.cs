@@ -1,3 +1,3 @@
-public interface IInventoryContainer : IContainerReceiver, IContainerSetter, IEmptyChecker
+public interface IInventoryContainer : IContainerReceiver, IContainerSetter, IEmptyChecker, IComparer<ITransferable>
 {
 }

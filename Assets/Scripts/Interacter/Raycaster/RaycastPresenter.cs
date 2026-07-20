@@ -16,6 +16,7 @@ public class RaycastPresenter : MonoBehaviour
     [Inject] private ITransferator<ITransferable> _transferator;
 
     [Inject] private IContainer _container;
+    [Inject] private IInventoryContainer _inventoryContainer;
 
     private bool _isPressed;
 
@@ -26,6 +27,16 @@ public class RaycastPresenter : MonoBehaviour
 
         SubscribeGettingItem();
         SubscribeTransferItem();
+    }
+
+    private bool IsInventoryContinerItem(ITransferable transferable)
+    {
+        IInventoryContainer container = _inventoryContainerRaycaster.Raycast();
+
+        if (container == null)
+            return false;
+
+        return container.IsEqual(transferable);
     }
 
     private bool TrySetInventoryContainer()
@@ -51,6 +62,7 @@ public class RaycastPresenter : MonoBehaviour
     {
         _touchReader.PressChanged
             .Where(isPressed => _isPressed == false && isPressed)
+            .Where(_ => _container == null || _container.IsEmpty())
             .Select(_ => _inventoryContainerRaycaster.Raycast())
             .Where(container => container != null && container.IsEmpty() == false)
             .Subscribe(inventoryContainer => {
@@ -70,10 +82,10 @@ public class RaycastPresenter : MonoBehaviour
                 {
                     ITransferable interactable = _container.Get();
                     interactable.EnablePhysics();
+                    _container.SetEmpty();
                 }
 
                 _isPressed = isPressed;
-                _container.SetEmpty();
             }).AddTo(this);
     }
 
@@ -83,8 +95,10 @@ public class RaycastPresenter : MonoBehaviour
             .Where(isPressed => _isPressed == false && isPressed);
 
         pressChanged
+            .Where(_ => _inventoryContainer.IsEmpty())
             .Select(_ => _interactableRaycaster.Raycast())
             .Where(interactable => interactable != null)
+            .Where(interactable => IsInventoryContinerItem(interactable) == false)
             .Where(interactable => _zoneChecker.IsInside(_origin.Position, interactable.Position))
             .Subscribe(interactable =>
             {

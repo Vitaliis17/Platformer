@@ -31,10 +31,14 @@ public abstract class Item : MonoBehaviour, ITransferable
     {
         Rigidbody.gravityScale = _data.BaseGravity;
         Rigidbody.mass = _data.BaseMass;
+        Rigidbody.linearVelocity = Vector2.zero;
     }
 
     public void TurnOnTrigger()
-        => _collider.isTrigger = true;
+    {
+        Rigidbody.linearVelocity = Vector2.zero;
+        _collider.isTrigger = true;
+    }
 
     public void TurnOffTrigger()
         => _collider.isTrigger = false;

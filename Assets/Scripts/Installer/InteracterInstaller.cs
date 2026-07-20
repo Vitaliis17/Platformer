@@ -4,11 +4,13 @@ using Zenject;
 public class InteracterInstaller : MonoInstaller
 {
     [SerializeField] private ScreenData _screenData;
+    [SerializeField] private TransparencyData _containerTransparencyData;
 
     public override void InstallBindings()
     {
         BindInteracter();
         BindInventoryContainer();
+        BindTransparencySwitcher();
         BindTransferator();
         BindContainer();
     }
@@ -18,11 +20,20 @@ public class InteracterInstaller : MonoInstaller
         Container.Bind<Interacter>().FromComponentInHierarchy().AsSingle();
         Container.Bind<IInteracter>().FromMethod(ctx => ctx.Container.Resolve<Interacter>()).AsSingle();
     }
-
+    
     private void BindInventoryContainer()
     {
         Container.Bind<InventoryContainer>().FromComponentInHierarchy().AsSingle();
         Container.Bind<IInventoryContainer>().FromMethod(ctx => ctx.Container.Resolve<InventoryContainer>()).AsSingle();
+    }
+
+    private void BindTransparencySwitcher()
+    {
+        Container.Bind<TransparencyData>().FromInstance(_containerTransparencyData).AsSingle();
+        Container.Bind<ITransparencyData>().FromMethod(ctx => ctx.Container.Resolve<TransparencyData>()).AsSingle();
+
+        Container.Bind<TransparencySwitcher>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<ITransparencySwitcher>().FromMethod(ctx => ctx.Container.Resolve<TransparencySwitcher>()).AsSingle();
     }
 
     private void BindTransferator()

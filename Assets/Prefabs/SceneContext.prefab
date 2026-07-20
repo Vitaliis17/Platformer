@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: GameLogic::InteracterInstaller
   _screenData: {fileID: 11400000, guid: 7a33fc3897b025342bab9af5bd400597, type: 2}
+  _containerTransparencyData: {fileID: 11400000, guid: 7570b14108505c0489ab2fffd8798ba1, type: 2}
 --- !u!114 &328879386559072360
 MonoBehaviour:
   m_ObjectHideFlags: 0
