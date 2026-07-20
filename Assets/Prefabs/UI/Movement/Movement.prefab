@@ -45,14 +45,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5948560704591932585}
     m_Modifications:
-    - target: {fileID: 236309628738684598, guid: a1406bf9e597ba342bee711d1e9c3a3e, type: 3}
-      propertyPath: m_Size.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 236309628738684598, guid: a1406bf9e597ba342bee711d1e9c3a3e, type: 3}
-      propertyPath: m_Size.y
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 2490391950965826957, guid: a1406bf9e597ba342bee711d1e9c3a3e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -137,14 +129,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovementStick
       objectReference: {fileID: 0}
-    - target: {fileID: 3557313886508884093, guid: a1406bf9e597ba342bee711d1e9c3a3e, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 236309628738684598, guid: a1406bf9e597ba342bee711d1e9c3a3e, type: 3}
-    - {fileID: 6249586017452338501, guid: a1406bf9e597ba342bee711d1e9c3a3e, type: 3}
-    - {fileID: 4432343771775347966, guid: a1406bf9e597ba342bee711d1e9c3a3e, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -162,10 +147,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5948560704591932585}
     m_Modifications:
-    - target: {fileID: 5461976491064069263, guid: e5abc8871ac00e241b4df4a547a44ad4, type: 3}
-      propertyPath: m_Maskable
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6072231472025689581, guid: e5abc8871ac00e241b4df4a547a44ad4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -250,18 +231,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: JumpButton
       objectReference: {fileID: 0}
-    - target: {fileID: 7459029463962591569, guid: e5abc8871ac00e241b4df4a547a44ad4, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7459029463962591569, guid: e5abc8871ac00e241b4df4a547a44ad4, type: 3}
-      propertyPath: m_Offset.y
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 979998946203097732, guid: e5abc8871ac00e241b4df4a547a44ad4, type: 3}
-    - {fileID: 2384141067280303878, guid: e5abc8871ac00e241b4df4a547a44ad4, type: 3}
-    - {fileID: 4052173489983925928, guid: e5abc8871ac00e241b4df4a547a44ad4, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

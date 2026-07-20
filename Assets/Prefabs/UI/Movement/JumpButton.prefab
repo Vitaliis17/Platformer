@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5718144496903487947}
   - component: {fileID: 5461976491064069263}
   - component: {fileID: 1286535993266617730}
-  - component: {fileID: 979998946203097732}
   m_Layer: 5
   m_Name: JumpButton
   m_TagString: Untagged
@@ -67,8 +66,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 5508160021595113818, guid: e0d139980b5434448b2127117d982826, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -90,15 +89,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.OnScreen.OnScreenButton
   m_ControlPath: <Gamepad>/buttonSouth
---- !u!114 &979998946203097732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6215717702685780669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6109d5399521fcd4a95d7529d76bb27d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::Trigger
