@@ -20,8 +20,7 @@ public class LevelSwitcherInstaller : MonoInstaller
         Container.Bind<Dictionary<int, SceneNames>>().FromInstance(new Dictionary<int, SceneNames>
         {
             { (int)SceneNames.FirstLevel, SceneNames.FirstLevel },
-            { (int)SceneNames.SecondLevel, SceneNames.SecondLevel },
-            { (int)SceneNames.ThirdLevel, SceneNames.ThirdLevel }
+            { (int)SceneNames.SecondLevel, SceneNames.SecondLevel }
         }).AsSingle();
 
         Container.Bind<IContainerReceiverByIndex<SceneNames>>().To<SceneNamesContainer>().AsSingle();
@@ -41,6 +40,8 @@ public class LevelSwitcherInstaller : MonoInstaller
     private void BindLevelData()
     {
         Container.Bind<LevelData>().FromInstance(_levelData).AsSingle();
+
+        Container.Bind<ILevelData>().FromMethod(ctx => ctx.Container.Resolve<LevelData>()).AsSingle();
         Container.Bind<ICurrentLevelSetter>().FromMethod(ctx => ctx.Container.Resolve<LevelData>()).AsSingle();
     }
 }

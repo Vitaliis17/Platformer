@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = nameof(LevelData), menuName = nameof(LevelData))]
-public class LevelData : ScriptableObject, ICurrentLevelSetter
+public class LevelData : ScriptableObject, ILevelData ,ICurrentLevelSetter
 {
     public int CurrentLevel { get; private set; }
 

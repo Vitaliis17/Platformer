@@ -3,8 +3,8 @@ using R3;
 
 public class ContinueButton : ButtonSubscriber
 {
-    [Inject] private IPauseSwitcher _pauseSwitcher;
+    [Inject] private IUnpauser _unpauser;
 
     private void Start()
-        => Observable.Subscribe(_ => _pauseSwitcher.Unpause());
+        => Observable.Subscribe(_ => _unpauser.Unpause());
 }

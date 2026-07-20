@@ -700,7 +700,6 @@ GameObject:
   - component: {fileID: 9207164422172908930}
   - component: {fileID: 4166547631476126169}
   - component: {fileID: 5676029596882894171}
-  - component: {fileID: 6869176243893793464}
   - component: {fileID: 6377176739162051098}
   m_Layer: 5
   m_Name: NextLevelButton
@@ -823,20 +822,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350727f52ea70f5428cdac2aa5a4452c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GameLogic::LevelLoaderButton
-  _button: {fileID: 4166547631476126169}
-  _data: {fileID: 11400000, guid: 5059224a63b82bd45af9a584959fd6c2, type: 2}
---- !u!114 &6869176243893793464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5729829591885266220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47e22528650a3a74aa5874bb831a7240, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::UnpauseButton
   _button: {fileID: 4166547631476126169}
 --- !u!114 &6377176739162051098
 MonoBehaviour:
@@ -987,4 +972,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: GameLogic::RetryLevelButton
   _button: {fileID: 2568950130961178248}
-  _data: {fileID: 11400000, guid: 5059224a63b82bd45af9a584959fd6c2, type: 2}

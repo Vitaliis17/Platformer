@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-public class AnimationExpecter
+public class AnimationExpecter : IAnimationExpecter
 {
     private List<AnimationNames> _expectation;
 

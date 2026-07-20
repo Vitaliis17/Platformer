@@ -16,6 +16,10 @@ public class AnimationInstaller : MonoInstaller
     private void BindAnimation()
     {
         Container.Bind<AnimationPrioritiesData>().FromInstance(_animationPrioritiesData).AsSingle();
+        Container.Bind<IAnimationPrioritiesData>().FromMethod(ctx => ctx.Container.Resolve<AnimationPrioritiesData>()).AsSingle();
+
+        Container.Bind<IAnimationExpecter>().To<AnimationExpecter>().AsTransient();
+
         Container.Bind<Animator>().FromInstance(_playerAnimator).AsSingle();
 
         Container.Bind<IAnimationSwitcher>().To<AnimationSwitcher>().AsTransient();

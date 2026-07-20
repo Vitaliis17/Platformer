@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class InventoryContainer : MonoBehaviour, IInventoryContainer
 {
-    [SerializeField] LayerData _layerData;
-
     private ITransferable _current;
 
     private Transform _lastParent;

@@ -94,7 +94,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: GameLogic::PlayerInstaller
   _moverData: {fileID: 11400000, guid: 047e2caddf41a454a859411d3330f397, type: 2}
   _jumpData: {fileID: 11400000, guid: 3822057ef346947478013fac8fb76f86, type: 2}
-  _velocityData: {fileID: 11400000, guid: 2da839a035cb0904b83347fd211150c1, type: 2}
+  _movementVelocityData: {fileID: 11400000, guid: 2da839a035cb0904b83347fd211150c1, type: 2}
+  _jumpingVelocityData: {fileID: 11400000, guid: 4f604f59ebb86884fa6e536a79426e51, type: 2}
   _rigidbody: {fileID: 0}
 --- !u!114 &5091135270989952294
 MonoBehaviour:
@@ -199,3 +200,5 @@ MonoBehaviour:
   _container: {fileID: 0}
   _cloud: {fileID: 3103763466535167958, guid: 1a880270c7461e142beb5e2bf24554b6, type: 3}
   _spriteCloudData: {fileID: 11400000, guid: d412a86d3e3e5174a9db3a935f017abf, type: 2}
+  _speedData: {fileID: 11400000, guid: 0011bb4ce2aac5748a7c4f9ac216dde0, type: 2}
+  _spawnData: {fileID: 11400000, guid: 626b74691b2350444a010e08147446a9, type: 2}

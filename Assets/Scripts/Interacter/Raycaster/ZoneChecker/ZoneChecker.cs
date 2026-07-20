@@ -3,16 +3,16 @@ using Zenject;
 
 public class ZoneChecker : IZoneChecker
 {
-    private readonly ZoneCheckerData _data;
+    private readonly IHaveRadius _radiusHaver;
 
     [Inject]
-    public ZoneChecker(ZoneCheckerData zoneCheckerData) 
-        => _data = zoneCheckerData;
+    public ZoneChecker(IHaveRadius radiusHaver) 
+        => _radiusHaver = radiusHaver;
 
     public bool IsInside(Vector2 origin, Vector2 target)
     {
         Vector2 delta = origin - target;
         
-        return delta.magnitude <= _data.Radius;
+        return delta.magnitude <= _radiusHaver.Radius;
     }
 }

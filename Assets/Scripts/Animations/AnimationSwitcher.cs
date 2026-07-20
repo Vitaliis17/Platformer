@@ -4,18 +4,18 @@ using System.Collections.Generic;
 
 public class AnimationSwitcher : IAnimationSwitcher
 {
-    private readonly AnimationPrioritiesData _priorities;
-    private readonly AnimationExpecter _expecter;
+    private readonly IAnimationPrioritiesData _priorities;
+    private readonly IAnimationExpecter _expecter;
 
     private readonly Animator _animator;
 
     [Inject]
-    public AnimationSwitcher(AnimationPrioritiesData priorities, Animator animator)
+    public AnimationSwitcher(IAnimationPrioritiesData priorities, IAnimationExpecter expecter, Animator animator)
     {
         _priorities = priorities;
         _animator = animator;
 
-        _expecter = new();
+        _expecter = expecter;
 
         SetDefault();
     }

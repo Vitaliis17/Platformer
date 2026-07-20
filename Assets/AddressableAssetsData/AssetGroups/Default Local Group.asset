@@ -91,7 +91,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2da839a035cb0904b83347fd211150c1
-    m_Address: VelocityData
+    m_Address: MovementVelocityData
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -100,13 +100,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 30d13e62973c85248813e46c71aa435e
-    m_Address: House
+  - m_GUID: 306c30380341ada48a80fadaf3eb98df
+    m_Address: ClipData
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3822057ef346947478013fac8fb76f86
-    m_Address: JumpData
+  - m_GUID: 30d13e62973c85248813e46c71aa435e
+    m_Address: House
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -122,6 +122,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 47f8df032bbf4da4ca8555a04b80d05c
     m_Address: Box1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f604f59ebb86884fa6e536a79426e51
+    m_Address: JumpingVelocityData
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -196,7 +201,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 795301d3bbfcbf24eb7f943943b5e7a7
-    m_Address: gameSound
+    m_Address: gameClip
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -286,7 +291,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ce5ef673bf249334cb91092cd04a2c35
-    m_Address: MenuSound
+    m_Address: MenuClip
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

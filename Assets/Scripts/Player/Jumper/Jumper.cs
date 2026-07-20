@@ -3,16 +3,16 @@ using Zenject;
 
 public class Jumper : IJumpable
 {
-    private readonly JumpData _data;
+    [Inject(Id = IdNames.Jumping)] private IHaveMultiplier _multiplierHaver;
     private readonly Rigidbody2D _rigidbody;
 
-    [Inject]
-    public Jumper(JumpData data, Rigidbody2D rigidbody)
-    {
-        _data = data;
-        _rigidbody = rigidbody;
-    }
+    public Jumper(Rigidbody2D rigidbody)
+        => _rigidbody = rigidbody;
 
     public void Jump()
-        => _rigidbody.linearVelocity += new Vector2(0, 5);
+    {
+        const int NoSpeed = 0;
+
+        _rigidbody.linearVelocity += new Vector2(NoSpeed, _multiplierHaver.Multiplier);
+    }
 }

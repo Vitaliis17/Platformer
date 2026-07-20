@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 9048161380855287375}
   - component: {fileID: 4630638301763022200}
   - component: {fileID: -8550287659902435956}
+  - component: {fileID: -368469926556884507}
   m_Layer: 0
   m_Name: ProjectContext
   m_TagString: Untagged
@@ -52,6 +53,7 @@ MonoBehaviour:
   - {fileID: 9048161380855287375}
   - {fileID: 4630638301763022200}
   - {fileID: -8550287659902435956}
+  - {fileID: -368469926556884507}
   _installerPrefabs: []
   _findSiblingMonoInstallers: 0
   _parentNewObjectsUnderContext: 1
@@ -107,3 +109,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: GameLogic::ApplicationInstaller
   _pauseData: {fileID: 11400000, guid: 095c19895e390e54d9b660f5cd0fb94c, type: 2}
+--- !u!114 &-368469926556884507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4678909316770132479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc8d6466d60cc3439f61d33973fb9b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::AudioMixerInstaller
+  _soundData: {fileID: 11400000, guid: 306c30380341ada48a80fadaf3eb98df, type: 2}

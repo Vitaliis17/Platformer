@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = nameof(SpeedData), menuName = nameof(SpeedData))]
-public class SpeedData : ScriptableObject
+public class SpeedData : ScriptableObject, ISpeedRandomizer
 {
     [SerializeField, Min(0)] private float _minSpeed;
     [SerializeField] private float _maxSpeed;

@@ -1,21 +1,22 @@
 using UnityEngine;
 using R3;
+using Zenject;
 
-public class Cloud : MonoBehaviour, IHavePositionEvent
+public class Cloud : MonoBehaviour, IHavePositionEvent, ISpriteSetter
 {
-    [SerializeField] private SpeedData _data;
+    [Inject] private ISpeedRandomizer _speedRandomizer;
 
     private readonly Subject<Vector2> _positionChanged = new();
 
+    private SpriteRenderer _spriteRenderer;
     private float _speed;
 
     public Observable<Vector2> PositionChanged => _positionChanged;
-    public SpriteRenderer SpriteRenderer { get; private set; }
 
     private void Awake()
     {
-        SpriteRenderer = GetComponent<SpriteRenderer>();
-        _speed = _data.GetRandomSpeed();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _speed = _speedRandomizer.GetRandomSpeed();
     }
 
     private void FixedUpdate()
@@ -27,4 +28,7 @@ public class Cloud : MonoBehaviour, IHavePositionEvent
 
     private void OnDestroy()
         => _positionChanged?.Dispose();
+
+    public void SetSprite(Sprite sprite)
+        => _spriteRenderer.sprite = sprite;
 }

@@ -10,7 +10,7 @@ public class Player : MonoBehaviour, IHavePosition, IMovable, IMovableEvents, IV
 
     [Inject] private IJumpable _jumper;
 
-    [Inject] private IVelocityData _velocityData;
+    [Inject(Id = IdNames.Movement)] private IHaveMultiplier _velocityData;
 
     private readonly Subject<Unit> _isHorizontalMoved = new();
     private readonly Subject<Unit> _isVerticalMoved = new();
@@ -35,13 +35,20 @@ public class Player : MonoBehaviour, IHavePosition, IMovable, IMovableEvents, IV
 
     public void SetVelocity(bool isLadder)
     {
+        if (_rigidbody == null)
+            return;
+
         float velocityX = _horizontalMover.TransferDelta().x;
         float velocityY = _verticalMover.TransferDelta().y;
 
+        Vector2 velocity = Vector2.zero;
+
         if (isLadder)
-            _rigidbody.linearVelocity = new Vector2(velocityX * _velocityData.Multiplier, velocityY * _velocityData.Multiplier);
+            velocity = new Vector2(velocityX * _velocityData.Multiplier, velocityY * _velocityData.Multiplier);
         else
-            _rigidbody.linearVelocity = new Vector2(velocityX * _velocityData.Multiplier, _rigidbody.linearVelocityY);
+            velocity = new Vector2(velocityX * _velocityData.Multiplier, _rigidbody.linearVelocityY);
+
+        _rigidbody.linearVelocity = velocity;
     }
 
     public void MoveHorizontal(float direction)

@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = nameof(AnimationPrioritiesData), menuName = nameof(AnimationPrioritiesData))]
-public class AnimationPrioritiesData : ScriptableObject
+public class AnimationPrioritiesData : ScriptableObject, IAnimationPrioritiesData
 {
     private Dictionary<AnimationNames, int> _animationPriority;
 

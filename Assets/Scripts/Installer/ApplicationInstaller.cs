@@ -9,8 +9,6 @@ public class ApplicationInstaller : MonoInstaller
     {
         BindPauseData();
         BindPauseSwitcher();
-
-        Container.Bind<IQuiter>().To<Quiter>().AsSingle();
     }
 
     private void BindPauseData()
@@ -24,5 +22,6 @@ public class ApplicationInstaller : MonoInstaller
         Container.Bind<PauseSwitcher>().AsSingle();
         Container.Bind<IPauseSwitcher>().FromMethod(ctx => ctx.Container.Resolve<PauseSwitcher>()).AsSingle();
         Container.Bind<IPauser>().FromMethod(ctx => ctx.Container.Resolve<PauseSwitcher>()).AsSingle();
+        Container.Bind<IUnpauser>().FromMethod(ctx => ctx.Container.Resolve<PauseSwitcher>()).AsSingle();
     }
 }

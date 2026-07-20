@@ -6,8 +6,7 @@ using System;
 public class CloudSpawnerPresenter : MonoBehaviour
 {
     [Inject] private ISpawner<Cloud> _spawner;
-
-    [SerializeField] private CloudSpawnData _spawnData;
+    [Inject] private ICloudSpawnData _spawnData;
 
     private float _currentRandomNumber = 0;
     private float _lastRandomNumber = float.MinValue;

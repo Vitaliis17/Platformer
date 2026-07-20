@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = nameof(CloudSpawnData), menuName = nameof(CloudSpawnData))]
-public class CloudSpawnData : ScriptableObject
+public class CloudSpawnData : ScriptableObject, ICloudSpawnData
 {
     [SerializeField] private float _minPositionY;
     [SerializeField] private float _maxPositionY;

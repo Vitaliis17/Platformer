@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = nameof(SpriteData), menuName = nameof(SpriteData))]
-public class SpriteData : ScriptableObject
+public class SpriteData : ScriptableObject, ISpriteRandomizer
 {
     [SerializeField, Min(0)] private float _minScaleX;
     [SerializeField] private float _maxScaleX;

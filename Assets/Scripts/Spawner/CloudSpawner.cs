@@ -3,17 +3,19 @@ using Zenject;
 
 public class CloudSpawner : Spawner<Cloud>
 {
-    private SpriteData _data;
+    private ISpriteRandomizer _spriteRandomizer;
 
     [Inject]
-    public CloudSpawner(SpriteData data, Cloud prefab, Transform container) : base(prefab, container)
-        => _data = data;
+    public CloudSpawner(ISpriteRandomizer spriteRandomizer, Cloud prefab, Transform container) : base(prefab, container)
+        => _spriteRandomizer = spriteRandomizer;
 
     public override Cloud GetElement()
     {
         Cloud cloud = base.GetElement();
 
-        cloud.SpriteRenderer.sprite = _data.GetRandomSprite();
+        Sprite sprite = _spriteRandomizer.GetRandomSprite();
+
+        cloud.SetSprite(sprite);
         SetRandomScale(cloud);
 
         return cloud;
@@ -23,7 +25,7 @@ public class CloudSpawner : Spawner<Cloud>
     {
         const float BaseScale = 1f;
 
-        float randomScaleX = _data.GetRandomScaleX();
+        float randomScaleX = _spriteRandomizer.GetRandomScaleX();
         cloud.transform.localScale = new(randomScaleX, BaseScale);
     }
 }
