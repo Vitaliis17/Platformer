@@ -85,6 +85,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 27810b5e284836549aec6bb5861c689a
+    m_Address: gameIcon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2878de5709cd14844a38a127a21560e8
     m_Address: Cloud7
     m_ReadOnly: 0
@@ -157,11 +162,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5f2a4b5e3acb4784c8c129b4463127aa
     m_Address: Sun
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 612801b2b9fdf2a4f9b397a4d3f802c7
-    m_Address: gameIcom
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -245,6 +245,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98722d1f5bcf77142b6365f820a3cf8f
+    m_Address: InventoryContainer
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9bba44a5907969e409c2bb301826b148
     m_Address: AnimationPrioritiesData
     m_ReadOnly: 0
@@ -297,6 +302,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cc7edd233153eba45b4f3129b546fc7e
     m_Address: cloudLong1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce03734ccd5cb1e48954231f5bac2a2e
+    m_Address: Start
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
