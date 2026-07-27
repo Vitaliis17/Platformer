@@ -12,14 +12,7 @@ public class GameplayReaderInstaller : MonoInstaller
     }
 
     private void BindGameplayAction()
-    {
-        Container.Bind<GameplayAction>().FromComponentInHierarchy().AsSingle();
-
-        Container.Bind<IMovementReader>().FromMethod(ctx => ctx.Container.Resolve<GameplayAction>()).AsSingle();
-        Container.Bind<ITouchReader>().FromMethod(ctx => ctx.Container.Resolve<GameplayAction>()).AsSingle();
-        Container.Bind<IJumpReader>().FromMethod(ctx => ctx.Container.Resolve<GameplayAction>()).AsSingle();
-        Container.Bind<IHoldReader>().FromMethod(ctx => ctx.Container.Resolve<GameplayAction>()).AsSingle();
-    }
+        => Container.BindInterfacesTo<GameplayAction>().FromComponentInHierarchy().AsSingle();
 
     private void BindZoneChecker()
     {
