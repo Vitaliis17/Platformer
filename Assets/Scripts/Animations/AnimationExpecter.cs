@@ -1,16 +1,19 @@
 using System.Collections.Generic;
-using System.Linq;
 
 public class AnimationExpecter : IAnimationExpecter
 {
     private List<AnimationNames> _expectation;
+    private HashSet<AnimationNames> _uniqueExpectation;
 
     public AnimationExpecter()
-        => _expectation = new();
+    {
+        _expectation = new();
+        _uniqueExpectation = new();
+    }
 
     public void Add(AnimationNames name)
     {
-        if (_expectation.Any(element => element == name))
+        if (_uniqueExpectation.Add(name) == false)
             return;
 
         _expectation.Add(name);
@@ -18,7 +21,7 @@ public class AnimationExpecter : IAnimationExpecter
 
     public void Remove(AnimationNames name)
     {
-        if (_expectation.Any(element => element == name) == false)
+        if (_uniqueExpectation.Remove(name) == false)
             return;
 
         _expectation.Remove(name);
