@@ -1,7 +1,6 @@
 using R3;
-using System;
 
-public class Container : IContainer, IDisposable
+public class Container : IContainer
 {
     private readonly Subject<Unit> _setted = new();
     private readonly Subject<Unit> _emptySetted = new();

@@ -3,7 +3,7 @@ using Zenject;
 using R3;
 using System;
 
-public class CloudSpawnerPresenter : MonoBehaviour
+public class CloudSpawnerController : MonoBehaviour
 {
     [Inject] private ISpawner<Cloud> _spawner;
     [Inject] private ICloudSpawnData _spawnData;

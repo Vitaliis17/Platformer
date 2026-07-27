@@ -24,4 +24,11 @@ public class LevelLoader : IMenuLoader, ILevelLoader, IHaveLevelLoaderEvent
 
     public void LoadMenu()
         => _sceneLoader.LoadMenu();
+
+    public void Dispose()
+    {
+        _sceneLoader.Dispose();
+
+        _levelChanging?.Dispose();
+    }
 }

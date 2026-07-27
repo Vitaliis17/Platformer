@@ -3,7 +3,6 @@ using Zenject;
 
 public class InteracterInstaller : MonoInstaller
 {
-    [SerializeField] private ScreenData _screenData;
     [SerializeField] private TransparencyData _containerTransparencyData;
 
     public override void InstallBindings()
@@ -37,12 +36,7 @@ public class InteracterInstaller : MonoInstaller
     }
 
     private void BindTransferator()
-    {
-        Container.Bind<ScreenData>().FromInstance(_screenData).AsSingle();
-        Container.Bind<IPixelPerUnitSender>().FromMethod(ctx => ctx.Container.Resolve<ScreenData>()).AsSingle();
-
-        Container.Bind<ITransferator<ITransferable>>().To<Transferator<ITransferable>>().AsSingle();
-    }
+        => Container.Bind<ITransferator<ITransferable>>().To<Transferator<ITransferable>>().AsSingle();
 
     private void BindContainer()
         => Container.Bind<IContainer>().To<Container>().AsSingle();

@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using Zenject;
 
-public class PlayerMovementPresenter : MonoBehaviour
+public class PlayerMovementController : MonoBehaviour
 {
     [Inject] private IMovementReader _movementReader;
     [Inject] private IJumpReader _jumpReader;
