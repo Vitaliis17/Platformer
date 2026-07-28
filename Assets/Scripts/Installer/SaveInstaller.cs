@@ -12,6 +12,7 @@ public class SaveInstaller : MonoInstaller
         Container.Bind<ISaveReader>().To<SaveReader>().AsSingle().WithArguments(path);
         Container.Bind<ISaveWriter>().To<SaveWriter>().AsSingle().WithArguments(path);
 
-        Container.BindInterfacesTo<SaveManager>().AsSingle();
+        Container.Bind<ISaveManager>().To<SaveManager>().AsCached();
+        Container.Bind<ISaver>().To<SaveManager>().AsCached();
     }
 }

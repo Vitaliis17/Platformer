@@ -18,5 +18,10 @@ public class ApplicationInstaller : MonoInstaller
     }
 
     private void BindPauseSwitcher()
-        => Container.BindInterfacesTo<PauseSwitcher>().AsSingle();
+    {
+        Container.Bind<PauseSwitcher>().AsSingle();
+        Container.Bind<IPauseSwitcher>().FromMethod(ctx => ctx.Container.Resolve<PauseSwitcher>()).AsSingle();
+        Container.Bind<IPauser>().FromMethod(ctx => ctx.Container.Resolve<PauseSwitcher>()).AsSingle();
+        Container.Bind<IUnpauser>().FromMethod(ctx => ctx.Container.Resolve<PauseSwitcher>()).AsSingle();
+    }
 }

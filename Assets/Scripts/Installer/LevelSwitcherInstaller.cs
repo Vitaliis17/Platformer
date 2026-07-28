@@ -30,8 +30,18 @@ public class LevelSwitcherInstaller : MonoInstaller
     }
 
     private void BindLevelLoader()
-        => Container.BindInterfacesTo<LevelLoader>().AsSingle();
+    {
+        Container.Bind<LevelLoader>().AsSingle();
+        Container.Bind<IMenuLoader>().FromMethod(ctx => ctx.Container.Resolve<LevelLoader>()).AsSingle();
+        Container.Bind<ILevelLoader>().FromMethod(ctx => ctx.Container.Resolve<LevelLoader>()).AsSingle();
+        Container.Bind<IHaveLevelLoaderEvent>().FromMethod(ctx => ctx.Container.Resolve<LevelLoader>()).AsSingle();
+    }
 
     private void BindLevelData()
-        => Container.BindInterfacesTo<LevelData>().FromInstance(_levelData).AsSingle();
+    {
+        Container.Bind<LevelData>().FromInstance(_levelData).AsSingle();
+
+        Container.Bind<ILevelData>().FromMethod(ctx => ctx.Container.Resolve<LevelData>()).AsSingle();
+        Container.Bind<ICurrentLevelSetter>().FromMethod(ctx => ctx.Container.Resolve<LevelData>()).AsSingle();
+    }
 }

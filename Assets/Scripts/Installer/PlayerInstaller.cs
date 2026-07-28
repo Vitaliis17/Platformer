@@ -28,7 +28,12 @@ public class PlayerInstaller : MonoInstaller
 
         Container.Bind<IJumpable>().To<Jumper>().AsTransient();
 
-        Container.BindInterfacesTo<Player>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<Player>().FromComponentInHierarchy().AsSingle();
+
+        Container.Bind<IHavePosition>().FromMethod(ctx => ctx.Container.Resolve<Player>()).AsSingle();
+        Container.Bind<IMovable>().FromMethod(ctx => ctx.Container.Resolve<Player>()).AsSingle();
+        Container.Bind<IMovableEvents>().FromMethod(ctx => ctx.Container.Resolve<Player>()).AsSingle();
+        Container.Bind<IVelocitySetter>().FromMethod(ctx => ctx.Container.Resolve<Player>()).AsSingle();
     }
 
     private void BindMoverData()
