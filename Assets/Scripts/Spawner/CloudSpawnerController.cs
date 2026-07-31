@@ -8,13 +8,15 @@ public class CloudSpawnerController : MonoBehaviour
     [Inject] private ISpawner<Cloud> _spawner;
     [Inject] private ICloudSpawnData _spawnData;
 
+    [SerializeField] private float _spawnTime;
+
     private float _currentRandomNumber = 0;
     private float _lastRandomNumber = float.MinValue;
 
     private void Start()
     {
         Observable
-            .Interval(TimeSpan.FromSeconds(90f))
+            .Interval(TimeSpan.FromSeconds(_spawnTime))
             .Subscribe(_ => Spawn())
             .AddTo(this);
     }
@@ -22,7 +24,7 @@ public class CloudSpawnerController : MonoBehaviour
     private void Spawn()
     {
         Cloud cloud = _spawner.GetElement();
-
+        
         do
             _currentRandomNumber = _spawnData.RandomPositionY;
         while (IsInRange());

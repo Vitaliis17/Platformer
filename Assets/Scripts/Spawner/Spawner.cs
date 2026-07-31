@@ -3,14 +3,15 @@ using UnityEngine.Pool;
 
 public abstract class Spawner<T> : ISpawner<T> where T : Component
 {
-    private readonly T _prefab;
+    private readonly Factory<T> _factory;
+
     private readonly Transform _container;
 
     private readonly ObjectPool<T> _pool;
 
-    public Spawner(T prefab, Transform container)
+    public Spawner(Factory<T> factory, Transform container)
     {
-        _prefab = prefab;
+        _factory = factory;
         _container = container;
 
         _pool = new(Create, Get, Release, DestroyElement);
@@ -29,7 +30,12 @@ public abstract class Spawner<T> : ISpawner<T> where T : Component
         => element?.gameObject.SetActive(false);
 
     private T Create()
-        => Object.Instantiate(_prefab, _container);
+    {
+        T component = _factory.Create();
+        component.transform.SetParent(_container);
+
+        return component;
+    }
 
     private void DestroyElement(T element)
         => Object.Destroy(element);

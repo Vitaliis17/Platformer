@@ -160,11 +160,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 612801b2b9fdf2a4f9b397a4d3f802c7
-    m_Address: gameIcom
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 626b74691b2350444a010e08147446a9
     m_Address: CloudSpawnData
     m_ReadOnly: 0
@@ -212,11 +207,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 795301d3bbfcbf24eb7f943943b5e7a7
     m_Address: gameClip
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7a33fc3897b025342bab9af5bd400597
-    m_Address: ScreenData
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

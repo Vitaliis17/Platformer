@@ -103,4 +103,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1126989a06032a4fbd093e03c714059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GameLogic::Cloud
-  _data: {fileID: 11400000, guid: 0011bb4ce2aac5748a7c4f9ac216dde0, type: 2}
