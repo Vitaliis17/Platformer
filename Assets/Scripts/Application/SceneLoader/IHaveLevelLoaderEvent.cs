@@ -1,6 +1,7 @@
 using R3;
+using System;
 
-public interface IHaveLevelLoaderEvent
+public interface IHaveLevelLoaderEvent : IDisposable
 {
     Observable<int> LevelChanging { get; }
 }

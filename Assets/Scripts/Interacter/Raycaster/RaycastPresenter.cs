@@ -29,6 +29,9 @@ public class RaycastPresenter : MonoBehaviour
         SubscribeTransferItem();
     }
 
+    private void OnDestroy()
+        => _container.Dispose();
+
     private bool IsInventoryContinerItem(ITransferable transferable)
     {
         IInventoryContainer container = _inventoryContainerRaycaster.Raycast();

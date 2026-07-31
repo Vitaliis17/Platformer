@@ -1,4 +1,6 @@
-public interface ISceneLoader
+using System;
+
+public interface ISceneLoader : IDisposable
 {
     void LoadSceneAsync(SceneNames name);
 

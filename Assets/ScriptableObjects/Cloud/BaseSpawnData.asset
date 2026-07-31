@@ -9,6 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f41af8b9ea40a224e974e74d7ba61c0a, type: 3}
-  m_Name: ScreenData
-  m_EditorClassIdentifier: GameLogic::ScreenData
+  m_Script: {fileID: 11500000, guid: 4b6a61c3f35c34f45983c5e7c09a9e91, type: 3}
+  m_Name: BaseSpawnData
+  m_EditorClassIdentifier: GameLogic::BaseSpawnData
+  _spawnTime: 90

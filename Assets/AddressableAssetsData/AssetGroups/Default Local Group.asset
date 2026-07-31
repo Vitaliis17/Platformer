@@ -110,6 +110,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 307bb6c9cec668a4d97e5166e4bc5f5a
+    m_Address: BaseSpawnData
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 30d13e62973c85248813e46c71aa435e
     m_Address: House
     m_ReadOnly: 0
@@ -212,11 +217,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 795301d3bbfcbf24eb7f943943b5e7a7
     m_Address: gameClip
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7a33fc3897b025342bab9af5bd400597
-    m_Address: ScreenData
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

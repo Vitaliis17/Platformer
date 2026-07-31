@@ -1,4 +1,3 @@
-using System;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -7,7 +6,7 @@ using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 using Zenject;
 
-public class SceneLoader : IDisposable, ISceneLoader
+public class SceneLoader : ISceneLoader
 {
     private readonly CancellationTokenSource _source;
 

@@ -6,7 +6,7 @@ public class CloudSpawner : Spawner<Cloud>
     private ISpriteRandomizer _spriteRandomizer;
 
     [Inject]
-    public CloudSpawner(ISpriteRandomizer spriteRandomizer, Cloud prefab, Transform container) : base(prefab, container)
+    public CloudSpawner(ISpriteRandomizer spriteRandomizer, Factory<Cloud> factory, Transform container) : base(factory, container)
         => _spriteRandomizer = spriteRandomizer;
 
     public override Cloud GetElement()
