@@ -595,7 +595,15 @@ PrefabInstance:
     - target: {fileID: 1842882493289804812, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
       propertyPath: _container
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1603907535}
+    - target: {fileID: 1842882493289804812, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
+      propertyPath: _baseSpawnData
+      value: 
+      objectReference: {fileID: 11400000, guid: 307bb6c9cec668a4d97e5166e4bc5f5a, type: 2}
+    - target: {fileID: 1842882493289804812, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
+      propertyPath: _cloudSpawnData
+      value: 
+      objectReference: {fileID: 11400000, guid: 626b74691b2350444a010e08147446a9, type: 2}
     - target: {fileID: 6674875563447661104, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.36427

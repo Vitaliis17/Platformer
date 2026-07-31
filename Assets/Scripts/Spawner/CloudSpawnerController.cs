@@ -8,7 +8,7 @@ public class CloudSpawnerController : MonoBehaviour
     [Inject] private ISpawner<Cloud> _spawner;
     [Inject] private ICloudSpawnData _spawnData;
 
-    [SerializeField] private float _spawnTime;
+    [Inject] private IBaseSpawnData _baseSpawnData;
 
     private float _currentRandomNumber = 0;
     private float _lastRandomNumber = float.MinValue;
@@ -16,7 +16,7 @@ public class CloudSpawnerController : MonoBehaviour
     private void Start()
     {
         Observable
-            .Interval(TimeSpan.FromSeconds(_spawnTime))
+            .Interval(TimeSpan.FromSeconds(_baseSpawnData.SpawnTime))
             .Subscribe(_ => Spawn())
             .AddTo(this);
     }

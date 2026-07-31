@@ -9,7 +9,8 @@ public class SpawnerInstaller : MonoInstaller
     [SerializeField] private SpriteData _spriteCloudData;
     [SerializeField] private SpeedData _speedData;
 
-    [SerializeField] private CloudSpawnData _spawnData;
+    [SerializeField] private CloudSpawnData _cloudSpawnData;
+    [SerializeField] private BaseSpawnData _baseSpawnData;
 
     public override void InstallBindings()
     {
@@ -31,7 +32,10 @@ public class SpawnerInstaller : MonoInstaller
 
     private void BindSpawnData()
     {
-        Container.Bind<CloudSpawnData>().FromInstance(_spawnData).AsSingle();
+        Container.Bind<BaseSpawnData>().FromInstance(_baseSpawnData).AsSingle();
+        Container.Bind<IBaseSpawnData>().FromMethod(ctx => ctx.Container.Resolve<BaseSpawnData>()).AsSingle();
+
+        Container.Bind<CloudSpawnData>().FromInstance(_cloudSpawnData).AsSingle();
         Container.Bind<ICloudSpawnData>().FromMethod(ctx => ctx.Container.Resolve<CloudSpawnData>()).AsSingle();
     }
 }

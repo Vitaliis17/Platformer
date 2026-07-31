@@ -105,6 +105,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 307bb6c9cec668a4d97e5166e4bc5f5a
+    m_Address: BaseSpawnData
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 30d13e62973c85248813e46c71aa435e
     m_Address: House
     m_ReadOnly: 0
