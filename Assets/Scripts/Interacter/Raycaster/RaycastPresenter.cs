@@ -32,7 +32,7 @@ public class RaycastPresenter : MonoBehaviour
     private void OnDestroy()
         => _container.Dispose();
 
-    private bool IsInventoryContinerItem(ITransferable transferable)
+    private bool IsInventoryContanerItem(ITransferable transferable)
     {
         IInventoryContainer container = _inventoryContainerRaycaster.Raycast();
 
@@ -101,7 +101,7 @@ public class RaycastPresenter : MonoBehaviour
             .Where(_ => _inventoryContainer.IsEmpty())
             .Select(_ => _interactableRaycaster.Raycast())
             .Where(interactable => interactable != null)
-            .Where(interactable => IsInventoryContinerItem(interactable) == false)
+            .Where(interactable => IsInventoryContanerItem(interactable) == false)
             .Where(interactable => _zoneChecker.IsInside(_origin.Position, interactable.Position))
             .Subscribe(interactable =>
             {
