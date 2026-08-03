@@ -588,7 +588,7 @@ PrefabInstance:
     - target: {fileID: 328879386559072360, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
       propertyPath: _ladder
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1281950780}
     - target: {fileID: 328879386559072360, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
       propertyPath: _groundChecker
       value: 
@@ -597,14 +597,6 @@ PrefabInstance:
       propertyPath: _container
       value: 
       objectReference: {fileID: 1603907535}
-    - target: {fileID: 1842882493289804812, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
-      propertyPath: _baseSpawnData
-      value: 
-      objectReference: {fileID: 11400000, guid: 307bb6c9cec668a4d97e5166e4bc5f5a, type: 2}
-    - target: {fileID: 1842882493289804812, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
-      propertyPath: _cloudSpawnData
-      value: 
-      objectReference: {fileID: 11400000, guid: 626b74691b2350444a010e08147446a9, type: 2}
     - target: {fileID: 6674875563447661104, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.36427
@@ -7148,6 +7140,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7578939274056037121, guid: 3f6187472fefc4140bddf113d99ea2e7, type: 3}
   m_PrefabInstance: {fileID: 1281950778}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1281950780 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7882674083317241067, guid: 3f6187472fefc4140bddf113d99ea2e7, type: 3}
+  m_PrefabInstance: {fileID: 1281950778}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e86314688787934aba03946f59aa966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::MapTrigger
 --- !u!1 &1442372801
 GameObject:
   m_ObjectHideFlags: 0
