@@ -5782,6 +5782,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8730698754680372723, guid: cc7edd233153eba45b4f3129b546fc7e, type: 3}
   m_PrefabInstance: {fileID: 6834082816406436968}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &739473915 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8270760341706948662, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
+  m_PrefabInstance: {fileID: 3176634491592961002}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &739473916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739473915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9beda2998f3856c41a4ed9835f04e515, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FirebaseDefinition::Authoring
 --- !u!1 &773892169
 GameObject:
   m_ObjectHideFlags: 0
@@ -6588,7 +6605,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8270760341706948662, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 739473916}
   m_SourcePrefab: {fileID: 100100000, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
 --- !u!1001 &3630303986263090954
 PrefabInstance:
@@ -7200,11 +7220,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.38524
+      value: 1.3852406
       objectReference: {fileID: 0}
     - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.08211
+      value: 0.082107544
       objectReference: {fileID: 0}
     - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7216,15 +7236,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

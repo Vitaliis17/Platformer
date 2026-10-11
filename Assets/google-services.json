@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "705900096007",
+    "project_id": "platformer-55a46",
+    "storage_bucket": "platformer-55a46.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:705900096007:android:14f540aa2cc78c4b87d8a2",
+        "android_client_info": {
+          "package_name": "com.Devimix.Platformer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0FuqGkHf7oTa_E0_BaPZzLhQvl5zDY8M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

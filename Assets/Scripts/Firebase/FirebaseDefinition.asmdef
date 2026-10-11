@@ -1,0 +1,20 @@
+{
+    "name": "FirebaseDefinition",
+    "rootNamespace": "",
+    "references": [
+        "GUID:9b4ce77d2be44f25af03d4cbf9bee9f9",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:77221876cc6b8244180b96e320b1bcd4",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
