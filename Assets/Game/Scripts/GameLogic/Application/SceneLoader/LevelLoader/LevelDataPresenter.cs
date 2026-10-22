@@ -1,12 +1,17 @@
 using R3;
-using UnityEngine;
 using Zenject;
+using System;
 
-public class LevelDataPresenter : MonoBehaviour
+public class LevelDataPresenter : IInitializable, IDisposable
 {
     [Inject] private IHaveLevelLoaderEvent _levelEvent;
     [Inject] private ICurrentLevelSetter _currentLevelSetter;
 
-    private void Start()
-        => _levelEvent.LevelChanging.Subscribe(levelNumber => _currentLevelSetter.SetCurrentLevel(levelNumber)).AddTo(this);
+    private IDisposable _disposable;
+
+    public void Dispose()
+        => _disposable?.Dispose();
+
+    public void Initialize()
+        => _disposable = _levelEvent.LevelChanging.Subscribe(levelNumber => _currentLevelSetter.SetCurrentLevel(levelNumber));
 }

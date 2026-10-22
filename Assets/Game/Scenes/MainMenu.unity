@@ -2807,63 +2807,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1001 &1168562351
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1875605025942310422, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
-      propertyPath: m_Name
-      value: Application
-      objectReference: {fileID: 0}
-    - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2848109948554936205, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4c16d56e7bc4a5d4eae89567fc1728e4, type: 3}
 --- !u!1 &1194598190
 GameObject:
   m_ObjectHideFlags: 0
@@ -3089,8 +3032,6 @@ GameObject:
   - component: {fileID: 1235548187}
   - component: {fileID: 1235548189}
   - component: {fileID: 1235548188}
-  - component: {fileID: 1235548191}
-  - component: {fileID: 1235548190}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -3159,39 +3100,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235548186}
   m_CullTransparentMesh: 1
---- !u!114 &1235548190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1235548186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c3996e4c6b01db4aa96018172154e06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::LevelUnlockerPresenter
---- !u!114 &1235548191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1235548186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9fc07edd3a983e4a8f3d9f3cba14d16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::LevelUnlocker
-  _buttons:
-  - {fileID: 1643511831}
-  - {fileID: 1102185983}
-  - {fileID: 538674647}
-  - {fileID: 1941840176}
-  - {fileID: 1144584691}
-  - {fileID: 1430173383}
-  - {fileID: 494594176}
-  - {fileID: 2055383248}
 --- !u!1 &1285446796
 GameObject:
   m_ObjectHideFlags: 0
@@ -3340,7 +3248,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5568b9af1fafeed40935ccc819b251c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GameLogic::LevelUnlockerInstaller
-  _levelUnlocker: {fileID: 1235548191}
+  _levelButtons:
+  - {fileID: 1643511831}
+  - {fileID: 1102185983}
+  - {fileID: 538674647}
+  - {fileID: 1941840176}
+  - {fileID: 1643511831}
+  - {fileID: 1430173383}
+  - {fileID: 494594176}
+  - {fileID: 2055383248}
 --- !u!114 &1354546371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4790,6 +4706,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 416930061}
   - {fileID: 1157940308}
-  - {fileID: 1168562351}
   - {fileID: 1354546367}
   - {fileID: 424065407}

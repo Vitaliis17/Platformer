@@ -8,11 +8,18 @@ public class PlayerInstaller : MonoInstaller
     [SerializeField] private VelocityData _jumpingVelocityData;
 
     [SerializeField] private Rigidbody2D _rigidbody;
+    [SerializeField] private SpriteRenderer _playerRenderer;
 
     public override void InstallBindings()
     {
         Vector2 horizontalDirection = Vector2.right;
         Vector2 VerticalDirection = Vector2.up;
+
+        Container.BindInterfacesTo<PlayerAnimationPresenter>().AsSingle();
+        Container.BindInterfacesTo<PlayerFlipPresenter>().AsSingle().WithArguments(_playerRenderer);
+        Container.BindInterfacesTo<PlayerMovementController>().AsSingle();
+        Container.BindInterfacesTo<GravitySwitcher>().AsSingle().WithArguments(_rigidbody);
+        Container.BindInterfacesTo<TransparencySwitcherPresenter>().AsSingle();
 
         BindMoverData();
 

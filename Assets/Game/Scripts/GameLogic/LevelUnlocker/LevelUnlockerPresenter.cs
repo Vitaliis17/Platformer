@@ -1,12 +1,11 @@
-using UnityEngine;
 using Zenject;
 
-public class LevelUnlockerPresenter : MonoBehaviour
+public class LevelUnlockerPresenter : IInitializable
 {
     [Inject] private ISaveManager _saveManager;
     [Inject] private ILevelUnlocker _levelUnlocker;
 
-    private void Start()
+    public void Initialize()
     {
         int currentLevel = _saveManager.ReadCurrentLevel();
 

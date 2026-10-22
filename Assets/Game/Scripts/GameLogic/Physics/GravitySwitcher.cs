@@ -1,16 +1,18 @@
 using UnityEngine;
+using Zenject;
 
-public class GravitySwitcher : MonoBehaviour, IGravitySwitcher
+public class GravitySwitcher : IInitializable, IGravitySwitcher
 {
-    private Rigidbody2D _rigidbody;
+    private readonly Rigidbody2D _rigidbody;
 
     private float _maxGravity;
     private int _minGravity;
 
-    private void Awake()
-        => _rigidbody = GetComponent<Rigidbody2D>();
+    [Inject]
+    public GravitySwitcher(Rigidbody2D rigidbody)
+        => _rigidbody = rigidbody;
 
-    private void Start()
+    public void Initialize()
     {
         const int NoGravityScale = 0;
 

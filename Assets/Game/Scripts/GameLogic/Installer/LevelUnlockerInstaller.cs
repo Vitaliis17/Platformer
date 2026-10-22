@@ -1,13 +1,14 @@
 using Zenject;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelUnlockerInstaller : MonoInstaller
 {
-    [SerializeField] private LevelUnlocker _levelUnlocker;
+    [SerializeField] private Button[] _levelButtons;
 
     public override void InstallBindings()
     {
-        Container.Bind<LevelUnlocker>().FromInstance(_levelUnlocker).AsSingle();
-        Container.Bind<ILevelUnlocker>().FromMethod(ctx => ctx.Container.Resolve<LevelUnlocker>()).AsSingle();
+        Container.BindInterfacesTo<LevelUnlocker>().AsSingle().WithArguments(_levelButtons);
+        Container.BindInterfacesTo<LevelUnlockerPresenter>().AsSingle();
     }
 }

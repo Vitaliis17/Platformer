@@ -1,18 +1,16 @@
-using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using Zenject;
 
-public class LevelUnlocker : MonoBehaviour, ILevelUnlocker
+public class LevelUnlocker : IInitializable, ILevelUnlocker
 {
-    [SerializeField] private Button[] _buttons;
-
     private Dictionary<int, Button> _levelButtons;
 
-    private void Awake()
-    {
-        FillLevelDictionary();
-        LockAll();
-    }
+    public LevelUnlocker(Button[] buttons)
+        => FillLevelDictionary(buttons);
+
+    public void Initialize()
+        => LockAll();
 
     public void UnlockLevels(int lastLevelIndex)
     {
@@ -29,12 +27,15 @@ public class LevelUnlocker : MonoBehaviour, ILevelUnlocker
             _levelButtons[i].interactable = UnlockValue;
     }
 
-    private void FillLevelDictionary()
+    private void FillLevelDictionary(Button[] buttons)
     {
+        if (buttons == null)
+            return;
+
         _levelButtons = new();
 
-        for (int i = 0; i < _buttons.Length; i++)
-            _levelButtons.Add(i, _buttons[i]);
+        for (int i = 0; i < buttons.Length; i++)
+            _levelButtons.Add(i, buttons[i]);
     }
 
     private void LockAll()

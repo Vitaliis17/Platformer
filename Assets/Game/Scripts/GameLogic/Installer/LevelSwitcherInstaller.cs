@@ -10,6 +10,8 @@ public class LevelSwitcherInstaller : MonoInstaller
     public override void InstallBindings()
     {
         BindSceneLoader();
+
+        Container.BindInterfacesTo<LevelDataPresenter>().AsSingle();
         BindLevelLoader();
 
         BindLevelData();

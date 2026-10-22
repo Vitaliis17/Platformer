@@ -8,6 +8,8 @@ public class RaycasterInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
+        Container.BindInterfacesTo<RaycastPresenter>().AsSingle();
+
         BindInteractableRaycaster();
         BindInventoryContainer();
     }

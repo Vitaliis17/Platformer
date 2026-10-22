@@ -1,15 +1,20 @@
 using R3;
-using UnityEngine;
+using System;
 using Zenject;
 
-public class TransparencySwitcherPresenter : MonoBehaviour
+public class TransparencySwitcherPresenter : IInitializable, IDisposable
 {
     [Inject] private IContainer _container;
     [Inject] private ITransparencySwitcher _switcher;
 
-    private void Start()
+    private DisposableBag _bag;
+
+    public void Initialize()
     {
-        _container.Setted.Subscribe(_ => _switcher.Activate()).AddTo(this);
-        _container.EmptySetted.Subscribe(_ => _switcher.Deactivate()).AddTo(this);
+        _bag.Add(_container.Setted.Subscribe(_ => _switcher.Activate()));
+        _bag.Add(_container.EmptySetted.Subscribe(_ => _switcher.Deactivate()));
     }
+
+    public void Dispose()
+        => _bag.Dispose();
 }

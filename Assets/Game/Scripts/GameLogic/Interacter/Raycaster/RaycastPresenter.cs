@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using Zenject;
 
-public class RaycastPresenter : MonoBehaviour
+public class RaycastPresenter : IInitializable, IDisposable
 {
     [Inject] private ITouchReader _touchReader;
     [Inject] private IHoldReader _holdReader;
@@ -20,7 +20,9 @@ public class RaycastPresenter : MonoBehaviour
 
     private bool _isPressed;
 
-    private void Start()
+    private DisposableBag _bag;
+
+    public void Initialize()
     {
         SubscribeGettingContainerItem();
         SubscribeSettingContainerItem();
@@ -29,8 +31,11 @@ public class RaycastPresenter : MonoBehaviour
         SubscribeTransferItem();
     }
 
-    private void OnDestroy()
-        => _container.Dispose();
+    public void Dispose()
+    {
+        _container.Dispose();
+        _bag.Dispose();
+    }
 
     private bool IsInventoryContanerItem(ITransferable transferable)
     {
@@ -63,7 +68,7 @@ public class RaycastPresenter : MonoBehaviour
 
     private void SubscribeGettingContainerItem()
     {
-        _touchReader.PressChanged
+        _bag.Add(_touchReader.PressChanged
             .Where(isPressed => _isPressed == false && isPressed)
             .Where(_ => _container == null || _container.IsEmpty())
             .Select(_ => _inventoryContainerRaycaster.Raycast())
@@ -71,13 +76,12 @@ public class RaycastPresenter : MonoBehaviour
             .Subscribe(inventoryContainer => {
                 ITransferable interactable = inventoryContainer.Get();
                 interactable.TurnOffTrigger();
-                })
-            .AddTo(this);
+                }));
     }
 
     private void SubscribeSettingContainerItem()
     {
-        _touchReader.PressChanged
+        _bag.Add(_touchReader.PressChanged
             .Where(isPressed => _isPressed && isPressed == false)
             .Subscribe(isPressed =>
             {
@@ -89,7 +93,7 @@ public class RaycastPresenter : MonoBehaviour
                 }
 
                 _isPressed = isPressed;
-            }).AddTo(this);
+            }));
     }
 
     private void SubscribeGettingItem()
@@ -97,7 +101,7 @@ public class RaycastPresenter : MonoBehaviour
         Observable<bool> pressChanged = _touchReader.PressChanged
             .Where(isPressed => _isPressed == false && isPressed);
 
-        pressChanged
+        _bag.Add(pressChanged
             .Where(_ => _inventoryContainer.IsEmpty())
             .Select(_ => _interactableRaycaster.Raycast())
             .Where(interactable => interactable != null)
@@ -107,12 +111,10 @@ public class RaycastPresenter : MonoBehaviour
             {
                 interactable.DisablePhysics();
                 _container.Set(interactable);
-            })
-            .AddTo(this);
+            }));
 
-        pressChanged
-            .Subscribe(_ => _isPressed = true)
-            .AddTo(this);
+        _bag.Add(pressChanged
+            .Subscribe(_ => _isPressed = true));
     }
 
     private void SubscribeTransferItem()
@@ -124,9 +126,8 @@ public class RaycastPresenter : MonoBehaviour
             .Select(pixelPosition => _transferator.TranslatePixelPosition(pixelPosition))
             .Where(targetPosition => _zoneChecker.IsInside(_origin.Position, targetPosition));
 
-        observable
+        _bag.Add(observable
             .ThrottleFirst(TimeSpan.FromSeconds(Time.fixedDeltaTime))
-            .Subscribe(targetPosition => _transferator.Transfer(targetPosition, _container.Get()))
-            .AddTo(this);
+            .Subscribe(targetPosition => _transferator.Transfer(targetPosition, _container.Get())));
     }
 }

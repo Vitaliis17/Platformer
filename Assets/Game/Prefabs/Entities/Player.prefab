@@ -105,10 +105,6 @@ GameObject:
   - component: {fileID: 8400382091617277813}
   - component: {fileID: 2232952262863641690}
   - component: {fileID: 5304621304473728897}
-  - component: {fileID: 5088060471083849575}
-  - component: {fileID: 9042493174549265901}
-  - component: {fileID: 3836785163216684520}
-  - component: {fileID: 825026904188930383}
   - component: {fileID: 6299373646270746163}
   m_Layer: 3
   m_Name: Player
@@ -290,55 +286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34bc83c8c6128284c8f7ca822005c2b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GameLogic::Player
---- !u!114 &5088060471083849575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6526967547679189633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 249d03db891bfbe48a372fa86d931e27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::GravitySwithcer
---- !u!114 &9042493174549265901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6526967547679189633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43cbf781f28d1a44c8657e690ce1ca08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::PlayerAnimationPresenter
---- !u!114 &3836785163216684520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6526967547679189633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0088cc8eb5cbf624f85d1024645cdc5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::PlayerMovementPresenter
---- !u!114 &825026904188930383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6526967547679189633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0ef92c6e96b49d4c9087c3026cca3f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::PlayerFlipPresenter
-  _playerRenderer: {fileID: 6335223014651735066}
 --- !u!114 &6299373646270746163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,8 +310,7 @@ GameObject:
   - component: {fileID: 7122816532020646657}
   - component: {fileID: 1497864979236767057}
   - component: {fileID: 7471914179708041940}
-  - component: {fileID: 5976638125518970833}
-  - component: {fileID: 1077335151463398040}
+  - component: {fileID: 3179689988388950702}
   m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
@@ -503,7 +449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3685d5b174749a44bbf16a9db964539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GameLogic::InventoryContainer
---- !u!114 &5976638125518970833
+--- !u!114 &3179689988388950702
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -516,15 +462,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: GameLogic::TransparencySwitcher
   _spriteRenderer: {fileID: 7122816532020646657}
---- !u!114 &1077335151463398040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6940128414691965346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 694ff80c972ce1043a464b591cd0637c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameLogic::TransparencySwitcherPresenter

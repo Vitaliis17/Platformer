@@ -14,6 +14,8 @@ public class SpawnerInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
+        Container.BindInterfacesTo<CloudSpawnerController>().AsSingle();
+
         BindCloudSpawner();
         BindSpawnData();
     }

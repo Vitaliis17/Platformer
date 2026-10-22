@@ -1,9 +1,8 @@
-using UnityEngine;
 using Zenject;
 using R3;
 using System;
 
-public class CloudSpawnerController : MonoBehaviour
+public class CloudSpawnerController : IInitializable, IDisposable
 {
     [Inject] private ISpawner<Cloud> _spawner;
     [Inject] private ICloudSpawnData _spawnData;
@@ -13,13 +12,17 @@ public class CloudSpawnerController : MonoBehaviour
     private float _currentRandomNumber = 0;
     private float _lastRandomNumber = float.MinValue;
 
-    private void Start()
+    private IDisposable _disposable;
+
+    public void Initialize()
     {
-        Observable
+        _disposable = Observable
             .Interval(TimeSpan.FromSeconds(_baseSpawnData.SpawnTime))
-            .Subscribe(_ => Spawn())
-            .AddTo(this);
+            .Subscribe(_ => Spawn());
     }
+
+    public void Dispose()
+        => _disposable?.Dispose();
 
     private void Spawn()
     {
