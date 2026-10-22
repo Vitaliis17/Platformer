@@ -1,6 +1,6 @@
 using Zenject;
 
-public class SaveManager : ISaveManager, ISaver
+public class SaveManager : IRevisionReader, ISaveManager, ISaver, ISaveReseter
 {
     private readonly ISaveWriter _writer;
     private readonly ISaveReader _reader;
@@ -17,16 +17,18 @@ public class SaveManager : ISaveManager, ISaver
         if (levelNumber <= ReadCurrentLevel())
             return;
 
-        SaveData data = new(levelNumber);
+        int revision = ReadRevision() + 1;
 
-        _writer.Save(data);
+        SaveData data = new(levelNumber, revision);
+
+        _writer.Write(data);
     }
     
     public void ResetLevels()
     {
         SaveData newData = new();
 
-        _writer.Save(newData);
+        _writer.Write(newData);
     }
 
     public int ReadCurrentLevel()
@@ -37,5 +39,15 @@ public class SaveManager : ISaveManager, ISaver
         SaveData save = _reader.Read();
 
         return save.CompleteLevelAmount;
+    }
+
+    public int ReadRevision()
+    {
+        if (_reader.IsSaveExists() == false)
+            ResetLevels();
+
+        SaveData save = _reader.Read();
+
+        return save.Revision;
     }
 }

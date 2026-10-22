@@ -1,4 +1,4 @@
-public interface IActivater
+internal interface IActivater
 {
     void Activate();
 }

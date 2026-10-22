@@ -16,6 +16,13 @@
       "dependencies": {},
       "hash": "acc1c7bc9ea34c33b830e40316fca52553878d29"
     },
+    "com.harshhks.google-signin": {
+      "version": "https://github.com/harshhks/google-signin-unity.git?path=/Source#v1.0.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "901cdda342d6fa60ad3dc67fc2bb0f6b4cc55396"
+    },
     "com.svermeulen.extenject": {
       "version": "https://github.com/Mathijs-Bakker/Extenject.git?path=UnityProject/Assets/Plugins/Zenject/Source",
       "depth": 0,

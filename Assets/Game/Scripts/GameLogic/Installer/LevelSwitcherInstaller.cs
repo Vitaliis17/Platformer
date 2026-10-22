@@ -26,7 +26,7 @@ public class LevelSwitcherInstaller : MonoInstaller
         Container.Bind<IContainerReceiverByIndex<SceneNames>>().To<SceneNamesContainer>().AsSingle();
 
         Container.Bind<CancellationTokenSource>().FromInstance(new()).AsTransient();
-        Container.Bind<ISceneLoader>().To<SceneLoader>().AsTransient();
+        Container.BindInterfacesTo<SceneLoader>().AsSingle();
     }
 
     private void BindLevelLoader()

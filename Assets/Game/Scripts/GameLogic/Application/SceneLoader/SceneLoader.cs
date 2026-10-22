@@ -5,8 +5,9 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 using Zenject;
+using Cysharp.Threading.Tasks;
 
-public class SceneLoader : ISceneLoader
+public class SceneLoader : ISceneLoader, ISceneDisposer
 {
     private readonly CancellationTokenSource _source;
 
@@ -16,14 +17,20 @@ public class SceneLoader : ISceneLoader
     public SceneLoader(CancellationTokenSource source)
         => _source = source;
 
-    public void LoadSceneAsync(SceneNames name)
-        => LoadSceneAsync(name, _source.Token);
+    public UniTask LoadSceneAsync(SceneNames name, LoadSceneMode loadMode = LoadSceneMode.Single)
+        => LoadSceneAsync(name, loadMode, _source.Token);
 
     public void LoadMenu()
     {
         const int BaseSceneIndex = 0;
 
         SceneManager.LoadSceneAsync(BaseSceneIndex);
+    }
+
+    public void SceneDispose()
+    {
+        Debug.Log("Dispose");
+        Addressables.UnloadSceneAsync(_handle);
     }
 
     public void Dispose()
@@ -35,12 +42,12 @@ public class SceneLoader : ISceneLoader
         _source?.Dispose();
     }
 
-    private async void LoadSceneAsync(SceneNames sceneName, CancellationToken token)
+    private async UniTask LoadSceneAsync(SceneNames sceneName, LoadSceneMode loadMode, CancellationToken token)
     {
         if (sceneName == SceneNames.None || token.IsCancellationRequested)
             return;
 
-        _handle = Addressables.LoadSceneAsync(sceneName.ToString());
+        _handle = Addressables.LoadSceneAsync(sceneName.ToString(), loadMode);
 
         await _handle.Task;
 

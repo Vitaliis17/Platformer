@@ -3,6 +3,7 @@
     <type fullname="ActiveStateSwitcher" preserve="all" />
     <type fullname="AnimationInstaller" preserve="all" />
     <type fullname="AnimationPrioritiesData" preserve="all" />
+    <type fullname="BaseSpawnData" preserve="all" />
     <type fullname="Box" preserve="all" />
     <type fullname="ClipData" preserve="all" />
     <type fullname="CloseDoor" preserve="all" />
@@ -10,7 +11,6 @@
     <type fullname="CloudSpawnData" preserve="all" />
     <type fullname="CloudSpawnerController" preserve="all" />
     <type fullname="ContinueButton" preserve="all" />
-    <type fullname="FPS" preserve="all" />
     <type fullname="GameOverPresenter" preserve="all" />
     <type fullname="GameplayAction" preserve="all" />
     <type fullname="GameplayReaderInstaller" preserve="all" />

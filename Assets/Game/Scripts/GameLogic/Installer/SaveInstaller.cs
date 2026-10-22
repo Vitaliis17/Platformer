@@ -10,9 +10,8 @@ public class SaveInstaller : MonoInstaller
         string path = Application.persistentDataPath + "/" + _pathName + ".json";
 
         Container.Bind<ISaveReader>().To<SaveReader>().AsSingle().WithArguments(path);
-        Container.Bind<ISaveWriter>().To<SaveWriter>().AsSingle().WithArguments(path);
+        Container.BindInterfacesTo<SaveWriter>().AsSingle().WithArguments(path);
 
-        Container.Bind<ISaveManager>().To<SaveManager>().AsCached();
-        Container.Bind<ISaver>().To<SaveManager>().AsCached();
+        Container.BindInterfacesTo<SaveManager>().AsSingle();
     }
 }

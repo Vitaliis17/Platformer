@@ -1,8 +1,10 @@
 using System;
+using UnityEngine.SceneManagement;
+using Cysharp.Threading.Tasks;
 
 public interface ISceneLoader : IDisposable
 {
-    void LoadSceneAsync(SceneNames name);
+    UniTask LoadSceneAsync(SceneNames name, LoadSceneMode loadMode = LoadSceneMode.Single);
 
     void LoadMenu();
 }

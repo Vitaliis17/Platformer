@@ -1,67 +1,60 @@
 using UnityEngine;
-using Firebase.Auth;
-using Firebase;
 using System;
 using Zenject;
 using Cysharp.Threading.Tasks;
+using System.Threading;
+using Firebase.Auth;
+using Firebase;
+using Google;
 using R3;
 
-public class Authoring : ICanLogin, IRegister, IHaveLoginEvent, IDisposable
+public class Authoring : IHaveAuthenticateEvent, IInitializable, IDisposable
 {
     private FirebaseAuth _auth;
-    private EmailChecker _checker;
+    private CancellationTokenSource _source;
 
-    private Subject<Unit> _isLogin = new();
+    private Subject<string> _authenticated = new();
 
-    public Observable<Unit> IsLogin => _isLogin;
+    public Observable<string> Authenticated => _authenticated;
 
-    [Inject]
-    public Authoring(EmailChecker checker)
+    public void Initialize()
     {
-        _checker = checker;
+        _source = new();
 
-        SetAuthoring().Forget();
+        Login(_source.Token).Forget();
     }
 
     public void Dispose()
     {
-        _isLogin?.Dispose();
+        _authenticated?.Dispose();
+
+        _source?.Dispose();
         _auth?.Dispose();
     }
 
-    public async UniTask Login(string email, string password)
+    private async UniTask Login(CancellationToken token)
     {
-        if (_auth == null)
+        await SetAuthoring(token);
+
+        if (_source.IsCancellationRequested)
             return;
 
-        if (IsCorrectEmail(email) == false)
-            return;
-
-        try
-        {
-            await _auth.SignInWithEmailAndPasswordAsync(email, password);
-
-            _isLogin.OnNext(Unit.Default);
-        }
-        catch (Exception ex)
-        {
-            Debug.LogError(ex);
-        }
+        SignIn(token).Forget();
     }
 
-    public async UniTask Register(string email, string password)
+    private async UniTask SignIn(CancellationToken token)
     {
         if (_auth == null)
             return;
 
-        if (IsCorrectEmail(email) == false)
-            return;
-
         try
         {
-            await _auth.CreateUserWithEmailAndPasswordAsync(email, password);
+            //GoogleSignInUser user = await GoogleSignIn.DefaultInstance.SignIn().AsUniTask().AttachExternalCancellation(token);
+            //Credential credential = GoogleAuthProvider.GetCredential(user.IdToken, null);
 
-            _isLogin.OnNext(Unit.Default);
+            //AuthResult result = await _auth.SignInAndRetrieveDataWithCredentialAsync(credential).AsUniTask().AttachExternalCancellation(token);
+
+            _authenticated.OnNext("Vitaliis");
         }
         catch (Exception _)
         {
@@ -69,33 +62,23 @@ public class Authoring : ICanLogin, IRegister, IHaveLoginEvent, IDisposable
         }
     }
 
-    private bool IsCorrectEmail(string email)
-    {
-
-        if (_checker.IsCorrectDomain(email) == false)
-        {
-            Debug.LogError("Используйте адрес с доменом @gmail.com");
-
-            return false;
-        }
-        else if (_checker.IsCorrectSymbols(email) == false)
-        {
-            Debug.LogError("Email должен содержать один символ @");
-
-            return false;
-        }
-
-        return true;
-    }
-
-    private async UniTask SetAuthoring()
+    private async UniTask SetAuthoring(CancellationToken token)
     {
         try
         {
-            DependencyStatus status = await FirebaseApp.CheckAndFixDependenciesAsync();
+            DependencyStatus status = await FirebaseApp.CheckAndFixDependenciesAsync().AsUniTask().AttachExternalCancellation(token);
 
             if (status == DependencyStatus.Available)
+            {
                 _auth = FirebaseAuth.DefaultInstance;
+
+                GoogleSignIn.Configuration = new()
+                {
+                    WebClientId = "705900096007-6dkmma1r09ois2k4ca9rkton99bhcmnu.apps.googleusercontent.com",
+                    RequestIdToken = true,
+                    RequestEmail = true
+                };
+            }
             else
                 Debug.LogError("Failed");
         }
