@@ -1,7 +1,7 @@
 using UnityEngine;
 using R3;
 
-public interface IHavePositionEvent
+internal interface IHavePositionEvent
 {
     Observable<Vector2> PositionChanged { get; }
 }

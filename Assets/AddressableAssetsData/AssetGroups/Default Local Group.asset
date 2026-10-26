@@ -15,11 +15,6 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 60a144aaee485e84cb8f8d3ae8368a93
   m_SerializeEntries:
-  - m_GUID: 0011bb4ce2aac5748a7c4f9ac216dde0
-    m_Address: SpeedData
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0345635c63768ee4bba6e76a126fdcd0
     m_Address: door/openMid
     m_ReadOnly: 0
@@ -170,11 +165,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 626b74691b2350444a010e08147446a9
-    m_Address: CloudSpawnData
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 64cba952690a7254fabb03350f9a6709
     m_Address: door/knobAlt
     m_ReadOnly: 0
@@ -255,11 +245,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9ccb6dcfc709ab3428b1a08fb8080880
-    m_Address: ContainerLayerData
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a34291f53c4e7a04ca30cb4027c030e3
     m_Address: door/top
     m_ReadOnly: 0
@@ -272,6 +257,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a97c105638bdf8b4a8650670310a4cd3
     m_Address: Packages/com.unity.render-pipelines.universal/Runtime/Materials/Sprite-Lit-Default.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ade7f4a2f46dd1e4bb827e88f945f723
+    m_Address: CloudSpawnData
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0568b83e3d8ec34cb5f9255352631eb
+    m_Address: SpeedData
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -315,7 +310,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d412a86d3e3e5174a9db3a935f017abf
+  - m_GUID: d3eaf917b6467a644956ef6dfc5cc381
     m_Address: SpriteCloudData
     m_ReadOnly: 0
     m_SerializedLabels: []
