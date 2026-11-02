@@ -27,7 +27,7 @@ public class SaveWriter : ISaveWriter, IHaveSaveEvent, IDisposable
 
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(_path, json);
-
+        Debug.Log("Save");
         _saveChanged.OnNext(data);
     }
 

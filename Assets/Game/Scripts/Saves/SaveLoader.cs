@@ -13,19 +13,19 @@ public class SaveLoader : IInitializable, IDisposable
     private IDisposable _disposable;
 
     public void Initialize()
-        => B();
+        => Execute();
 
-    private async void B()
+    private async void Execute()
     {
         await _sceneLoader.LoadSceneAsync(SceneNames.Loading, LoadSceneMode.Additive);
 
-        A().Forget();
+        SubscribeDisposer();
     }
 
     public void Dispose()
         => _disposable?.Dispose();
 
-    private async UniTask A()
+    private void SubscribeDisposer()
     {
         Scene scene = SceneManager.GetSceneByName(SceneNames.Loading.ToString());
 

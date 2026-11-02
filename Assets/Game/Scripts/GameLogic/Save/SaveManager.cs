@@ -17,7 +17,7 @@ public class SaveManager : IRevisionReader, ISaveManager, ISaver, ISaveReseter
         if (levelNumber <= ReadCurrentLevel())
             return;
 
-        int revision = ReadRevision() + 1;
+        long revision = ReadRevision() + 1;
 
         SaveData data = new(levelNumber, revision);
 
@@ -26,7 +26,9 @@ public class SaveManager : IRevisionReader, ISaveManager, ISaver, ISaveReseter
     
     public void ResetLevels()
     {
-        SaveData newData = new();
+        long currentRevision = ReadRevision();
+
+        SaveData newData = new(revision: currentRevision + 1);
 
         _writer.Write(newData);
     }
@@ -41,7 +43,7 @@ public class SaveManager : IRevisionReader, ISaveManager, ISaver, ISaveReseter
         return save.CompleteLevelAmount;
     }
 
-    public int ReadRevision()
+    public long ReadRevision()
     {
         if (_reader.IsSaveExists() == false)
             ResetLevels();

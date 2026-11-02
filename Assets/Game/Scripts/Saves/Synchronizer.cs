@@ -31,7 +31,6 @@ public class Synchronizer : IInitializable, IDisposable, IHaveSynchronizerEvent
         _source?.Dispose();
 
         _disposable?.Dispose();
-
         _synchronized?.Dispose();
     }
 

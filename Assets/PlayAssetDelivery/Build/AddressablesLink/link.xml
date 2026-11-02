@@ -1,27 +1,32 @@
 <linker>
+  <assembly fullname="CloudDefinition, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="BaseSpawnData" preserve="all" />
+    <type fullname="Cloud" preserve="all" />
+    <type fullname="CloudSpawnData" preserve="all" />
+    <type fullname="SpawnerInstaller" preserve="all" />
+    <type fullname="SpeedData" preserve="all" />
+    <type fullname="SpriteData" preserve="all" />
+  </assembly>
+  <assembly fullname="FirebaseDefinition, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="FirebaseInstaller" preserve="all" />
+  </assembly>
   <assembly fullname="GameLogic, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="ActiveStateSwitcher" preserve="all" />
     <type fullname="AnimationInstaller" preserve="all" />
     <type fullname="AnimationPrioritiesData" preserve="all" />
-    <type fullname="BaseSpawnData" preserve="all" />
     <type fullname="Box" preserve="all" />
     <type fullname="ClipData" preserve="all" />
     <type fullname="CloseDoor" preserve="all" />
-    <type fullname="Cloud" preserve="all" />
-    <type fullname="CloudSpawnData" preserve="all" />
-    <type fullname="CloudSpawnerController" preserve="all" />
     <type fullname="ContinueButton" preserve="all" />
-    <type fullname="GameOverPresenter" preserve="all" />
+    <type fullname="GameOverInstaller" preserve="all" />
     <type fullname="GameplayAction" preserve="all" />
     <type fullname="GameplayReaderInstaller" preserve="all" />
-    <type fullname="GravitySwitcher" preserve="all" />
     <type fullname="InteractableObjectsInstaller" preserve="all" />
     <type fullname="Interacter" preserve="all" />
     <type fullname="InteracterInstaller" preserve="all" />
     <type fullname="InventoryContainer" preserve="all" />
     <type fullname="Key" preserve="all" />
     <type fullname="LevelData" preserve="all" />
-    <type fullname="LevelDataPresenter" preserve="all" />
     <type fullname="MapTrigger" preserve="all" />
     <type fullname="MenuButton" preserve="all" />
     <type fullname="MoverData" preserve="all" />
@@ -31,26 +36,24 @@
     <type fullname="PauseButton" preserve="all" />
     <type fullname="PauseData" preserve="all" />
     <type fullname="Player" preserve="all" />
-    <type fullname="PlayerAnimationPresenter" preserve="all" />
-    <type fullname="PlayerFlipPresenter" preserve="all" />
     <type fullname="PlayerInstaller" preserve="all" />
-    <type fullname="PlayerMovementController" preserve="all" />
     <type fullname="RaycasterInstaller" preserve="all" />
-    <type fullname="RaycastPresenter" preserve="all" />
     <type fullname="RetryLevelButton" preserve="all" />
     <type fullname="RigidbodyData" preserve="all" />
     <type fullname="SaveButton" preserve="all" />
     <type fullname="ScreenScaler" preserve="all" />
-    <type fullname="SpawnerInstaller" preserve="all" />
-    <type fullname="SpeedData" preserve="all" />
-    <type fullname="SpriteData" preserve="all" />
     <type fullname="TransparencyData" preserve="all" />
     <type fullname="TransparencySwitcher" preserve="all" />
-    <type fullname="TransparencySwitcherPresenter" preserve="all" />
     <type fullname="Trigger" preserve="all" />
     <type fullname="TriggerInstaller" preserve="all" />
     <type fullname="VelocityData" preserve="all" />
     <type fullname="ZoneCheckerData" preserve="all" />
+  </assembly>
+  <assembly fullname="SaveDefinition, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="DatabaseInitializeInstaller" preserve="all" />
+    <type fullname="FirebaseSaveLoaderView" preserve="all" />
+    <type fullname="LoadingCompleter" preserve="all" />
+    <type fullname="PanelActivater" preserve="all" />
   </assembly>
   <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
     <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />
@@ -110,7 +113,6 @@
     <type fullname="UnityEngine.GameObject" preserve="all" />
     <type fullname="UnityEngine.LightmapSettings" preserve="all" />
     <type fullname="UnityEngine.Material" preserve="all" />
-    <type fullname="UnityEngine.MonoBehaviour" preserve="all" />
     <type fullname="UnityEngine.Object" preserve="all" />
     <type fullname="UnityEngine.RectTransform" preserve="all" />
     <type fullname="UnityEngine.RenderSettings" preserve="all" />

@@ -22,6 +22,7 @@ public class Database : IReferenceSetter, IRevisionReaderAsync, ISaverAsync, ISa
         _reference = FirebaseDatabase.DefaultInstance
             .GetReference(FirebaseChildrenNames.Users)
             .Child(userId);
+        Debug.Log(_reference);
 
         _databaseActivated.OnNext(Unit.Default);
     }
@@ -38,9 +39,7 @@ public class Database : IReferenceSetter, IRevisionReaderAsync, ISaverAsync, ISa
             DataSnapshot snapshot = await _reference
                 .Child(FirebaseChildrenNames.Revision)
                 .GetValueAsync();
-            UnityEngine.Debug.Log(_reference);
-            UnityEngine.Debug.Log(_reference.Child(FirebaseChildrenNames.Revision));
-            UnityEngine.Debug.Log(snapshot.Value);
+            
             revision = Convert.ToInt32(snapshot.Value);
         }
         catch (Exception exception)
@@ -51,8 +50,9 @@ public class Database : IReferenceSetter, IRevisionReaderAsync, ISaverAsync, ISa
         return revision;
     }
 
-    public async UniTask Save(int levelNumber, int revision, CancellationToken token)
+    public async UniTask Save(int levelNumber, long revision, CancellationToken token)
     {
+        Debug.Log(_reference);
         if (_reference == null)
             return;
 
@@ -62,6 +62,8 @@ public class Database : IReferenceSetter, IRevisionReaderAsync, ISaverAsync, ISa
                 .RunTransaction(data => MakeTransaction(data, levelNumber, revision))
                 .AsUniTask()
                 .AttachExternalCancellation(token);
+
+            Debug.Log("save");
         }
         catch (FirebaseException exception)
         {
@@ -88,7 +90,7 @@ public class Database : IReferenceSetter, IRevisionReaderAsync, ISaverAsync, ISa
                 return saveData;
 
             int currentLevel = Convert.ToInt32(snapshot.Child(FirebaseChildrenNames.CurrentLevel).Value);
-            int revision = Convert.ToInt32(snapshot.Child(FirebaseChildrenNames.Revision).Value);
+            long revision = Convert.ToInt64(snapshot.Child(FirebaseChildrenNames.Revision).Value);
 
             saveData = new SaveData(currentLevel, revision);
         }
@@ -100,19 +102,24 @@ public class Database : IReferenceSetter, IRevisionReaderAsync, ISaverAsync, ISa
         return saveData;
     }
 
-    private TransactionResult MakeTransaction(MutableData data, int number, int revision)
+    private TransactionResult MakeTransaction(MutableData data, int number, long revision)
     {
-        int firebaseRevision = data.HasChild(FirebaseChildrenNames.Revision) ? 
-            Convert.ToInt32(data.Child(FirebaseChildrenNames.Revision).Value) : 0;
+        long firebaseRevision = data.HasChild(FirebaseChildrenNames.Revision) ? 
+            Convert.ToInt64(data.Child(FirebaseChildrenNames.Revision).Value) : 0;
 
+        Debug.Log("A");
         if (firebaseRevision > revision)
+        {
             return TransactionResult.Abort();
+        }
+        Debug.Log("B");
 
         data.Value = new Dictionary<string, object>()
         {
             [FirebaseChildrenNames.CurrentLevel] = number,
             [FirebaseChildrenNames.Revision] = revision
         };
+        Debug.Log("C");
 
         return TransactionResult.Success(data);
     }

@@ -49,16 +49,17 @@ public class Authoring : IHaveAuthenticateEvent, IInitializable, IDisposable
 
         try
         {
-            //GoogleSignInUser user = await GoogleSignIn.DefaultInstance.SignIn().AsUniTask().AttachExternalCancellation(token);
-            //Credential credential = GoogleAuthProvider.GetCredential(user.IdToken, null);
+            GoogleSignInUser user = await GoogleSignIn.DefaultInstance.SignIn().AsUniTask().AttachExternalCancellation(token);
+            Credential credential = GoogleAuthProvider.GetCredential(user.IdToken, null);
 
-            //AuthResult result = await _auth.SignInAndRetrieveDataWithCredentialAsync(credential).AsUniTask().AttachExternalCancellation(token);
+            AuthResult result =
+                await _auth.SignInAndRetrieveDataWithCredentialAsync(credential).AsUniTask().AttachExternalCancellation(token);
 
-            _authenticated.OnNext("Vitaliis");
+            _authenticated.OnNext(result.User.UserId);
         }
         catch (Exception _)
         {
-            Debug.LogError("Error");
+            _authenticated.OnNext("Test");
         }
     }
 

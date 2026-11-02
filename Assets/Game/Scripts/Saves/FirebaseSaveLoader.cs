@@ -35,9 +35,9 @@ public class FirebaseSaveLoader : IInitializable, IHaveSaveCompareEvent, IDispos
 
     private async UniTask CompareRevisions(CancellationToken token)
     {
-        int localRevision = _localRevisionReader.ReadRevision();
+        long localRevision = (long)_localRevisionReader.ReadRevision();
         
-        int firebaseRevision = await _firebaseRevisionReader.ReadRevision().AttachExternalCancellation(token);
+        long firebaseRevision = await _firebaseRevisionReader.ReadRevision().AttachExternalCancellation(token);
         UnityEngine.Debug.Log("firebase " + firebaseRevision);
         UnityEngine.Debug.Log("local " + localRevision);
         _hasFirebaseMoreSaves.OnNext(firebaseRevision > localRevision);

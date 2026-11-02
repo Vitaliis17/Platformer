@@ -3,5 +3,5 @@ using System.Threading;
 
 public interface ISaverAsync
 {
-    public UniTask Save(int levelNumber, int revision, CancellationToken token);
+    public UniTask Save(int levelNumber, long revision, CancellationToken token);
 }

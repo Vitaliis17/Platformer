@@ -1,4 +1,4 @@
 public interface IRevisionReader
 {
-    int ReadRevision();
+    long ReadRevision();
 }
