@@ -18,7 +18,7 @@ public class RaycastPresenter : IInitializable, IDisposable
     [Inject] private IContainer _container;
     [Inject] private IInventoryContainer _inventoryContainer;
 
-    private bool _isPressed;
+    private bool _isPressing;
 
     private DisposableBag _bag;
 
@@ -69,20 +69,21 @@ public class RaycastPresenter : IInitializable, IDisposable
     private void SubscribeGettingContainerItem()
     {
         _bag.Add(_touchReader.PressChanged
-            .Where(isPressed => _isPressed == false && isPressed)
+            .Where(isPressed => _isPressing == false && isPressed)
             .Where(_ => _container == null || _container.IsEmpty())
             .Select(_ => _inventoryContainerRaycaster.Raycast())
             .Where(container => container != null && container.IsEmpty() == false)
-            .Subscribe(inventoryContainer => {
+            .Subscribe(inventoryContainer =>
+            {
                 ITransferable interactable = inventoryContainer.Get();
                 interactable.TurnOffTrigger();
-                }));
+            }));
     }
 
     private void SubscribeSettingContainerItem()
     {
         _bag.Add(_touchReader.PressChanged
-            .Where(isPressed => _isPressed && isPressed == false)
+            .Where(isPressed => _isPressing && isPressed == false)
             .Subscribe(isPressed =>
             {
                 if (_container.IsEmpty() == false && TrySetInventoryContainer() == false)
@@ -92,17 +93,16 @@ public class RaycastPresenter : IInitializable, IDisposable
                     _container.SetEmpty();
                 }
 
-                _isPressed = isPressed;
+                _isPressing = isPressed;
             }));
     }
 
     private void SubscribeGettingItem()
     {
         Observable<bool> pressChanged = _touchReader.PressChanged
-            .Where(isPressed => _isPressed == false && isPressed);
+            .Where(isPressed => _isPressing == false && isPressed);
 
         _bag.Add(pressChanged
-            .Where(_ => _inventoryContainer.IsEmpty())
             .Select(_ => _interactableRaycaster.Raycast())
             .Where(interactable => interactable != null)
             .Where(interactable => IsInventoryContanerItem(interactable) == false)
@@ -114,19 +114,17 @@ public class RaycastPresenter : IInitializable, IDisposable
             }));
 
         _bag.Add(pressChanged
-            .Subscribe(_ => _isPressed = true));
+            .Subscribe(_ => _isPressing = true));
     }
 
     private void SubscribeTransferItem()
     {
-        Observable<Vector2> observable = _touchReader.PressChanged
+        _bag.Add(_touchReader.PressChanged
             .Where(isPressing => isPressing)
             .Where(_ => _container.IsEmpty() == false)
             .Select(_ => _holdReader.HoldChanged.CurrentValue)
             .Select(pixelPosition => _transferator.TranslatePixelPosition(pixelPosition))
-            .Where(targetPosition => _zoneChecker.IsInside(_origin.Position, targetPosition));
-
-        _bag.Add(observable
+            .Select(worldPosition => _zoneChecker.ReadPoint(_origin.Position, worldPosition))
             .ThrottleFirst(TimeSpan.FromSeconds(Time.fixedDeltaTime))
             .Subscribe(targetPosition => _transferator.Transfer(targetPosition, _container.Get())));
     }

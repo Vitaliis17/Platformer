@@ -18,7 +18,6 @@ public class PlayerInstaller : MonoInstaller
         Container.BindInterfacesTo<PlayerAnimationPresenter>().AsSingle();
         Container.BindInterfacesTo<PlayerFlipPresenter>().AsSingle().WithArguments(_playerRenderer);
         Container.BindInterfacesTo<PlayerMovementController>().AsSingle();
-        Container.BindInterfacesTo<GravitySwitcher>().AsSingle().WithArguments(_rigidbody);
         Container.BindInterfacesTo<TransparencySwitcherPresenter>().AsSingle();
 
         BindMoverData();

@@ -5,6 +5,9 @@ public class InteracterInstaller : MonoInstaller
 {
     [SerializeField] private TransparencyData _containerTransparencyData;
 
+    [SerializeField] private TransparencySwitcher _container;
+    [SerializeField] private TransparencySwitcher _border;
+
     public override void InstallBindings()
     {
         BindInteracter();
@@ -31,8 +34,8 @@ public class InteracterInstaller : MonoInstaller
         Container.Bind<TransparencyData>().FromInstance(_containerTransparencyData).AsSingle();
         Container.Bind<ITransparencyData>().FromMethod(ctx => ctx.Container.Resolve<TransparencyData>()).AsSingle();
 
-        Container.Bind<TransparencySwitcher>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<ITransparencySwitcher>().FromMethod(ctx => ctx.Container.Resolve<TransparencySwitcher>()).AsSingle();
+        Container.Bind<ITransparencySwitcher>().WithId(TransparencySwitcherId.Container).FromInstance(_container).AsCached();
+        Container.Bind<ITransparencySwitcher>().WithId(TransparencySwitcherId.Border).FromInstance(_border).AsCached();
     }
 
     private void BindTransferator()

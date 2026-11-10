@@ -3,7 +3,7 @@ using Zenject;
 
 public class GameplayReaderInstaller : MonoInstaller
 {
-    [SerializeField] private ZoneCheckerData _zoneCheckerData;
+    [SerializeField] private Transform _interactableBorder;
 
     public override void InstallBindings()
     {
@@ -22,10 +22,5 @@ public class GameplayReaderInstaller : MonoInstaller
     }
 
     private void BindZoneChecker()
-    {
-        Container.Bind<ZoneCheckerData>().FromInstance(_zoneCheckerData).AsSingle();
-        Container.Bind<IHaveRadius>().FromMethod(ctx => ctx.Container.Resolve<ZoneCheckerData>()).AsSingle();
-
-        Container.Bind<IZoneChecker>().To<ZoneChecker>().AsSingle();
-    }
+        => Container.Bind<IZoneChecker>().To<ZoneChecker>().AsSingle().WithArguments(_interactableBorder);
 }

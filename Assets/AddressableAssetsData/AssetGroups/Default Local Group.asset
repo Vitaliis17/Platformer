@@ -335,13 +335,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e2a4296203735a54084e53a08744c228
-    m_Address: ZoneCheckerData
+  - m_GUID: e3265ab4bf004d28a9537516768c1c75
+    m_Address: Assets/TextMesh Pro/Fonts/LiberationSans.ttf
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e3265ab4bf004d28a9537516768c1c75
-    m_Address: Assets/TextMesh Pro/Fonts/LiberationSans.ttf
+  - m_GUID: e819d8c9a0718304dbf88bb3e2f627a9
+    m_Address: Assets/Game/Art/Sprites/HUD/Circle.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
