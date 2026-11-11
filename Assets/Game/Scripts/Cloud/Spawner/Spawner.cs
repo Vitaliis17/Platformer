@@ -21,7 +21,10 @@ public abstract class Spawner<T> : ISpawner<T> where T : Component
         => _pool.Get();
 
     public void ReleaseElement(T element)
-        => _pool.Release(element);
+    {
+        UnityEngine.Debug.Log(element.transform.position);
+        _pool.Release(element);
+    }
 
     private void Get(T element)
         => element.gameObject.SetActive(true);
