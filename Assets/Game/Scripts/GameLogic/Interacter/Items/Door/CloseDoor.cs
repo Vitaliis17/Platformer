@@ -2,7 +2,7 @@ using UnityEngine;
 using R3;
 using Zenject;
 
-public class CloseDoor : MonoBehaviour, IDeactivater
+public class CloseDoor : MonoBehaviour, IDeactivaterByParameter
 {
     [Inject(Id = IdNames.Key)] private IInteractable _key;
 

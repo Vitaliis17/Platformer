@@ -12,6 +12,8 @@ public class RaycasterInstaller : MonoInstaller
 
         BindInteractableRaycaster();
         BindInventoryContainer();
+
+        Container.Bind<IRaycastPointer>().To<RaycastPointer>().AsSingle();
     }
 
     private void BindInteractableRaycaster()

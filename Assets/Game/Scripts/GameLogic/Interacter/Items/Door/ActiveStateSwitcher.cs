@@ -4,7 +4,7 @@ using Zenject;
 
 public class ActiveStateSwitcher : MonoBehaviour
 {
-    [Inject] private IDeactivater _deactivater;
+    [Inject] private IDeactivaterByParameter _deactivater;
     [Inject] private IActivater _activater;
 
     private void Start()

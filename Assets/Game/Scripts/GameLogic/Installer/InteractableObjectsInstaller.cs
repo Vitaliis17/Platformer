@@ -40,7 +40,7 @@ public class InteractableObjectsInstaller : MonoInstaller
     private void BindCloseDoor()
     {
         Container.Bind<CloseDoor>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<IDeactivater>().FromMethod(ctx => ctx.Container.Resolve<CloseDoor>()).AsSingle();
+        Container.Bind<IDeactivaterByParameter>().FromMethod(ctx => ctx.Container.Resolve<CloseDoor>()).AsSingle();
     }
 
     private void BindOpenDoor()

@@ -1,6 +1,6 @@
 using R3;
 
-public interface IDeactivater
+public interface IDeactivaterByParameter
 {
     Observable<Unit> Deactivated { get; }
 

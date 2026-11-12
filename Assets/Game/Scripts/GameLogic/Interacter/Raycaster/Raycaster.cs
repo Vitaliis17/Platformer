@@ -16,7 +16,7 @@ public class Raycaster<T> : IRaycaster<T> where T : class
         Ray ray = Camera.main.ScreenPointToRay(position);
 
         RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity, (int)_layerMask);
-
+        
         if (hit.collider == null || hit.collider.TryGetComponent(out T component) == false)
             return null;
 
