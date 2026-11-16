@@ -1,5 +1,6 @@
 using Zenject;
 using UnityEngine;
+using DG.Tweening;
 
 public class ScaleSwitcher : IHaveActivity
 {
@@ -7,6 +8,8 @@ public class ScaleSwitcher : IHaveActivity
 
     private readonly Vector2 _minScale;
     private readonly Vector2 _maxScale;
+
+    private float _time;
 
     [Inject]
     public ScaleSwitcher(Transform transform, IRaycastPointer pointer, float minScale = 0)
@@ -20,8 +23,8 @@ public class ScaleSwitcher : IHaveActivity
     }
 
     public void Activate()
-        => _scaler.localScale = _maxScale;
+        => _scaler.DOScale(_maxScale, _time);
 
     public void Deactivate()
-        => _scaler.localScale = _minScale;
+        => _scaler.DOScale(_minScale, _time);
 }

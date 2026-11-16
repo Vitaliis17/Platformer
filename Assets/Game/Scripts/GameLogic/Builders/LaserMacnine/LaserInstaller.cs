@@ -1,5 +1,6 @@
 using Zenject;
 using UnityEngine;
+using System;
 
 public class LaserInstaller : MonoInstaller
 {
@@ -7,6 +8,7 @@ public class LaserInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
-        Container.Bind<IHaveActivity>().To<ScaleSwitcher>().AsSingle().WithArguments(_laser);
+        Container.Bind<ScaleSwitcher>().AsSingle().WithArguments(_laser);
+        Container.Bind<IHaveActivity>().WithId(IdNames.Laser).To<ScaleSwitcher>().FromResolve();
     }
 }

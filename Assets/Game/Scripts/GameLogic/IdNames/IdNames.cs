@@ -9,4 +9,7 @@ public static class IdNames
     public const string Key = nameof(Key);
     public const string Box = nameof(Box);
     public const string OpenDoor = nameof(OpenDoor);
+
+    public const string Laser = nameof(Laser);
+    public const string Button = nameof(Button);
 }

@@ -3,7 +3,7 @@ using Zenject;
 
 public class LaserMachine : MonoBehaviour
 {
-    [Inject] private IHaveActivity _laser;
+    [Inject(Id = IdNames.Laser)] private IHaveActivity _laser;
 
     [SerializeField] private Collider2D _collider;
 

@@ -2,7 +2,7 @@ using UnityEngine;
 using Zenject;
 
 [RequireComponent(typeof(AudioSource))]
-public class AudioMixer : MonoBehaviour, IClipSetter, IMuter
+public class AudioPlayer : MonoBehaviour, IClipSetter, IMuter
 {
     [Inject] private IClipData _clipData;
 
