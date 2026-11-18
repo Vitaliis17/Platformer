@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6a61c3f35c34f45983c5e7c09a9e91, type: 3}
   m_Name: BaseSpawnData
   m_EditorClassIdentifier: GameLogic::BaseSpawnData
-  _spawnTime: 4
+  _spawnTime: 90

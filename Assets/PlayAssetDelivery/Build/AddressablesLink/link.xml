@@ -15,12 +15,14 @@
     <type fullname="AnimationInstaller" preserve="all" />
     <type fullname="AnimationPrioritiesData" preserve="all" />
     <type fullname="Box" preserve="all" />
+    <type fullname="ButtonData" preserve="all" />
     <type fullname="ClipData" preserve="all" />
     <type fullname="CloseDoor" preserve="all" />
     <type fullname="ContinueButton" preserve="all" />
     <type fullname="GameOverInstaller" preserve="all" />
     <type fullname="GameplayAction" preserve="all" />
     <type fullname="GameplayReaderInstaller" preserve="all" />
+    <type fullname="GravitySwitcher" preserve="all" />
     <type fullname="InteractableObjectsInstaller" preserve="all" />
     <type fullname="Interacter" preserve="all" />
     <type fullname="InteracterInstaller" preserve="all" />
@@ -47,7 +49,6 @@
     <type fullname="Trigger" preserve="all" />
     <type fullname="TriggerInstaller" preserve="all" />
     <type fullname="VelocityData" preserve="all" />
-    <type fullname="ZoneCheckerData" preserve="all" />
   </assembly>
   <assembly fullname="SaveDefinition, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="DatabaseInitializeInstaller" preserve="all" />
@@ -169,6 +170,7 @@
     <type fullname="UnityEngine.CanvasRenderer" preserve="all" />
   </assembly>
   <assembly fullname="Zenject, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Zenject.GameObjectContext" preserve="all" />
     <type fullname="Zenject.SceneContext" preserve="all" />
   </assembly>
   <assembly fullname="UnityEngine.TextCoreFontEngineModule">
