@@ -9,12 +9,13 @@ public class ScaleSwitcher : IHaveActivity
     private readonly Vector2 _minScale;
     private readonly Vector2 _maxScale;
 
-    private float _time;
+    private IScaleSwitcherData _data;
 
     [Inject]
-    public ScaleSwitcher(Transform transform, IRaycastPointer pointer, float minScale = 0)
+    public ScaleSwitcher(Transform transform, IScaleSwitcherData data, IRaycastPointer pointer, float minScale = 0)
     {
         _scaler = transform;
+        _data = data;
 
         Vector2 point = pointer.Raycast(_scaler.position, _scaler.up);
 
@@ -23,8 +24,8 @@ public class ScaleSwitcher : IHaveActivity
     }
 
     public void Activate()
-        => _scaler.DOScale(_maxScale, _time);
+        => _scaler.DOScale(_maxScale, _data.AnimationTime);
 
     public void Deactivate()
-        => _scaler.DOScale(_minScale, _time);
+        => _scaler.DOScale(_minScale, _data.AnimationTime);
 }

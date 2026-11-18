@@ -11,7 +11,11 @@ public class InteractiveButton : MonoBehaviour
     private int _collisionAmount = 0;
 
     private void Start()
-        => _activiter.Activated.Subscribe(_ => SetDeactivation().Forget()).AddTo(this);
+    {
+        _activiter.Deactivate();
+
+        _activiter.Activated.Subscribe(_ => SetDeactivation().Forget()).AddTo(this);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

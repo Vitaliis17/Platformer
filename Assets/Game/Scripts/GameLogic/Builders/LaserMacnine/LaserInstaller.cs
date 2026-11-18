@@ -1,14 +1,16 @@
 using Zenject;
 using UnityEngine;
-using System;
 
 public class LaserInstaller : MonoInstaller
 {
     [SerializeField] private Transform _laser;
+    [SerializeField] private ScaleSwitcherData _data;
 
     public override void InstallBindings()
     {
-        Container.Bind<ScaleSwitcher>().AsSingle().WithArguments(_laser);
+        Container.Bind<IScaleSwitcherData>().FromInstance(_data).AsSingle();
+
+        Container.Bind<ScaleSwitcher>().AsTransient().WithArguments(_laser);
         Container.Bind<IHaveActivity>().WithId(IdNames.Laser).To<ScaleSwitcher>().FromResolve();
     }
 }

@@ -1,2 +1,2 @@
-internal interface IHaveActivityWithEvent : IActivaterWithEvent, IDeactivater
+internal interface IHaveActivityWithEvent : IActivaterWithEvent, IDeactivaterWithEvent
 {}
