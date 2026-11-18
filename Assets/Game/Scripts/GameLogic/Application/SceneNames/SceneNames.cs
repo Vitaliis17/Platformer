@@ -3,5 +3,6 @@ public enum SceneNames
     None = 0,
     FirstLevel = 1,
     SecondLevel = 2,
-    Loading = 3
+    ThirdLevel = 3,
+    Loading = 4
 }

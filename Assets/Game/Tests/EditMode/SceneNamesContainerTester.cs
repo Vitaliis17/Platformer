@@ -16,7 +16,8 @@ public class SceneNamesContainerTester
         _container.Bind<Dictionary<int, SceneNames>>().FromInstance(new Dictionary<int, SceneNames>
         {
             { (int)SceneNames.FirstLevel, SceneNames.FirstLevel },
-            { (int)SceneNames.SecondLevel, SceneNames.SecondLevel }
+            { (int)SceneNames.SecondLevel, SceneNames.SecondLevel },
+            { (int)SceneNames.ThirdLevel, SceneNames.ThirdLevel}
         });
         _container.Bind<IContainerReceiverByIndex<SceneNames>>().To<SceneNamesContainer>().AsSingle();
 

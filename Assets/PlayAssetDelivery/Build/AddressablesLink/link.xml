@@ -26,8 +26,13 @@
     <type fullname="InteractableObjectsInstaller" preserve="all" />
     <type fullname="Interacter" preserve="all" />
     <type fullname="InteracterInstaller" preserve="all" />
+    <type fullname="InteractiveButton" preserve="all" />
+    <type fullname="InteractiveButtonInstaller" preserve="all" />
     <type fullname="InventoryContainer" preserve="all" />
+    <type fullname="InverseLaserMachine" preserve="all" />
     <type fullname="Key" preserve="all" />
+    <type fullname="LaserInstaller" preserve="all" />
+    <type fullname="LaserMachine" preserve="all" />
     <type fullname="LevelData" preserve="all" />
     <type fullname="MapTrigger" preserve="all" />
     <type fullname="MenuButton" preserve="all" />
@@ -43,6 +48,7 @@
     <type fullname="RetryLevelButton" preserve="all" />
     <type fullname="RigidbodyData" preserve="all" />
     <type fullname="SaveButton" preserve="all" />
+    <type fullname="ScaleSwitcherData" preserve="all" />
     <type fullname="ScreenScaler" preserve="all" />
     <type fullname="TransparencyData" preserve="all" />
     <type fullname="TransparencySwitcher" preserve="all" />
