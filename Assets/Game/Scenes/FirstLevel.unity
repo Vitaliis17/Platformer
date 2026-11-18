@@ -6601,6 +6601,14 @@ PrefabInstance:
       propertyPath: _interactableBorder
       value: 
       objectReference: {fileID: 4265879009178952777}
+    - target: {fileID: 8112754716908777530, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
+      propertyPath: _monoInstallers.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8112754716908777530, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
+      propertyPath: '_monoInstallers.Array.data[8]'
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8212287471781046270, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
       propertyPath: _playerAnimator
       value: 

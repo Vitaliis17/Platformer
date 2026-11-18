@@ -671,12 +671,12 @@ PrefabInstance:
       objectReference: {fileID: 1813791294}
     - target: {fileID: 8112754716908777530, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
       propertyPath: _monoInstallers.Array.size
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8112754716908777530, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
       propertyPath: '_monoInstallers.Array.data[7]'
       value: 
-      objectReference: {fileID: 425089854}
+      objectReference: {fileID: 0}
     - target: {fileID: 8112754716908777530, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
       propertyPath: '_monoInstallers.Array.data[8]'
       value: 
@@ -709,9 +709,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8270760341706948662, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 425089853}
-    - targetCorrespondingSourceObject: {fileID: 8270760341706948662, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 425089854}
   m_SourcePrefab: {fileID: 100100000, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
 --- !u!1 &425089852 stripped
 GameObject:
@@ -731,24 +728,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: GameLogic::GameOverInstaller
   _gameOverPanel: {fileID: 1641460695}
---- !u!114 &425089854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 425089852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b502d12f7711d74dba5827813d70544, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: CloudDefinition::SpawnerInstaller
-  _container: {fileID: 1603907535}
-  _cloud: {fileID: 1191932489}
-  _spriteCloudData: {fileID: 11400000, guid: d3eaf917b6467a644956ef6dfc5cc381, type: 2}
-  _speedData: {fileID: 11400000, guid: b0568b83e3d8ec34cb5f9255352631eb, type: 2}
-  _cloudSpawnData: {fileID: 11400000, guid: ade7f4a2f46dd1e4bb827e88f945f723, type: 2}
-  _baseSpawnData: {fileID: 11400000, guid: 307bb6c9cec668a4d97e5166e4bc5f5a, type: 2}
 --- !u!1 &458397142
 GameObject:
   m_ObjectHideFlags: 0
@@ -7455,6 +7434,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CloudSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 3769966554248711719, guid: df8f6cb310570b045b927e95227e4382, type: 3}
+      propertyPath: _cloud
+      value: 
+      objectReference: {fileID: 1191932489}
     m_RemovedComponents:
     - {fileID: 2231008912893670454, guid: df8f6cb310570b045b927e95227e4382, type: 3}
     m_RemovedGameObjects: []
