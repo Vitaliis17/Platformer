@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84206d73cc25fad4998486ab27cbda91, type: 3}
   m_Name: LandingAnimationData
   m_EditorClassIdentifier: GameLogic::AnimationData
-  _clip: {fileID: 0}
+  _clip: {fileID: 7400000, guid: b1aaf0c6cc9bb2c43b6837a550a5cace, type: 2}

@@ -1,12 +1,10 @@
 using R3;
 using System;
 
-public interface IAnimationSwitcher : IDisposable
+public interface IAnimationSwitcher : ICurrentAnimationNameContainer, IDisposable
 {
     Observable<AnimationNames> Setted { get; }
     
-    AnimationNames CurrentAnimationName { get; }
-
     void SetCurrent(AnimationNames name);
 
     void TurnOffAnimation(AnimationNames name);

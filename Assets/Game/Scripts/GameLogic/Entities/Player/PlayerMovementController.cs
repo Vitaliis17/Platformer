@@ -11,6 +11,8 @@ public class PlayerMovementController : IInitializable, IDisposable
     [Inject] private IMovable _player;
     [Inject] private IVelocitySetter _setter;
 
+    [Inject] private ICurrentAnimationNameContainer _animationNameContainer;
+
     [Inject(Id = TriggerNames.GroundChecker)] private IHaveTriggerEvent _groundChecker;
 
     [Inject(Id = TriggerNames.Ladder)] private IHaveTriggerEvent _ladderMap;
@@ -22,15 +24,21 @@ public class PlayerMovementController : IInitializable, IDisposable
         const float VerticalOffset = 0.5f;
         const float NoMovement = 0f;
 
-        Observable<Vector2> observable = _movementReader.Moved.Where(direction => direction.sqrMagnitude != NoMovement);
+        Observable<Vector2> observable = _movementReader.Moved
+            .Where(direction => direction.sqrMagnitude != NoMovement)
+            .Where(_ => _animationNameContainer.CurrentAnimationName != AnimationNames.Falling)
+            .Where(_ => _animationNameContainer.CurrentAnimationName != AnimationNames.Landing);
 
         _bag.Add(observable.Subscribe(direction => _player.MoveHorizontal(direction.x)));
+
 
         _bag.Add(observable.Where(_ => _ladderMap.IsTriggered.CurrentValue)
             .Where(direction => Mathf.Abs(direction.y) > VerticalOffset)
             .Subscribe(direction => _player.MoveVertical(direction.y)));
 
         _bag.Add(_jumpReader.Jumped
+            .Where(_ => _animationNameContainer.CurrentAnimationName != AnimationNames.Falling)
+            .Where(_ => _animationNameContainer.CurrentAnimationName != AnimationNames.Landing)
             .Where(_ => _groundChecker.HaveTriggered())
             .Subscribe(_ => _player.Jump()));
 

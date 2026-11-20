@@ -23,7 +23,7 @@ public class AnimationInstaller : MonoInstaller
 
         Container.Bind<Animator>().FromInstance(_playerAnimator).AsSingle();
 
-        Container.Bind<IAnimationSwitcher>().To<AnimationSwitcher>().AsTransient();
+        Container.BindInterfacesTo<AnimationSwitcher>().AsSingle();
 
         Container.Bind<IAnimationData>().FromInstance(_landingData).AsSingle();
     }

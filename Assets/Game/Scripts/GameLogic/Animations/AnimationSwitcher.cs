@@ -83,8 +83,6 @@ public class AnimationSwitcher : IAnimationSwitcher
     {
         const bool TurnOnValue = true;
 
-        Debug.Log("Removed");
-
         CurrentAnimationName = name;
         
         _animator.SetBool(AnimationParameterHashes.GetHash(CurrentAnimationName), TurnOnValue);
