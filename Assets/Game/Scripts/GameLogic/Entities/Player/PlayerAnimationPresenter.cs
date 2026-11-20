@@ -71,6 +71,8 @@ public class PlayerAnimationPresenter : IInitializable, IDisposable
     {
         _bag.Add(_groundChecker.IsTriggered
             .Where(_ => _groundChecker.HaveTriggered() == false)
+            .Delay(TimeSpan.FromSeconds(1))
+            .Where(_ => _groundChecker.HaveTriggered() == false)
             .Subscribe(_ => _animationSwitcher.SetCurrent(AnimationNames.Falling)));
 
         _bag.Add(_groundChecker.IsTriggered
