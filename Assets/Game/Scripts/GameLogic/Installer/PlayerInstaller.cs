@@ -39,6 +39,7 @@ public class PlayerInstaller : MonoInstaller
         Container.Bind<IHavePosition>().FromMethod(ctx => ctx.Container.Resolve<Player>()).AsSingle();
         Container.Bind<IMovable>().FromMethod(ctx => ctx.Container.Resolve<Player>()).AsSingle();
         Container.Bind<IMovableEvents>().FromMethod(ctx => ctx.Container.Resolve<Player>()).AsSingle();
+        Container.Bind<IJumperEvents>().FromMethod(ctx => ctx.Container.Resolve<Player>()).AsSingle();
         Container.Bind<IVelocitySetter>().FromMethod(ctx => ctx.Container.Resolve<Player>()).AsSingle();
     }
 

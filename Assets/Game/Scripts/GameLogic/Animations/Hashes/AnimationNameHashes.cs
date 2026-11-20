@@ -8,7 +8,8 @@ public static class AnimationNameHashes
         { AnimationNames.Idle, Animator.StringToHash(nameof(AnimationNames.Idle)) },
         { AnimationNames.Walking, Animator.StringToHash(nameof(AnimationNames.Walking)) },
         { AnimationNames.Climbing, Animator.StringToHash(nameof(AnimationNames.Climbing)) },
-        { AnimationNames.Jumping, Animator.StringToHash(nameof(AnimationNames.Jumping)) }
+        { AnimationNames.Jumping, Animator.StringToHash(nameof(AnimationNames.Jumping)) },
+        { AnimationNames.Falling, Animator.StringToHash(nameof(AnimationNames.Falling)) }
     };
 
     public static int GetHash(AnimationNames name)

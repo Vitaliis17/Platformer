@@ -1,5 +1,11 @@
-public interface IAnimationSwitcher
+using R3;
+using System;
+
+public interface IAnimationSwitcher : IDisposable
 {
+    Observable<AnimationNames> Setted { get; }
+    Observable<AnimationNames> Removed { get; }
+    
     AnimationNames CurrentAnimationName { get; }
 
     void SetCurrent(AnimationNames name);

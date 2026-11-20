@@ -12,8 +12,9 @@ public class AnimationPrioritiesData : ScriptableObject, IAnimationPrioritiesDat
         {
             { AnimationNames.Idle, 1 },
             { AnimationNames.Walking, 2 },
-            { AnimationNames.Jumping, 3 },
-            { AnimationNames.Climbing, 4 }
+            { AnimationNames.Falling, 3 },
+            { AnimationNames.Jumping, 4 },
+            { AnimationNames.Climbing, 5 }
         };
     }
 

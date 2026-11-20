@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 using Zenject;
 using System.Collections.Generic;
+using R3;
 
 public class AnimationSwitcher : IAnimationSwitcher
 {
@@ -8,6 +10,12 @@ public class AnimationSwitcher : IAnimationSwitcher
     private readonly IAnimationExpecter _expecter;
 
     private readonly Animator _animator;
+
+    private Subject<AnimationNames> _setted;
+    private Subject<AnimationNames> _removed;
+
+    public Observable<AnimationNames> Setted => _setted;
+    public Observable<AnimationNames> Removed => _removed;
 
     [Inject]
     public AnimationSwitcher(IAnimationPrioritiesData priorities, IAnimationExpecter expecter, Animator animator)
@@ -17,10 +25,19 @@ public class AnimationSwitcher : IAnimationSwitcher
 
         _expecter = expecter;
 
+        _setted = new();
+        _removed = new();
+
         SetDefault();
     }
 
     public AnimationNames CurrentAnimationName { get; private set; }
+
+    public void Dispose()
+    {
+        _setted?.Dispose();
+        _removed?.Dispose();
+    }
 
     public void SetCurrent(AnimationNames name)
     {
@@ -76,5 +93,7 @@ public class AnimationSwitcher : IAnimationSwitcher
         
         _animator.SetBool(AnimationParameterHashes.GetHash(CurrentAnimationName), TurnOnValue);
         _animator.Play(AnimationNameHashes.GetHash(CurrentAnimationName));
+
+        _setted.OnNext(CurrentAnimationName);
     }
 }

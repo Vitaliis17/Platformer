@@ -9,6 +9,7 @@ public class PlayerAnimationPresenter : IInitializable, IDisposable
 
     [Inject(Id = TriggerNames.Ladder)] private IHaveTriggerEvent _ladderMap;
 
+    [Inject] private IJumperEvents _jumperEvents;
     [Inject] private IAnimationSwitcher _animationSwitcher;
     [Inject] private IMovableEvents _events;
 
@@ -18,11 +19,16 @@ public class PlayerAnimationPresenter : IInitializable, IDisposable
     {
         SubscribeHorizontalMoving();
         SubscribeClimbing();
+        SubscribeFalling();
         SubscribeJumping();
     }
 
     public void Dispose()
-        => _bag.Dispose();
+    {
+        _bag.Dispose();
+
+        _animationSwitcher?.Dispose();
+    }
 
     private void SubscribeHorizontalMoving()
     {
@@ -57,11 +63,32 @@ public class PlayerAnimationPresenter : IInitializable, IDisposable
             .Subscribe(_ => _animationSwitcher.TurnOffAnimation(AnimationNames.Climbing)));
     }
 
-    private void SubscribeJumping()
+    private void SubscribeFalling()
     {
         _bag.Add(_groundChecker.IsTriggered
             .Where(_ => _groundChecker.HaveTriggered() == false)
+            .Subscribe(_ => _animationSwitcher.SetCurrent(AnimationNames.Falling)));
+
+        _bag.Add(_animationSwitcher.Removed
+            .Where(animationName => animationName == AnimationNames.Jumping)
+            .Where(_ => _groundChecker.HaveTriggered() == false)
+            .Subscribe(_ => _animationSwitcher.SetCurrent(AnimationNames.Falling)));
+
+        _bag.Add(_groundChecker.IsTriggered
+            .Delay(TimeSpan.FromSeconds(Time.fixedDeltaTime))
+            .Where(_ => _groundChecker.HaveTriggered())
+            .Subscribe(_ => _animationSwitcher.TurnOffAnimation(AnimationNames.Falling)));
+    }
+
+    private void SubscribeJumping()
+    {
+        _bag.Add(_jumperEvents.IsJumped
             .Subscribe(_ => _animationSwitcher.SetCurrent(AnimationNames.Jumping)));
+
+        _bag.Add(_animationSwitcher.Setted
+            .Where(animationName => animationName == AnimationNames.Jumping)
+            .Subscribe(_ => Observable.Timer(TimeSpan.FromSeconds(1))
+                                .Subscribe(_ => _animationSwitcher.TurnOffAnimation(AnimationNames.Jumping))));
 
         _bag.Add(_groundChecker.IsTriggered
             .Delay(TimeSpan.FromSeconds(Time.fixedDeltaTime))
