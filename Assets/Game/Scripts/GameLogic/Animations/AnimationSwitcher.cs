@@ -12,10 +12,8 @@ public class AnimationSwitcher : IAnimationSwitcher
     private readonly Animator _animator;
 
     private Subject<AnimationNames> _setted;
-    private Subject<AnimationNames> _removed;
 
     public Observable<AnimationNames> Setted => _setted;
-    public Observable<AnimationNames> Removed => _removed;
 
     [Inject]
     public AnimationSwitcher(IAnimationPrioritiesData priorities, IAnimationExpecter expecter, Animator animator)
@@ -26,7 +24,6 @@ public class AnimationSwitcher : IAnimationSwitcher
         _expecter = expecter;
 
         _setted = new();
-        _removed = new();
 
         SetDefault();
     }
@@ -34,10 +31,7 @@ public class AnimationSwitcher : IAnimationSwitcher
     public AnimationNames CurrentAnimationName { get; private set; }
 
     public void Dispose()
-    {
-        _setted?.Dispose();
-        _removed?.Dispose();
-    }
+        => _setted?.Dispose();
 
     public void SetCurrent(AnimationNames name)
     {
@@ -88,6 +82,8 @@ public class AnimationSwitcher : IAnimationSwitcher
     private void SetAnimation(AnimationNames name)
     {
         const bool TurnOnValue = true;
+
+        Debug.Log("Removed");
 
         CurrentAnimationName = name;
         

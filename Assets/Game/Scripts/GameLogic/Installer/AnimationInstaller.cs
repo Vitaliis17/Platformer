@@ -4,6 +4,7 @@ using Zenject;
 public class AnimationInstaller : MonoInstaller
 {
     [SerializeField] private AnimationPrioritiesData _animationPrioritiesData;
+    [SerializeField] private AnimationData _landingData;
 
     [SerializeField] private Animator _playerAnimator;
 
@@ -23,6 +24,8 @@ public class AnimationInstaller : MonoInstaller
         Container.Bind<Animator>().FromInstance(_playerAnimator).AsSingle();
 
         Container.Bind<IAnimationSwitcher>().To<AnimationSwitcher>().AsTransient();
+
+        Container.Bind<IAnimationData>().FromInstance(_landingData).AsSingle();
     }
 
     private void BindFlipper()

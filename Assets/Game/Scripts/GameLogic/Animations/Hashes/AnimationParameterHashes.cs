@@ -9,7 +9,8 @@ public static class AnimationParameterHashes
         { AnimationNames.Walking, Animator.StringToHash(nameof(AnimationParameterNames.IsWalking)) },
         { AnimationNames.Climbing, Animator.StringToHash(nameof(AnimationParameterNames.IsClimbing)) },
         { AnimationNames.Jumping, Animator.StringToHash(nameof(AnimationParameterNames.IsJumping)) },
-        { AnimationNames.Falling, Animator.StringToHash(nameof(AnimationParameterNames.IsFalling)) }
+        { AnimationNames.Falling, Animator.StringToHash(nameof(AnimationParameterNames.IsFalling)) },
+        { AnimationNames.Landing, Animator.StringToHash(nameof(AnimationParameterNames.IsLanding)) }
     };
 
     public static int GetHash(AnimationNames name)

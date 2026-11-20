@@ -10,7 +10,10 @@ public class PlayerAnimationPresenter : IInitializable, IDisposable
     [Inject(Id = TriggerNames.Ladder)] private IHaveTriggerEvent _ladderMap;
 
     [Inject] private IJumperEvents _jumperEvents;
+
     [Inject] private IAnimationSwitcher _animationSwitcher;
+    [Inject] private IAnimationData _landingData;
+
     [Inject] private IMovableEvents _events;
 
     private DisposableBag _bag;
@@ -19,8 +22,9 @@ public class PlayerAnimationPresenter : IInitializable, IDisposable
     {
         SubscribeHorizontalMoving();
         SubscribeClimbing();
-        SubscribeFalling();
         SubscribeJumping();
+        SubscribeFalling();
+        SubscribeLanding();
     }
 
     public void Dispose()
@@ -69,15 +73,24 @@ public class PlayerAnimationPresenter : IInitializable, IDisposable
             .Where(_ => _groundChecker.HaveTriggered() == false)
             .Subscribe(_ => _animationSwitcher.SetCurrent(AnimationNames.Falling)));
 
-        _bag.Add(_animationSwitcher.Removed
-            .Where(animationName => animationName == AnimationNames.Jumping)
-            .Where(_ => _groundChecker.HaveTriggered() == false)
-            .Subscribe(_ => _animationSwitcher.SetCurrent(AnimationNames.Falling)));
-
         _bag.Add(_groundChecker.IsTriggered
             .Delay(TimeSpan.FromSeconds(Time.fixedDeltaTime))
             .Where(_ => _groundChecker.HaveTriggered())
             .Subscribe(_ => _animationSwitcher.TurnOffAnimation(AnimationNames.Falling)));
+    }
+
+    private void SubscribeLanding()
+    {
+        _bag.Add(_groundChecker.IsTriggered
+            .Where(_ => _animationSwitcher.CurrentAnimationName == AnimationNames.Falling)
+            .Delay(TimeSpan.FromSeconds(Time.fixedDeltaTime))
+            .Where(_ => _groundChecker.HaveTriggered())
+            .Subscribe(_ => _animationSwitcher.SetCurrent(AnimationNames.Landing)));
+
+        _bag.Add(_animationSwitcher.Setted
+            .Where(animationName => animationName == AnimationNames.Landing)
+            .Subscribe(_ => Observable.Timer(TimeSpan.FromSeconds(_landingData.AnimationTime))
+                                .Subscribe(_ => _animationSwitcher.TurnOffAnimation(AnimationNames.Landing))));
     }
 
     private void SubscribeJumping()

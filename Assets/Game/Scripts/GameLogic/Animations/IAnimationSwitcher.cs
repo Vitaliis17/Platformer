@@ -4,7 +4,6 @@ using System;
 public interface IAnimationSwitcher : IDisposable
 {
     Observable<AnimationNames> Setted { get; }
-    Observable<AnimationNames> Removed { get; }
     
     AnimationNames CurrentAnimationName { get; }
 

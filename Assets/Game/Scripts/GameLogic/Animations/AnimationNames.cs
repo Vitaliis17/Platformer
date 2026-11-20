@@ -4,5 +4,6 @@ public enum AnimationNames
     Walking,
     Climbing,
     Jumping,
-    Falling
+    Falling,
+    Landing
 }

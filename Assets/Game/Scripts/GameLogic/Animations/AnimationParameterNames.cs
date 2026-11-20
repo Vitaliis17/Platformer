@@ -4,5 +4,6 @@ public enum AnimationParameterNames
     IsWalking,
     IsClimbing,
     IsJumping,
-    IsFalling
+    IsFalling,
+    IsLanding
 }
