@@ -16,6 +16,8 @@ public class PlayerAnimationPresenter : IInitializable, IDisposable
 
     [Inject] private IMovableEvents _events;
 
+    [Inject] private IInventoryContainer _container;
+
     private DisposableBag _bag;
 
     public void Initialize()
@@ -71,7 +73,15 @@ public class PlayerAnimationPresenter : IInitializable, IDisposable
     {
         _bag.Add(_groundChecker.IsTriggered
             .Where(_ => _groundChecker.HaveTriggered() == false)
+            .Where(_ => _container.IsEmpty())
             .Delay(TimeSpan.FromSeconds(1))
+            .Where(_ => _groundChecker.HaveTriggered() == false)
+            .Subscribe(_ => _animationSwitcher.SetCurrent(AnimationNames.Falling)));
+
+        _bag.Add(_groundChecker.IsTriggered
+            .Where(_ => _groundChecker.HaveTriggered() == false)
+            .Where(_ => _container.IsEmpty() == false)
+            .Delay(TimeSpan.FromSeconds(0.1))
             .Where(_ => _groundChecker.HaveTriggered() == false)
             .Subscribe(_ => _animationSwitcher.SetCurrent(AnimationNames.Falling)));
 
