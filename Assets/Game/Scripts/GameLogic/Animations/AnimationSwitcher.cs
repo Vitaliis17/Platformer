@@ -54,7 +54,7 @@ public class AnimationSwitcher : IAnimationSwitcher
 
         if (CurrentAnimationName != name)
             return;
-        
+
         SetDefault();
     }
 

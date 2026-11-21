@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class InventoryContainer : MonoBehaviour, IInventoryContainer
+public class InventoryContainer : MonoBehaviour, IInventoryContainer, IEmptyCheckerExceptItems
 {
     private ITransferable _current;
 
@@ -38,6 +38,14 @@ public class InventoryContainer : MonoBehaviour, IInventoryContainer
 
     public bool IsEmpty()
         => _current == null;
+
+    public bool HaveNoOrExceptItems()
+    {
+        if (IsEmpty())
+            return true;
+
+        return _current is Key;
+    }
 
     public bool IsEqual(ITransferable transferable)
     {

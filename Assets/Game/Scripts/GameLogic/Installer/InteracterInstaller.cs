@@ -8,6 +8,8 @@ public class InteracterInstaller : MonoInstaller
     [SerializeField] private TransparencySwitcher _container;
     [SerializeField] private TransparencySwitcher _border;
 
+    [SerializeField] private InventoryContainer _inventoryContainer;
+
     public override void InstallBindings()
     {
         BindInteracter();
@@ -24,10 +26,7 @@ public class InteracterInstaller : MonoInstaller
     }
     
     private void BindInventoryContainer()
-    {
-        Container.Bind<InventoryContainer>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<IInventoryContainer>().FromMethod(ctx => ctx.Container.Resolve<InventoryContainer>()).AsSingle();
-    }
+        => Container.BindInterfacesTo<InventoryContainer>().FromInstance(_inventoryContainer).AsSingle();
 
     private void BindTransparencySwitcher()
     {

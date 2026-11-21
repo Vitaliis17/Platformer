@@ -6525,6 +6525,10 @@ PrefabInstance:
       propertyPath: _container
       value: 
       objectReference: {fileID: 4265879009178952780}
+    - target: {fileID: 190916509614836387, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
+      propertyPath: _inventoryContainer
+      value: 
+      objectReference: {fileID: 4265879009178952778}
     - target: {fileID: 328879386559072360, guid: bab8a8b22226ad64f9f96da0db8032c6, type: 3}
       propertyPath: _border
       value: 
@@ -6899,6 +6903,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8354392088548898656, guid: 146066fde347614408143088a06c8115, type: 3}
   m_PrefabInstance: {fileID: 4265879009178952775}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4265879009178952778 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7471914179708041940, guid: 146066fde347614408143088a06c8115, type: 3}
+  m_PrefabInstance: {fileID: 4265879009178952775}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3685d5b174749a44bbf16a9db964539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::InventoryContainer
 --- !u!114 &4265879009178952780 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3179689988388950702, guid: 146066fde347614408143088a06c8115, type: 3}
