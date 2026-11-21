@@ -5924,6 +5924,17 @@ Transform:
   - {fileID: 420369499}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1226474951 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8136302927372240578, guid: 595f80c4defa2b44db7470059fd98679, type: 3}
+  m_PrefabInstance: {fileID: 1071128318646433756}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1126989a06032a4fbd093e03c714059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::Cloud
 --- !u!1001 &1275759346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5976,6 +5987,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: CloudSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 3769966554248711719, guid: df8f6cb310570b045b927e95227e4382, type: 3}
+      propertyPath: _startingClouds.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769966554248711719, guid: df8f6cb310570b045b927e95227e4382, type: 3}
+      propertyPath: '_startingClouds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2076237229}
+    - target: {fileID: 3769966554248711719, guid: df8f6cb310570b045b927e95227e4382, type: 3}
+      propertyPath: '_startingClouds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2279338424534705582}
+    - target: {fileID: 3769966554248711719, guid: df8f6cb310570b045b927e95227e4382, type: 3}
+      propertyPath: '_startingClouds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1226474951}
+    - target: {fileID: 3769966554248711719, guid: df8f6cb310570b045b927e95227e4382, type: 3}
+      propertyPath: '_startingClouds.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1839047719}
     m_RemovedComponents:
     - {fileID: 2231008912893670454, guid: df8f6cb310570b045b927e95227e4382, type: 3}
     m_RemovedGameObjects: []
@@ -6237,6 +6268,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1839047719 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8309296757448083857, guid: cc7edd233153eba45b4f3129b546fc7e, type: 3}
+  m_PrefabInstance: {fileID: 6834082816406436968}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1126989a06032a4fbd093e03c714059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::Cloud
 --- !u!1 &1840801397
 GameObject:
   m_ObjectHideFlags: 0
@@ -6281,6 +6323,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1865864170811841561, guid: 152d313a2f03ec74f9f3208e14efa1ac, type: 3}
   m_PrefabInstance: {fileID: 2063469727336917479}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2076237229 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6154427084460101419, guid: 152d313a2f03ec74f9f3208e14efa1ac, type: 3}
+  m_PrefabInstance: {fileID: 2063469727336917479}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1126989a06032a4fbd093e03c714059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameLogic::Cloud
 --- !u!1001 &1071128318646433756
 PrefabInstance:
   m_ObjectHideFlags: 0

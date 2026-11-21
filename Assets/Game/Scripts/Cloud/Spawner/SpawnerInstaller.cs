@@ -3,6 +3,8 @@ using Zenject;
 
 public class SpawnerInstaller : MonoInstaller
 {
+    [SerializeField] private Cloud[] _startingClouds;
+
     [SerializeField] private Transform _container;
     [SerializeField] private Cloud _cloud;
 
@@ -14,7 +16,7 @@ public class SpawnerInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
-        Container.BindInterfacesTo<CloudSpawnerController>().AsSingle();
+        Container.BindInterfacesTo<CloudSpawnerController>().AsSingle().WithArguments(_startingClouds);
 
         BindCloudSpawner();
         BindSpawnData();

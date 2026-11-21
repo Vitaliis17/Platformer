@@ -14,6 +14,18 @@ public class CloudSpawnerController : IInitializable, IDisposable
 
     private IDisposable _disposable;
 
+    public CloudSpawnerController(params Cloud[] clouds)
+    {
+        foreach(Cloud cloud in clouds)
+        {
+            cloud.PositionChanged
+                .Where(position => position.x > _spawnData.ReleasingPositionX)
+                .Take(1)
+                .Subscribe(_ => _spawner.ReleaseElement(cloud))
+                .AddTo(cloud);
+        }
+    }
+
     public void Initialize()
     {
         _disposable = Observable
