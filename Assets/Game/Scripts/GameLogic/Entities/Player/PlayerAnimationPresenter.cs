@@ -124,6 +124,7 @@ public class PlayerAnimationPresenter : IInitializable, IDisposable
             .Subscribe(_ => _animationSwitcher.TurnOffAnimation(AnimationNames.Jumping)));
 
         _bag.Add(_groundChecker.IsTriggered
+            .Delay(TimeSpan.FromSeconds(Time.deltaTime))
             .Where(_ => _isGrounded)
             .Subscribe(_ => _animationSwitcher.TurnOffAnimation(AnimationNames.Jumping)));
     }
