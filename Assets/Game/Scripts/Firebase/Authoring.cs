@@ -77,7 +77,6 @@ public class Authoring : IHaveAuthenticateEvent, IInitializable, IDisposable
                 {
                     WebClientId = "705900096007-6dkmma1r09ois2k4ca9rkton99bhcmnu.apps.googleusercontent.com",
                     RequestIdToken = true,
-                    RequestEmail = true
                 };
             }
             else

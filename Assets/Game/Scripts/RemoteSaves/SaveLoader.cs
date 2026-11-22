@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using R3;
 using System;
-using Cysharp.Threading.Tasks;
 
 public class SaveLoader : IInitializable, IDisposable
 {
