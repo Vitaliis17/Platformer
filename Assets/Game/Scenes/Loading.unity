@@ -967,7 +967,6 @@ GameObject:
   - component: {fileID: 1933454388}
   - component: {fileID: 1933454387}
   - component: {fileID: 1933454391}
-  - component: {fileID: 1933454390}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -990,7 +989,6 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 1933454391}
-  - {fileID: 1933454390}
   _installerPrefabs: []
   _findSiblingMonoInstallers: 0
   _autoRun: 1
@@ -1024,18 +1022,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1933454390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1933454386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb5b13d2f470cc943a788fc908a45fa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: FirebaseDefinition::FirebaseInstaller
 --- !u!114 &1933454391
 MonoBehaviour:
   m_ObjectHideFlags: 0

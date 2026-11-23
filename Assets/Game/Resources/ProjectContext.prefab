@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -8550287659902435956}
   - component: {fileID: -368469926556884507}
   - component: {fileID: 8919092866488767437}
+  - component: {fileID: 5722053674251749972}
   m_Layer: 0
   m_Name: ProjectContext
   m_TagString: Untagged
@@ -56,6 +57,7 @@ MonoBehaviour:
   - {fileID: -8550287659902435956}
   - {fileID: -368469926556884507}
   - {fileID: 8919092866488767437}
+  - {fileID: 5722053674251749972}
   _installerPrefabs: []
   _findSiblingMonoInstallers: 0
   _parentNewObjectsUnderContext: 1
@@ -136,3 +138,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf4e17e136967ef458284d0c14c4907b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: SaveDefinition::DatabaseInstaller
+--- !u!114 &5722053674251749972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4678909316770132479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb5b13d2f470cc943a788fc908a45fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FirebaseDefinition::FirebaseInstaller

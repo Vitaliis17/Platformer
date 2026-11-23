@@ -8,7 +8,7 @@ using Firebase;
 using Google;
 using R3;
 
-public class Authoring : IHaveAuthenticateEvent, IInitializable, IDisposable
+public class Authoring : ISignInService, IHaveAuthenticateEvent, IInitializable, IDisposable
 {
     private FirebaseAuth _auth;
     private CancellationTokenSource _source;
@@ -32,17 +32,7 @@ public class Authoring : IHaveAuthenticateEvent, IInitializable, IDisposable
         _auth?.Dispose();
     }
 
-    private async UniTask Login(CancellationToken token)
-    {
-        await SetAuthoring(token);
-
-        if (_source.IsCancellationRequested)
-            return;
-
-        SignIn(token).Forget();
-    }
-
-    private async UniTask SignIn(CancellationToken token)
+    public async UniTask SignIn(CancellationToken token)
     {
         if (_auth == null)
             return;
@@ -61,6 +51,16 @@ public class Authoring : IHaveAuthenticateEvent, IInitializable, IDisposable
         {
             _authenticated.OnNext("Test");
         }
+    }
+
+    private async UniTask Login(CancellationToken token)
+    {
+        await SetAuthoring(token);
+
+        if (_source.IsCancellationRequested)
+            return;
+
+        SignIn(token).Forget();
     }
 
     private async UniTask SetAuthoring(CancellationToken token)
